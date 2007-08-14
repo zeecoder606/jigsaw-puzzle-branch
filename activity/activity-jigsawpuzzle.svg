@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+  <!ENTITY fill_color "#FFFFFF">
+  <!ENTITY stroke_color "#000000">
+]>
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50">
+    <rect
+       style="fill:&fill_color;;fill-opacity:1;stroke:&stroke_color;;stroke-width:0.99742383;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2160"
+       width="46.9314"
+       height="46.850601"
+       x="1.6232471"
+       y="1.6877565" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:&stroke_color;;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 25.290952,1.8421481 L 25.290952,48.383965" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:&stroke_color;;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 1.5352336,25.193858 L 48.238653,25.193858" />
+    <path
+       style="fill:&fill_color;;fill-opacity:1;stroke:&stroke_color;;stroke-width:0.98299998;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1"
+       d="M -10.733318,15.357923 A 3.7168813,3.757282 0 1 1 -6.8459694,15.335909"
+       transform="translate(22.382089,10.423428)" />
+    <path
+       transform="matrix(1,0,0,-1,45.895403,39.986075)"
+       d="M -10.733318,15.357923 A 3.7168813,3.757282 0 1 1 -6.8459694,15.335909"
+       style="fill:&fill_color;;fill-opacity:1;stroke:&stroke_color;;stroke-width:0.98299998;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:&fill_color;;fill-opacity:1;stroke:&stroke_color;;stroke-width:0.98299998;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1"
+       d="M -10.733318,15.357923 A 3.7168813,3.757282 0 1 1 -6.8459694,15.335909"
+       transform="matrix(0,-1,1,0,10.50963,27.305598)" />
+    <path
+       transform="matrix(0,1,-1,0,40.072276,22.619096)"
+       d="M -10.733318,15.357923 A 3.7168813,3.757282 0 1 1 -6.8459694,15.335909"
+       style="fill:&fill_color;;fill-opacity:1;stroke:&stroke_color;;stroke-width:0.98299998;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1" />
+</svg>

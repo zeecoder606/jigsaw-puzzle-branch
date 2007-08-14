@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE abiword PUBLIC "-//ABISOURCE//DTD AWML 1.0 Strict//EN" "http://www.abisource.com/awml.dtd">
+<abiword template="false" version="2.4.6" xmlns:svg="http://www.w3.org/2000/svg" xid-max="217" xmlns:dc="http://purl.org/dc/elements/1.1/" fileformat="1.1" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" props="dom-dir:ltr; document-footnote-restart-section:0; document-endnote-type:numeric; document-endnote-place-enddoc:1; document-endnote-initial:1; lang:en-US; document-endnote-restart-section:0; document-footnote-restart-page:0; document-footnote-type:numeric; document-footnote-initial:1; document-endnote-place-endsection:0">
+<!-- ======================================================================== -->
+<!-- This file is an AbiWord document.                                        -->
+<!-- AbiWord is a free, Open Source word processor.                           -->
+<!-- More information about AbiWord is available at http://www.abisource.com/ -->
+<!-- You should not edit this file by hand.                                   -->
+<!-- ======================================================================== -->
+
+<metadata>
+<m key="dc.format">application/x-abiword</m>
+<m key="abiword.generator">AbiWord</m>
+</metadata>
+<history version="14" edit-time="1384" last-saved="1184612471" uid="fec36d0e-1d71-11dc-9368-9fb008c158aa">
+<version id="5" started="1182153776" uid="a5105bb8-1d72-11dc-9368-9fb008c158aa" auto="0" top-xid="216"/>
+<version id="7" started="1182154669" uid="aebbe5cc-1d74-11dc-9eab-b1ea9ab89f7f" auto="0" top-xid="216"/>
+<version id="12" started="1184611426" uid="a456566a-33ce-11dc-84cf-ec9a6b54ad54" auto="0" top-xid="217"/>
+<version id="13" started="1184612357" uid="a72b7604-33ce-11dc-8051-fe0c2b063f31" auto="0" top-xid="217"/>
+<version id="14" started="1184612471" uid="eae8b9e2-33ce-11dc-828b-f6ea942094a1" auto="0" top-xid="217"/>
+</history>
+<styles>
+<s type="P" name="Normal" followedby="Normal" props="text-indent:0in; margin-top:0pt; margin-left:0pt; font-stretch:normal; line-height:1.0; text-align:left; bgcolor:transparent; lang:en-US; dom-dir:ltr; margin-bottom:0pt; font-weight:normal; text-decoration:none; font-variant:normal; color:000000; text-position:normal; font-size:12pt; margin-right:0pt; font-style:normal; widows:2; font-family:Times New Roman"/>
+<s type="P" name="Normal (Web)" basedon="Normal" followedby="Normal (Web)" props="margin-top:5pt; font-size:12pt; dom-dir:ltr; margin-bottom:5pt; lang:en-US; line-height:1.0; text-align:left; font-family:Times New Roman"/>
+<s type="P" name="Footer" basedon="Normal" followedby="Footer" props="font-family:Times New Roman; font-size:12pt; tabstops:3.0000in/C,6.0000in/C; dom-dir:ltr; lang:en-US; line-height:1.0; text-align:left"/>
+<s type="P" name="Table Normal" followedby="Table Normal" props="font-family:Times New Roman; font-size:12pt; dom-dir:ltr; lang:en-US; orphans:0; text-align:left; widows:0"/>
+</styles>
+<lists>
+<l id="1003" parentid="0" type="0" start-value="1" list-delim="%L)" list-decimal="."/>
+</lists>
+<pagesize pagetype="A5" orientation="portrait" width="148.000000" height="210.000000" units="mm" page-scale="1.000000"/>
+<section footer="9" xid="1" props="page-margin-right:25.0mm; section-restart-value:1; section-space-after:0.0000in; page-margin-header:0.0mm; page-margin-left:0.0mm; dom-dir:ltr; page-margin-footer:0.0mm; page-margin-top:5.0mm; page-margin-bottom:15.2mm">
+<p style="Normal" xid="2" props="text-align:center; line-height:1.5; dom-dir:ltr; margin-left:0.0mm"><c props="lang:en-US; font-size:12pt; text-decoration:underline; font-family:FreeSans; font-weight:bold">Slider Puzzle Lesson 3:</c></p>
+<p style="Normal" xid="217" props="text-align:center; line-height:1.5; dom-dir:ltr; margin-left:0.0mm"><c props="lang:en-US; font-size:12pt; text-decoration:underline; font-family:FreeSans; font-weight:bold">“My Own Picture” (Conveying original ideas)</c></p>
+<p style="Normal (Web)" xid="75" props="text-align:center; line-height:1.5; dom-dir:ltr; margin-left:0.0mm"></p>
+<p level="1" listid="1003" parentid="0" style="Normal" xid="76" props="margin-left:12.7mm; start-value:1; dom-dir:ltr; tabstops:0.5000in/L; text-indent:-0.2500in; line-height:1.5; text-align:justify; field-font:Times New Roman; list-style:Numbered List"><field type="list_label" xid="77" props="font-family:FreeSans; text-decoration:none"></field><c props="font-family:FreeSans; text-decoration:none">	</c><c props="lang:en-US; font-size:12pt; font-family:FreeSans">From the Home screen of your XO, </c><c props="lang:en-US; font-size:12pt; font-family:FreeSans; font-weight:bold">click on the “Paint” program</c><c props="lang:en-US; font-size:12pt; font-family:FreeSans">.  </c></p>
+<p style="Normal" xid="78" props="text-align:justify; line-height:1.5; dom-dir:ltr; margin-left:12.7mm"></p>
+<p level="1" listid="1003" parentid="0" style="Normal" xid="79" props="margin-left:12.7mm; start-value:1; dom-dir:ltr; tabstops:0.5000in/L; text-indent:-0.2500in; line-height:1.5; text-align:justify; field-font:Times New Roman; list-style:Numbered List"><field type="list_label" xid="80" props="font-family:FreeSans; text-decoration:none"></field><c props="font-family:FreeSans; text-decoration:none">	</c><c props="lang:en-US; font-size:12pt; font-family:FreeSans; font-weight:bold">Explore how the Paint activity works.</c><c props="lang:en-US; font-size:12pt; font-family:FreeSans"> Play and experiment with all the fun features (brushes, bucket, spray, different colors, etc.)  </c></p>
+<p style="Normal" xid="81" props="text-align:justify; line-height:1.5; dom-dir:ltr; margin-left:12.7mm"></p>
+<p level="1" listid="1003" parentid="0" style="Normal" xid="82" props="margin-left:12.7mm; start-value:1; dom-dir:ltr; tabstops:0.5000in/L; text-indent:-0.2500in; line-height:1.5; text-align:justify; field-font:Times New Roman; list-style:Numbered List"><field type="list_label" xid="83" props="font-family:FreeSans; text-decoration:none"></field><c props="font-family:FreeSans; text-decoration:none">	</c><c props="lang:en-US; font-size:12pt; font-family:FreeSans; font-weight:bold">Create a picture that you would like to turn into a Slider puzzle.</c><c props="lang:en-US; font-size:12pt; font-family:FreeSans"> Save it as “sliderpuzzle1” and close Paint.</c></p>
+<p style="Normal" xid="84" props="text-align:justify; line-height:1.5; dom-dir:ltr; margin-left:12.7mm"></p>
+<p level="1" listid="1003" parentid="0" style="Normal" xid="85" props="margin-left:12.7mm; start-value:1; dom-dir:ltr; tabstops:0.5000in/L; text-indent:-0.2500in; line-height:1.5; text-align:justify; field-font:Times New Roman; list-style:Numbered List"><field type="list_label" xid="86" props="font-family:FreeSans; text-decoration:none"></field><c props="font-family:FreeSans; text-decoration:none">	</c><c props="lang:en-US; font-size:12pt; font-family:FreeSans; font-weight:bold">Open the Slider Puzzle</c><c props="lang:en-US; font-size:12pt; font-family:FreeSans">. </c></p>
+<p style="Normal" xid="87" props="text-align:justify; line-height:1.5; dom-dir:ltr; margin-left:12.7mm"></p>
+<p level="1" listid="1003" parentid="0" style="Normal" xid="88" props="margin-left:12.7mm; start-value:1; dom-dir:ltr; tabstops:0.5000in/L; text-indent:-0.2500in; line-height:1.5; text-align:justify; field-font:Times New Roman; list-style:Numbered List"><field type="list_label" xid="89" props="font-family:FreeSans; text-decoration:none"></field><c props="font-family:FreeSans; text-decoration:none">	</c><c props="lang:en-US; font-size:12pt; font-family:FreeSans; font-weight:bold">Click on the “My Own Picture” button to find your “sliderpuzzle1” image.</c><c props="lang:en-US; font-size:12pt; font-family:FreeSans">  A file finder window will open -- look for “sliderpuzzle1” and click on it. Then click the “OK” button. The file finder will close and your image will appear in the Slider Puzzle. </c></p>
+<p style="Normal" xid="90" props="text-align:justify; line-height:1.5; dom-dir:ltr; margin-left:12.7mm"></p>
+<p level="1" listid="1003" parentid="0" style="Normal" xid="91" props="margin-left:12.7mm; start-value:1; dom-dir:ltr; tabstops:0.5000in/L; text-indent:-0.2500in; line-height:1.5; text-align:justify; field-font:Times New Roman; list-style:Numbered List"><field type="list_label" xid="92" props="font-family:FreeSans; text-decoration:none"></field><c props="font-family:FreeSans; text-decoration:none">	</c><c props="lang:en-US; font-size:12pt; font-family:FreeSans; font-weight:bold">Play with your puzzle.</c><c props="lang:en-US; font-size:12pt; font-family:FreeSans"> Could you solve it? What made it hard or easy to solve? Switch laptops with a friend and try to solve one of their original puzzle images.</c></p>
+<p style="Normal" xid="93" props="text-align:justify; line-height:1.5; dom-dir:ltr; margin-left:12.7mm"></p>
+<p level="1" listid="1003" parentid="0" style="Normal" xid="94" props="margin-left:12.7mm; start-value:1; dom-dir:ltr; tabstops:0.5000in/L; text-indent:-0.2500in; line-height:1.5; text-align:justify; field-font:Times New Roman; list-style:Numbered List"><field type="list_label" xid="95" props="font-family:FreeSans; text-decoration:none"></field><c props="font-family:FreeSans; text-decoration:none">	</c><c props="lang:en-US; font-size:12pt; font-family:FreeSans; font-weight:bold">Share your experiences as a group: What makes an image easy or difficult to solve as a puzzle?</c><c props="lang:en-US; font-size:12pt; font-family:FreeSans"> Which strategies were helpful?  One student should record this conversation on their XO Laptop using the “Write” program.</c></p>
+<p style="Normal" xid="96" props="text-align:justify; line-height:1.5; dom-dir:ltr; margin-left:12.7mm"></p>
+<p level="1" listid="1003" parentid="0" style="Normal" xid="97" props="margin-left:0.0mm; start-value:1; dom-dir:ltr; field-font:Times New Roman; text-indent:-0.2500in; line-height:1.5; text-align:justify; tabstops:0.5000in/L; list-style:Numbered List"><field type="list_label" xid="98" props="font-family:FreeSans; text-decoration:none"></field><c props="font-family:FreeSans; text-decoration:none">	</c><c props="lang:en-US; font-size:12pt; font-family:FreeSans; font-weight:bold">Now try creating a puzzle picture using the Camera.</c><c props="lang:en-US; font-size:12pt; font-family:FreeSans"> Take a photo and save it as “sliderpuzzle2” and close Camera. Go back to Slider Puzzle and open the new image from “My Own Picture” as before, then play with it. </c></p>
+<p style="Normal" xid="99" props="text-align:justify; line-height:1.5; dom-dir:ltr; margin-left:0.0mm"></p>
+</section>
+<section type="footer" id="9" xid="209">
+<p style="Normal" xid="210" props="text-align:left; line-height:1.0; dom-dir:ltr"></p>
+<p style="Footer" xid="211" props="text-align:left; tabstops:3.0000in/C,6.0000in/C; line-height:1.0; dom-dir:ltr"></p>
+</section>
+<section type="footer" id="9" xid="212">
+<p style="Footer" xid="213" props="text-align:left; tabstops:3.0000in/C,6.0000in/C; line-height:1.0; dom-dir:ltr"></p>
+<p style="Footer" xid="215" props="text-align:left; tabstops:3.0000in/C,6.0000in/C; line-height:1.0; dom-dir:ltr; margin-right:0.2500in"></p>
+<p style="Normal" xid="216" props="text-align:left; line-height:1.0; dom-dir:ltr"></p>
+</section>
+</abiword>

@@ -1,0 +1,85 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-08-13 21:56+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: i18n_misc_strings.py:1
+msgid "Lesson 5"
+msgstr ""
+
+#: i18n_misc_strings.py:2
+msgid "Lesson 4"
+msgstr ""
+
+#: i18n_misc_strings.py:3
+msgid "Overview"
+msgstr ""
+
+#: i18n_misc_strings.py:4
+msgid "Lesson 3"
+msgstr ""
+
+#: i18n_misc_strings.py:5
+msgid "Lesson 7"
+msgstr ""
+
+#: i18n_misc_strings.py:6
+msgid "Lesson 6"
+msgstr ""
+
+#: i18n_misc_strings.py:7
+msgid "Lesson 1"
+msgstr ""
+
+#: i18n_misc_strings.py:8
+msgid "Lesson 2"
+msgstr ""
+
+#: JigsawPuzzleUI.py:180
+msgid "Solve"
+msgstr ""
+
+#: JigsawPuzzleUI.py:184
+msgid "Shuffle"
+msgstr ""
+
+#: JigsawPuzzleUI.py:188
+msgid "My Picture"
+msgstr ""
+
+#: JigsawPuzzleUI.py:192
+msgid "Board Hint"
+msgstr ""
+
+#: JigsawPuzzleUI.py:228
+msgid "Time: "
+msgstr ""
+
+#: JigsawPuzzleUI.py:232 JigsawPuzzleUI.py:324
+msgid "Lesson Plans"
+msgstr ""
+
+#: JigsawPuzzleUI.py:253
+msgid "Choose a Subject"
+msgstr ""
+
+#: JigsawPuzzleUI.py:297
+msgid "Jigsaw Puzzle Activity"
+msgstr ""
+
+#: JigsawPuzzleUI.py:327
+msgid "Close Lesson"
+msgstr ""

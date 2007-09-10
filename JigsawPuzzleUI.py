@@ -35,7 +35,7 @@ from mamamedia_modules import ImageSelectorWidget
 from mamamedia_modules import LanguageComboBox
 from mamamedia_modules import TimerWidget
 from mamamedia_modules import NotebookReaderWidget
-from JigsawPuzzleWidget import JigsawPuzzleWidget, CutterBasic, CutterSimple, CutterClassic
+from JigsawPuzzleWidget import JigsawPuzzleWidget
 
 import logging
 
@@ -91,6 +91,7 @@ class JigsawPuzzleUI (BorderFrame):
         self.game = JigsawPuzzleWidget()
         self.game.connect('picked', self.piece_pick_cb)
         self.game.connect('solved', self.do_solve)
+        self.game.connect('cutter-changed', self.cutter_change_cb)
         self.game.show()
 
         # panel is a holder for everything on the left side down to (not inclusive) the language dropdown
@@ -122,43 +123,54 @@ class JigsawPuzzleUI (BorderFrame):
         self.btn_basic_cut = gtk.ToggleButton()
         i = gtk.Image()
         i.set_from_pixbuf(utils.load_image(os.path.join('icons', 'cut_basic.svg')))
-        self.btn_basic_cut.connect("clicked", self.set_piece_cut, CutterBasic)
         self.btn_basic_cut.set_image(i)
         btn_box.attach(prepare_btn(self.btn_basic_cut), 1,2,0,1,0,0)
         self.btn_simple_cut = gtk.ToggleButton()
         i = gtk.Image()
         i.set_from_pixbuf(utils.load_image(os.path.join('icons', 'cut_simple.svg')))
-        self.btn_simple_cut.connect("clicked", self.set_piece_cut, CutterSimple)
         self.btn_simple_cut.set_image(i)
         btn_box.attach(prepare_btn(self.btn_simple_cut), 2,3,0,1,0,0)
         self.btn_classic_cut = gtk.ToggleButton()
         i = gtk.Image()
         i.set_from_pixbuf(utils.load_image(os.path.join('icons', 'cut_classic.svg')))
-        self.btn_classic_cut.set_active(True)
-        self.btn_classic_cut.connect("clicked", self.set_piece_cut, CutterClassic)
         self.btn_classic_cut.set_image(i)
+        # Link cutter buttons with cutter styles
+        self.btn_cut_mapping = {
+            'basic': self.btn_basic_cut,
+            'simple': self.btn_simple_cut,
+            'classic': self.btn_classic_cut,
+            }
+        for k,v in self.btn_cut_mapping.items():
+            v.connect("released", self.set_piece_cut, k)
+
         btn_box.attach(prepare_btn(self.btn_classic_cut), 3,4,0,1,0,0)
         # Difficulty level buttons
         self.btn_easy_level = gtk.ToggleButton()
         i = gtk.Image()
         i.set_from_pixbuf(utils.load_image(os.path.join('icons', 'level_easy.svg')))
         self.btn_easy_level.set_active(True)
-        self.btn_easy_level.connect("clicked", self.set_level, 0)
         self.btn_easy_level.set_image(i)
         btn_box.attach(prepare_btn(self.btn_easy_level), 1,2,1,2,0,0)
         self.btn_normal_level = gtk.ToggleButton()
         i = gtk.Image()
         i.set_from_pixbuf(utils.load_image(os.path.join('icons', 'level_normal.svg')))
-        self.btn_normal_level.connect("clicked", self.set_level, 1)
         self.btn_normal_level.set_image(i)
         btn_box.attach(prepare_btn(self.btn_normal_level), 2,3,1,2,0,0)
         self.btn_hard_level = gtk.ToggleButton()
         i = gtk.Image()
         i.set_from_pixbuf(utils.load_image(os.path.join('icons', 'level_hard.svg')))
-        self.btn_hard_level.connect("clicked", self.set_level, 2)
         self.btn_hard_level.set_image(i)
-        btn_box.attach(prepare_btn(self.btn_hard_level), 3,4,1,2,0,0)
+        # Link level buttons with levels
+        self.btn_level_mapping = {
+            3: self.btn_easy_level,
+            5: self.btn_normal_level,
+            8: self.btn_hard_level,
+            }
+        for k,v in self.btn_level_mapping.items():
+            v.connect("released", self.set_level, k)
 
+        btn_box.attach(prepare_btn(self.btn_hard_level), 3,4,1,2,0,0)
+        
         btn_box.attach(gtk.Label(), 4,5,0,2)
         control_panel_box.pack_start(btn_box, expand=False)
 
@@ -188,10 +200,9 @@ class JigsawPuzzleUI (BorderFrame):
         self.labels_to_translate.append([self.btn_add, _("My Picture")])
         self.btn_add.connect("clicked", self.do_add_image)
         btn_box.attach(self.btn_add, 1,2,2,3,0,0)
-        self.btn_hint = prepare_btn(gtk.Button(" "), 200)
+        self.btn_hint = prepare_btn(gtk.ToggleButton(" "), 200)
         self.labels_to_translate.append([self.btn_hint, _("Board Hint")])
-        self.btn_hint.connect("pressed", self.do_show_hint, True)
-        self.btn_hint.connect("released", self.do_show_hint, False)
+        self.btn_hint.connect("clicked", self.do_show_hint)
         btn_box.attach(self.btn_hint, 1,2,3,4,0,0)
         control_panel_box.pack_start(btn_box, False)
 
@@ -243,6 +254,9 @@ class JigsawPuzzleUI (BorderFrame):
         if not parent._shared_activity:
             self.do_select_category(self)
 
+        # Assert consistent state
+        self.cutter_change_cb(None, self.game.get_cutter(), self.game.get_target_pieces_per_line())
+
     def do_select_category (self, o, *args):
         if isinstance(o, CategorySelector):
             self.thumb.set_image_dir(args[0])
@@ -259,21 +273,25 @@ class JigsawPuzzleUI (BorderFrame):
                 self.game_box.pop()
 
 
+    def _show_game (self, pixbuf=None, reshuffle=True):
+        print "SHOW GAME"
+        if not self.game.get_parent():
+            self.game_box.pop()
+            while gtk.events_pending():
+                gtk.main_iteration(False)
+        c = gtk.gdk.Cursor(gtk.gdk.WATCH)
+        self.window.set_cursor(c)
+        self.game.prepare_image(pixbuf, reshuffle)
+        self.window.set_cursor(None)
+        #self.game.randomize()
+
     def do_shuffle (self, o, *args):
         if self.thumb.has_image():
             print ("FN", self.thumb.category.filename)
-            if not self.game.get_parent():
-                self.game_box.pop()
-                while gtk.events_pending():
-                    gtk.main_iteration(False)
-            c = gtk.gdk.Cursor(gtk.gdk.WATCH)
-            self.window.set_cursor(c)
-            self.game.prepare_image(utils.load_image(self.thumb.get_filename()))
-            self.window.set_cursor(None)
-            #self.game.randomize()
-            self.timer.reset(False)
-
-    
+        self._show_game(utils.load_image(self.thumb.get_filename()))
+        self.timer.reset(False)
+        self.do_show_hint(self.btn_hint)
+        
     def do_solve (self, o, *args):
         if not self.game.is_running():
             return
@@ -289,9 +307,8 @@ class JigsawPuzzleUI (BorderFrame):
         self.selected_lang_details = combo.translations[combo.get_active()]
         self.refresh_labels()
 
-    def do_show_hint (self, o, show, *args):
-        if self.game.get_parent():
-            self.game.show_hint(show)
+    def do_show_hint (self, o, *args):
+        self.game.show_hint(o.get_active())
 
     def refresh_labels (self, first_time=False):
         self._parent.set_title(_("Jigsaw Puzzle Activity"))
@@ -327,38 +344,39 @@ class JigsawPuzzleUI (BorderFrame):
             self.btn_lesson.get_child().set_label(_("Close Lesson"))
 
     def set_piece_cut (self, btn, cutter, *args):
-        if isinstance(btn, gtk.ToggleButton) and not btn.get_active():
-            for b in (self.btn_basic_cut, self.btn_simple_cut, self.btn_classic_cut):
-                if b.get_active():
-                    return
-            btn.set_active(True)
-            return
         self.game.set_cutter(cutter)
         if self.game.is_running():
             self.do_shuffle(btn)
-        if isinstance(btn, gtk.ToggleButton):
-            for b in (self.btn_basic_cut, self.btn_simple_cut, self.btn_classic_cut):
-                if b is not btn:
-                    b.set_active(False)
+
+    def cutter_change_cb (self, o, cutter, tppl):
+        # tppl = target pieces per line
+        print "cutter_change_cb", o, cutter, tppl
+        for c,b in self.btn_cut_mapping.items():
+            b.set_active(c == cutter)
+        for c,b in self.btn_level_mapping.items():
+            b.set_active(c == tppl)
 
     def set_level (self, btn, level, *args):
-        if isinstance(btn, gtk.ToggleButton) and not btn.get_active():
-            for b in (self.btn_easy_level, self.btn_normal_level, self.btn_hard_level):
-                if b.get_active():
-                    return
-            btn.set_active(True)
-            return
-        self.game.set_level(level)
+        self.game.set_target_pieces_per_line(level)
         if self.game.is_running():
             self.do_shuffle(btn)
-        if isinstance(btn, gtk.ToggleButton):
-            for b in (self.btn_easy_level, self.btn_normal_level, self.btn_hard_level):
-                if b is not btn:
-                    b.set_active(False)
-
 
     def piece_pick_cb (self, *args):
         print "PICKED"
         if not self.timer.is_running():
             self.timer.start()
+
+
+    def _freeze (self):
+        return {'thumb': self.thumb._freeze(),
+                'timer': self.timer._freeze(),
+                'game': self.game._freeze(),
+                }
+
+    def _thaw (self, data):
+        for k in ('thumb', 'timer', 'game'):
+            if data.has_key(k):
+                getattr(self, k)._thaw(data[k])
+        self._show_game(reshuffle=False)
+
 

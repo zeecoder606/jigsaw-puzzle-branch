@@ -2,10 +2,13 @@ import pygtk
 pygtk.require('2.0')
 import gtk, gobject, pango, cairo
 import random
+import os
+import logging
 
 from mmm_modules import BorderFrame, utils
 
 MAGNET_POWER_PERCENT = 20
+CUTTERS = {}
 
 def create_pixmap (w, h):
     cm = gtk.gdk.colormap_get_system()
@@ -75,6 +78,16 @@ class JigsawPiece (gtk.EventBox):
         self.pb_wf.hide()
         self.image.show()
 
+    def get_position (self):
+        # The position relative to the puzzle playing area
+        bx,by = self.parent.window.get_origin()
+        px,py = self.window.get_origin()
+        return (px-bx,py-by)
+
+    def set_position (self, x, y):
+        # The new position, relative to the piece parent
+        self.parent.move(self, x, y)
+
     def bring_to_top (self):
         p = self.get_parent()
         self.unparent()
@@ -95,10 +108,12 @@ class JigsawPiece (gtk.EventBox):
 
     def _release_cb (self, w, e, *args):
         self.emit('dropped')
+        # The actual position in the whole window is w.window.get_origin()
 
     def _expose_cb (self, *args):
         if self.shape is not None:
             self.window.shape_combine_mask(self.shape, 0, 0)
+
 
 class CutterBasic (object):
     """ Cutters are used to create the connectors between pieces.
@@ -129,6 +144,7 @@ class CutterBasic (object):
         else:
             cairo_ctx.rel_line_to(op(size),0)
         return 0
+CUTTERS['basic'] = CutterBasic
 
 class CutterSimple (CutterBasic):
     connector_percent = 20
@@ -152,6 +168,7 @@ class CutterSimple (CutterBasic):
             cairo_ctx.rel_line_to(op2(size),0)
             cairo_ctx.rel_line_to(0,-op1(size))
         return size
+CUTTERS['simple'] = CutterSimple
 
 class CutterClassic (CutterBasic):
     connector_percent = 20
@@ -171,24 +188,52 @@ class CutterClassic (CutterBasic):
         else:
             cairo_ctx.rel_curve_to(-op2(size*1.5), op1(size*2), op2(size*2.5), op1(size*2), op2(size), 0)
         return size*2
+CUTTERS['classic'] = CutterClassic
 
 class CutBoard (object):
 
-    def __init__ (self, pb, cols, rows, cutter=CutterClassic):
-        self.pb = pb
-        self.cutter = cutter()
-        self.width, self.height = pb.get_width(), pb.get_height()
+    def __init__ (self, *args, **kwargs):
+        if len(args) or len(kwargs):
+            self._prepare(*args, **kwargs)
+        self.cutter = CutterClassic()
+        self.pb = None
+
+    def _prepare (self, cols, rows, cutter=None, hch=None, vch=None):
+        if self.pb is None:
+            logging.error("You must fist set CutBoard.pb with a pixbuf to be used!")
+            return
+        if cutter is not None:
+            self.cutter = CUTTERS.get(cutter, CutterClassic)()
+        self.rows, self.cols = rows, cols
+        print ("HCH", hch)
+        if hch is not None:
+            self.h_connector_hints = hch
+        else:
+            self.h_connector_hints = [random.random()*2-1 for x in range((self.rows+1)*(self.cols+1))]
+        print ("VCH", vch)
+        if vch is not None:
+            self.v_connector_hints = vch
+        else:
+            self.v_connector_hints = [random.random()*2-1 for x in range((self.rows+1)*(self.cols+1))]
+        self.width, self.height = self.pb.get_width(), self.pb.get_height()
         self.pm = create_pixmap(self.width, self.height)
         self.cr = self.pm.cairo_create()
-        self.rows, self.cols = rows, cols
         self.pieces = []
-        self.h_connector_hints = [random.random()*2-1 for x in range((self.rows+1)*(self.cols+1))]
-        self.v_connector_hints = [random.random()*2-1 for x in range((self.rows+1)*(self.cols+1))]
         self.prepare_hint()
         for c in range(self.cols):
             self.pieces.append([])
             for r in range(self.rows):
                 self.pieces[c].append(self.cut(c,r))
+
+    def get_cutter (self):
+        for k,v in CUTTERS.items():
+            if isinstance(self.cutter, v):
+                return k
+        return None
+
+    def set_cutter (self, cutter):
+        if cutter is not None:
+            self.cutter = CUTTERS.get(cutter, CutterClassic)()
 
     def prepare_hint (self):
         self.hint_pm = create_pixmap(self.width, self.height)
@@ -209,7 +254,6 @@ class CutBoard (object):
 
     def draw_vertical_path (self, cairo_ctx, piece_nr, col, height, ptype=0):
         """ returns the number of overlapping pixels on the drawn side """
-        # positive or negative connector? We must randomize this.
         if col > piece_nr:
             # right_side
             op = lambda x: -x
@@ -225,7 +269,6 @@ class CutBoard (object):
             cairo_ctx.rel_line_to(0, op((height/2.0) - t2))
             t = self.cutter.draw_connector(cairo_ctx, t1, col>piece_nr and self.cutter.SIDE_RIGHT or self.cutter.SIDE_LEFT, point_out)
             cairo_ctx.rel_line_to(0, op((height/2.0) - t2))
-            print ("V", op((height/2.0) - t2), t1, ((height/2.0) - t2)*2 + t1)
             if point_out:
                 overlap = t
             else:
@@ -238,9 +281,6 @@ class CutBoard (object):
     def draw_horizontal_path (self, cairo_ctx, piece_nr, row, width, ptype=0):
         """ returns the number of overlapping pixels on the drawn side """
         # positive or negative connector? We must randomize this.
-        point_out = row > piece_nr
-        t1 = width*self.cutter.connector_percent/100.0
-        t2 = t1/2.0
         if row > piece_nr:
             # bottom_side
             op = lambda x: x
@@ -248,6 +288,11 @@ class CutBoard (object):
             # top_side
             op = lambda x: -x
         if row > 0 and row < self.rows:
+            point_out = row > piece_nr
+            t1 = width*self.cutter.connector_percent/100.0
+            t2 = t1/2.0
+            if ptype < 0:
+                point_out = not point_out
             cairo_ctx.rel_line_to(op((width/2.0) - t2), 0)
             t = self.cutter.draw_connector(cairo_ctx, t1, row>piece_nr and self.cutter.SIDE_BOTTOM or self.cutter.SIDE_TOP, point_out)
             cairo_ctx.rel_line_to(op((width/2.0) - t2), 0)
@@ -265,9 +310,9 @@ class CutBoard (object):
         vpos = (x*self.cols)+y
         print ("CPOS", hpos, vpos, x,y)
         l_offset = self.draw_vertical_path(cairo_context, x, x, height, self.h_connector_hints[hpos])
-        b_offset = self.draw_horizontal_path(cairo_context, y, y+1, width, self.v_connector_hints[vpos])
+        b_offset = self.draw_horizontal_path(cairo_context, y, y+1, width, self.v_connector_hints[vpos+1])
         r_offset = self.draw_vertical_path(cairo_context, x, x+1, height, self.h_connector_hints[hpos+1])
-        t_offset = self.draw_horizontal_path(cairo_context, y, y, width, self.v_connector_hints[vpos+1])
+        t_offset = self.draw_horizontal_path(cairo_context, y, y, width, self.v_connector_hints[vpos])
         return {'left':l_offset, 'right': r_offset, 'top': t_offset, 'bottom': b_offset}
 
     def cut (self, x, y):
@@ -328,38 +373,82 @@ class CutBoard (object):
 
         return (pb, pb_wf, mask, px, py, width-width_offset, height-height_offset)
 
+    def _freeze (self):
+        if self.pb is not None:
+            f = os.tmpfile()
+            self.pb.save_to_callback(f.write, "png")
+            f.seek(0)
+            img = f.read()
+            return {'geom': (self.cols, self.rows),
+                    'hints': (self.h_connector_hints, self.v_connector_hints),
+                    'pb': img,
+                    'cutter': self.get_cutter(),
+                    }
+        else:
+            return None
+
+    def _thaw (self, data):
+        if data is None:
+            return
+        if data.has_key('pb') and data['pb'] is not None:
+            fn = os.tempnam()
+            f = file(fn, 'w+b')
+            f.write(data['pb'])
+            f.close()
+            i = gtk.Image()
+            i.set_from_file(fn)
+            os.remove(fn)
+            self.pb = i.get_pixbuf()
+            del data['pb']
+        print "cutboard._thaw(%s)" % str(data)
+        cols, rows = data['geom']
+        hch, vch = data['hints']
+        cutter = data['cutter']
+        self._prepare(cols, rows, cutter, hch, vch)
+
+
 class JigsawBoard (BorderFrame):
     """ Drop area for jigsaw pieces to be tested against.
     Maybe use this to do the piece cutting / hint ? """
     __gsignals__ = {'solved' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),
                     }
-    def __init__ (self, cutter=CutterClassic):
+    def __init__ (self):
         super(JigsawBoard, self).__init__(border_color="#0000FF")
-        self.image = None
+        #self.image = None
         self.board = gtk.Fixed()
         self.board.show()
         self.add(self.board)
         self.board_distribution = None
-        self.cutter = cutter
         self.target_pieces_per_line = 3
+        self.hint_board_image = gtk.Image()
+        self.cutboard = CutBoard()
 
+    def get_cutter (self):
+        return self.cutboard.get_cutter()
+
+    def set_cutter (self, cutter):
+        self.cutboard.set_cutter(cutter)
+        
     def update_hint (self):
         self.hint_board_image.set_from_pixmap(self.hint_board, None)
 
     def set_image (self, pixbuf):
         self.board.foreach(self.board.remove)
         self.board_distribution = None
-        self.hint_board_image = gtk.Image()
         self.board.put(self.hint_board_image, 0,0)
         self.img_width = pixbuf.get_width()
         self.img_height = pixbuf.get_height()
-        print "Board image size:", self.img_width, self.img_height
+        #print "Board image size:", self.img_width, self.img_height
         self.set_size_request(self.img_width, self.img_height)
         self.queue_resize()
-        self.image = pixbuf
+        self.cutboard.pb = pixbuf
+        #self.image = pixbuf
+
+    def reshuffle (self):
+        self.cutboard._prepare(self.target_pieces_per_line,self.target_pieces_per_line)#, self.cutter)
 
     def get_pieces (self):
-        if self.image is None:
+        if self.cutboard.pb is None:
             return
         self.board_distribution = []
         pcw = self.target_pieces_per_line
@@ -382,20 +471,22 @@ class JigsawBoard (BorderFrame):
                 changed = True
 
         # Prepare the pieces
-        cb = CutBoard(self.image, pcw, pch, self.cutter)
-        self.hint_board_image.set_from_pixbuf(cb.get_hint())
+        self.hint_board_image.set_from_pixbuf(self.cutboard.get_hint())
 
         pos_x = 0
         for col in range(pcw):
             pos_y = 0
             for row in range(pch):
                 piece = JigsawPiece()
-                pb, pb_wf, mask, px, py, pw, ph = cb.pieces[col][row]
+                pb, pb_wf, mask, px, py, pw, ph = self.cutboard.pieces[col][row]
                 piece.set_from_pixbuf(pb, pb_wf, mask)
                 piece.show()
                 piece.set_index(len(self.board_distribution))
                 self.board_distribution.append((px, py, pw*MAGNET_POWER_PERCENT/100.0, ph*MAGNET_POWER_PERCENT/100.0))
                 yield piece
+
+    def get_placed_pieces (self):
+        return [x for x in self.board.get_children() if isinstance(x, JigsawPiece)]
 
     def place_piece (self, piece):
         index = piece.get_index()
@@ -420,10 +511,23 @@ class JigsawBoard (BorderFrame):
             # We have a positive positioning
             self.place_piece(piece)
 
+    def _freeze (self):
+        return {'target_pieces_per_line': self.target_pieces_per_line,
+                'cutboard': self.cutboard and self.cutboard._freeze() or None,
+                }
+
+    def _thaw (self, data):
+        for k in ('target_pieces_per_line', ):
+            if data.has_key(k):
+                setattr(self, k, data[k])
+        self.cutboard._thaw(data['cutboard'])
+            
+
 class JigsawPuzzleWidget (gtk.EventBox):
     __gsignals__ = {
         'picked' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (JigsawPiece,)),
         'solved' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),
+        'cutter-changed' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (str, int)),
         }
     def __init__ (self):
         super(JigsawPuzzleWidget, self).__init__()
@@ -435,6 +539,7 @@ class JigsawPuzzleWidget (gtk.EventBox):
         self._container.put(self.board, 10, 10)
         self._container.show_all()
         self.running = False
+        self.forced_location = False
 
     def bring_to_top (self, piece):
         wx,wy = self._container.child_get(piece, 'x', 'y')
@@ -447,44 +552,71 @@ class JigsawPuzzleWidget (gtk.EventBox):
         else:
             self.board.hint_board_image.hide()
 
+    def get_floating_pieces (self):
+        return [x for x in self._container.get_children() if isinstance(x, JigsawPiece)]
+
     def set_cutter (self, cutter):
-        self.board.cutter = cutter
+        if cutter is None:
+            cutter = 'classic'
+            logging.debug('set_cutter(None) setting default to "classic"')
+        self.board.set_cutter(cutter)
+        self.emit('cutter-changed', self.get_cutter(), self.board.target_pieces_per_line)
 
-    def set_level (self, level):
-        if level <= 0:
-            self.board.target_pieces_per_line = 3
-        elif level == 1:
-            self.board.target_pieces_per_line = 5
-        else:
-            self.board.target_pieces_per_line = 8
+    def get_cutter (self):
+        return self.board.get_cutter()
 
-    def prepare_image (self, pixbuf):
+    def set_target_pieces_per_line (self, tppl):
+        if tppl is None:
+            tppl = 3
+        self.board.target_pieces_per_line = tppl
+        self.emit('cutter-changed', self.get_cutter(), self.board.target_pieces_per_line)
+
+    def get_target_pieces_per_line (self):
+        return self.board.target_pieces_per_line
+
+    def prepare_image (self, pixbuf=None, reshuffle=True):
+        x,y,w,h = self.get_allocation()
+        print (x,y,w,h)
+        if pixbuf is not None:
+            factor = min((float(w)*0.6)/pixbuf.get_width(), (float(h)*0.6)/pixbuf.get_height())
+            pixbuf = pixbuf.scale_simple(int(pixbuf.get_width() * factor),
+                                         int(pixbuf.get_height()*factor),
+                                         gtk.gdk.INTERP_BILINEAR)
+        if pixbuf is None:
+            pixbuf = self.board.cutboard.pb
+        self.board.set_image(pixbuf)
+
         for child in self._container.get_children():
             if child is not self.board:
                 self._container.remove(child)
-        x,y,w,h = self.get_allocation()
-        factor = min((float(w)*0.6)/pixbuf.get_width(), (float(h)*0.6)/pixbuf.get_height())
-        pixbuf = pixbuf.scale_simple(int(pixbuf.get_width() * factor),
-                                     int(pixbuf.get_height()*factor),
-                                     gtk.gdk.INTERP_BILINEAR)
-        self.board.set_image(pixbuf)
         bx, by = self._container.child_get(self.board, 'x', 'y')
         bw, bh = self.board.inner.get_size_request()
         br = gtk.gdk.Rectangle(bx,by,bw,bh)
-        print (x,y,w,h)
-        for piece in self.board.get_pieces():
-            pw,ph = piece.get_size_request()
-            r = gtk.gdk.Rectangle(bx,by,pw,ph)
-            r.x = int(random.random()*(w-pw))
-            r.y = int(random.random()*(h-ph))
-            if br.intersect(r).width > 0:
-                print "recalc pos"
+        if reshuffle:
+            self.board.reshuffle()
+        for n, piece in enumerate(self.board.get_pieces()):
+            if self.forced_location and len(self.forced_location)>n:
+                if self.forced_location[n] is None:
+                    # Will be placed in the correct place later
+                    self._container.put(piece, 0, 0)
+                else:
+                    self._container.put(piece, *self.forced_location[n])
+            else:
+                pw,ph = piece.get_size_request()
+                r = gtk.gdk.Rectangle(bx,by,pw,ph)
                 r.x = int(random.random()*(w-pw))
                 r.y = int(random.random()*(h-ph))
-            self._container.put(piece, r.x, r.y)
+                if br.intersect(r).width > 0:
+                    print "recalc pos"
+                    r.x = int(random.random()*(w-pw))
+                    r.y = int(random.random()*(h-ph))
+                self._container.put(piece, r.x, r.y)
             piece.connect('picked', self._pick_cb)
             piece.connect('moved', self._move_cb)
             piece.connect('dropped', self._drop_cb)
+            if self.forced_location and len(self.forced_location)>n and self.forced_location[n] is None:
+                self.board.place_piece(piece)
+        self.forced_location = None
         self.running = True
 
     def is_running (self):
@@ -522,6 +654,22 @@ class JigsawPuzzleWidget (gtk.EventBox):
     def _debug_cb (self, w, e, *args):
         print w, e, args
 
+    def _freeze (self):
+        pieces = [(x.get_index(), None) for x in self.board.get_placed_pieces()]
+        
+        pieces.extend([(x.get_index(), x.get_position()) for x in self.get_floating_pieces()])
+        pieces.sort(key=lambda x: x[0])
+        return {'board': self.board._freeze(),
+                'cutter': self.get_cutter(),
+                'target_pieces_per_line': self.get_target_pieces_per_line(),
+                'piece_pos': [x[1] for x in pieces]}
+
+    def _thaw (self, data):
+        if data.has_key('board'):
+            self.board._thaw(data['board'])
+        self.set_cutter(data.get('cutter', None))
+        self.set_target_pieces_per_line(data.get('target_pieces_per_line', None))
+        self.forced_location = data.get('piece_pos', None)
         
 if __name__ == '__main__':
     w = gtk.Window()

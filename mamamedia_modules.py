@@ -2,7 +2,13 @@ import os
 import sys
 
 propfile = os.path.expanduser("~/.sugar/default/org.worldwideworkshop.olpc.MMMPath")
-mmmpath = file(propfile, 'rb').read()
+if os.path.exists(propfile):
+    mmmpath = file(propfile, 'rb').read()
+else:
+    mmmpath=os.path.normpath(os.path.join(os.path.split(__file__)[0], '..', 'MaMaMediaMenu.activity'))
+
+print ("MMMPath", mmmpath)
+
 sys.path.append(mmmpath)
 
 from mmm_modules import *

@@ -4,7 +4,8 @@ import gtk, gobject, pango, cairo
 import random
 import os
 import logging
-
+import md5
+from cStringIO import StringIO
 from mmm_modules import BorderFrame, utils
 
 MAGNET_POWER_PERCENT = 20
@@ -33,6 +34,7 @@ class JigsawPiece (gtk.EventBox):
         self.shape = None
         self.image = gtk.Image()
         self.pb_wf = gtk.Image()
+        self.placed = False
         self._prepare_ui()
         self._prepare_event_callbacks()
 
@@ -205,12 +207,10 @@ class CutBoard (object):
         if cutter is not None:
             self.cutter = CUTTERS.get(cutter, CutterClassic)()
         self.rows, self.cols = rows, cols
-        print ("HCH", hch)
         if hch is not None:
             self.h_connector_hints = hch
         else:
             self.h_connector_hints = [random.random()*2-1 for x in range((self.rows+1)*(self.cols+1))]
-        print ("VCH", vch)
         if vch is not None:
             self.v_connector_hints = vch
         else:
@@ -306,9 +306,8 @@ class CutBoard (object):
         return overlap
 
     def path_for_piece (self, cairo_context, x, y, width, height):
-        hpos = (y*self.rows)+x
-        vpos = (x*self.cols)+y
-        print ("CPOS", hpos, vpos, x,y)
+        hpos = (y*self.cols)+x
+        vpos = (x*self.rows)+y
         l_offset = self.draw_vertical_path(cairo_context, x, x, height, self.h_connector_hints[hpos])
         b_offset = self.draw_horizontal_path(cairo_context, y, y+1, width, self.v_connector_hints[vpos+1])
         r_offset = self.draw_vertical_path(cairo_context, x, x+1, height, self.h_connector_hints[hpos+1])
@@ -325,15 +324,12 @@ class CutBoard (object):
         if y == self.rows - 1:
             height = self.height - py
 
-        print ("cut",x,y, px, py, width, height)
-
         # the cut mask is done on each piece at the right and bottom sides,
         # except for the right on the last column and bottom on the last row.
 
         # Draw outline on the board hint image
         self.hint_cr.move_to(px,py)
         offsets = self.path_for_piece(self.hint_cr, x, y, width, height)
-        print (x,y,px,py,width,height, offsets)
         self.hint_cr.stroke()
         width_offset = int(offsets['left'] + offsets['right'])
         height_offset = int(offsets['top'] + offsets['bottom'])
@@ -373,31 +369,46 @@ class CutBoard (object):
 
         return (pb, pb_wf, mask, px, py, width-width_offset, height-height_offset)
 
-    def _freeze (self):
-        if self.pb is not None:
-            f = os.tmpfile()
-            self.pb.save_to_callback(f.write, "png")
-            f.seek(0)
-            img = f.read()
-            return {'geom': (self.cols, self.rows),
-                    'hints': (self.h_connector_hints, self.v_connector_hints),
-                    'pb': img,
-                    'cutter': self.get_cutter(),
-                    }
+    def get_image_as_png (self, cb=None):
+        rv = None
+        if cb is None:
+            rv = StringIO()
+            cb = rv.write
+        self.pb.save_to_callback(cb, "png")
+        if rv is not None:
+            return rv.getvalue()
         else:
-            return None
+            return True
+
+    def _freeze (self, img_cksum_only=False):
+        if self.pb is not None:
+            if img_cksum_only:
+                cksum = md5.new()
+                self.get_image_as_png(cksum.update)
+                return {'geom': (self.cols, self.rows),
+                        'hints': (self.h_connector_hints, self.v_connector_hints),
+                        'pb-cksum': cksum.hexdigest(),
+                        'cutter': self.get_cutter(),
+                        }
+            else:
+                return {'geom': (self.cols, self.rows),
+                        'hints': (self.h_connector_hints, self.v_connector_hints),
+                        'pb': self.get_image_as_png(),
+                        'cutter': self.get_cutter(),
+                        }
+        return None
 
     def _thaw (self, data):
         if data is None:
             return
         if data.has_key('pb') and data['pb'] is not None:
-            fn = os.tempnam()
+            fn = "/tmp/test"+ '.png'  #os.tempnam() 
             f = file(fn, 'w+b')
             f.write(data['pb'])
             f.close()
             i = gtk.Image()
             i.set_from_file(fn)
-            os.remove(fn)
+            #os.remove(fn)
             self.pb = i.get_pixbuf()
             del data['pb']
         print "cutboard._thaw(%s)" % str(data)
@@ -438,16 +449,14 @@ class JigsawBoard (BorderFrame):
         self.board.put(self.hint_board_image, 0,0)
         self.img_width = pixbuf.get_width()
         self.img_height = pixbuf.get_height()
-        #print "Board image size:", self.img_width, self.img_height
         self.set_size_request(self.img_width, self.img_height)
         self.queue_resize()
         self.cutboard.pb = pixbuf
-        #self.image = pixbuf
 
-    def reshuffle (self):
-        self.cutboard._prepare(self.target_pieces_per_line,self.target_pieces_per_line)#, self.cutter)
+    #def reshuffle (self):
+    #    self.cutboard._prepare(self.target_pieces_per_line,self.target_pieces_per_line)#, self.cutter)
 
-    def get_pieces (self):
+    def get_pieces (self, reshuffle=True):
         if self.cutboard.pb is None:
             return
         self.board_distribution = []
@@ -458,7 +467,6 @@ class JigsawBoard (BorderFrame):
         while changed:
             pw = self.img_width / pcw
             ph = self.img_height / pch
-            print (pcw,pch,pw,ph,(self.img_width / (pcw-1))-ph,pw-ph,(self.img_height / (pch-1))-pw, ph-pw)
             changed = False
             if pcw == 1 or pch == 1:
                 break
@@ -470,6 +478,9 @@ class JigsawBoard (BorderFrame):
                 pch -= 1
                 changed = True
 
+        print ("Board matrix", pcw, pch)
+        if reshuffle:
+            self.cutboard._prepare(pcw, pch)
         # Prepare the pieces
         self.hint_board_image.set_from_pixbuf(self.cutboard.get_hint())
 
@@ -489,6 +500,7 @@ class JigsawBoard (BorderFrame):
         return [x for x in self.board.get_children() if isinstance(x, JigsawPiece)]
 
     def place_piece (self, piece):
+        piece.placed = True
         index = piece.get_index()
         piece.reparent(self.board)
         #piece.hide_wireframe()
@@ -511,9 +523,9 @@ class JigsawBoard (BorderFrame):
             # We have a positive positioning
             self.place_piece(piece)
 
-    def _freeze (self):
+    def _freeze (self, img_cksum_only=False):
         return {'target_pieces_per_line': self.target_pieces_per_line,
-                'cutboard': self.cutboard and self.cutboard._freeze() or None,
+                'cutboard': self.cutboard and self.cutboard._freeze(img_cksum_only) or None,
                 }
 
     def _thaw (self, data):
@@ -526,6 +538,7 @@ class JigsawBoard (BorderFrame):
 class JigsawPuzzleWidget (gtk.EventBox):
     __gsignals__ = {
         'picked' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (JigsawPiece,)),
+        'dropped' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (JigsawPiece,bool)),
         'solved' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),
         'cutter-changed' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (str, int)),
         }
@@ -576,7 +589,6 @@ class JigsawPuzzleWidget (gtk.EventBox):
 
     def prepare_image (self, pixbuf=None, reshuffle=True):
         x,y,w,h = self.get_allocation()
-        print (x,y,w,h)
         if pixbuf is not None:
             factor = min((float(w)*0.6)/pixbuf.get_width(), (float(h)*0.6)/pixbuf.get_height())
             pixbuf = pixbuf.scale_simple(int(pixbuf.get_width() * factor),
@@ -584,6 +596,8 @@ class JigsawPuzzleWidget (gtk.EventBox):
                                          gtk.gdk.INTERP_BILINEAR)
         if pixbuf is None:
             pixbuf = self.board.cutboard.pb
+        if pixbuf is None:
+            return False
         self.board.set_image(pixbuf)
 
         for child in self._container.get_children():
@@ -592,9 +606,7 @@ class JigsawPuzzleWidget (gtk.EventBox):
         bx, by = self._container.child_get(self.board, 'x', 'y')
         bw, bh = self.board.inner.get_size_request()
         br = gtk.gdk.Rectangle(bx,by,bw,bh)
-        if reshuffle:
-            self.board.reshuffle()
-        for n, piece in enumerate(self.board.get_pieces()):
+        for n, piece in enumerate(self.board.get_pieces(reshuffle)):
             if self.forced_location and len(self.forced_location)>n:
                 if self.forced_location[n] is None:
                     # Will be placed in the correct place later
@@ -607,7 +619,6 @@ class JigsawPuzzleWidget (gtk.EventBox):
                 r.x = int(random.random()*(w-pw))
                 r.y = int(random.random()*(h-ph))
                 if br.intersect(r).width > 0:
-                    print "recalc pos"
                     r.x = int(random.random()*(w-pw))
                     r.y = int(random.random()*(h-ph))
                 self._container.put(piece, r.x, r.y)
@@ -618,6 +629,7 @@ class JigsawPuzzleWidget (gtk.EventBox):
                 self.board.place_piece(piece)
         self.forced_location = None
         self.running = True
+        return True
 
     def is_running (self):
         return self.running
@@ -632,14 +644,17 @@ class JigsawPuzzleWidget (gtk.EventBox):
     def _pick_cb (self, w):
         self.emit('picked', w)
 
-    def _move_cb (self, w, x, y):
+    def _move_cb (self, w, x, y, absolute=False):
         if w.get_parent() != self._container:
             return
-        wx,wy = self._container.child_get(w, 'x', 'y')
+        if absolute:
+            wx,wy = 0,0
+        else:
+            wx,wy = self._container.child_get(w, 'x', 'y')
         #print "moving %i,%i : %i:%i : %i:%i" % (wx,wy, x, y,wx+x, wy+y)
         self._container.move(w, max(0,wx+x), max(0,wy+y))
 
-    def _drop_cb (self, w):
+    def _drop_cb (self, w, from_mesh=False):
         if w.get_parent() != self._container:
             return
         self.bring_to_top(w)
@@ -650,16 +665,17 @@ class JigsawPuzzleWidget (gtk.EventBox):
             wx,wy,ww,wh = w.get_allocation()
             bx,by,bw,bh = self.board.get_allocation()
             self.board.drop_piece(w, wx-bx, wy-by)
+        self.emit('dropped', w, from_mesh)
         
     def _debug_cb (self, w, e, *args):
         print w, e, args
 
-    def _freeze (self):
+    def _freeze (self, img_cksum_only=False):
         pieces = [(x.get_index(), None) for x in self.board.get_placed_pieces()]
         
         pieces.extend([(x.get_index(), x.get_position()) for x in self.get_floating_pieces()])
         pieces.sort(key=lambda x: x[0])
-        return {'board': self.board._freeze(),
+        return {'board': self.board._freeze(img_cksum_only),
                 'cutter': self.get_cutter(),
                 'target_pieces_per_line': self.get_target_pieces_per_line(),
                 'piece_pos': [x[1] for x in pieces]}

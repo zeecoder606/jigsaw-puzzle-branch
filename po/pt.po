@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-13 21:56+0100\n"
+"POT-Creation-Date: 2007-09-13 13:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,70 +16,83 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: activity/activity.info:2
+#, fuzzy
+msgid "Jigsaw Puzzle"
+msgstr "Actividade Puzzle"
+
 #: i18n_misc_strings.py:1
-msgid "Lesson 5"
-msgstr "Lição 5"
-
-#: i18n_misc_strings.py:2
-msgid "Lesson 4"
-msgstr "Liçao 4"
-
-#: i18n_misc_strings.py:3
 msgid "Overview"
 msgstr "Resumo"
 
-#: i18n_misc_strings.py:4
+#: i18n_misc_strings.py:2
 msgid "Lesson 3"
 msgstr "Lição 3"
 
-#: i18n_misc_strings.py:5
-msgid "Lesson 7"
-msgstr "Lição 7"
-
-#: i18n_misc_strings.py:6
-msgid "Lesson 6"
-msgstr "Lição 6"
-
-#: i18n_misc_strings.py:7
+#: i18n_misc_strings.py:3
 msgid "Lesson 1"
 msgstr "Lição 1"
 
-#: i18n_misc_strings.py:8
+#: i18n_misc_strings.py:4
 msgid "Lesson 2"
 msgstr "Lição 2"
 
-#: JigsawPuzzleUI.py:180
+#: JigsawPuzzleUI.py:199
 msgid "Solve"
 msgstr "Resolver"
 
-#: JigsawPuzzleUI.py:184
+#: JigsawPuzzleUI.py:203
 msgid "Shuffle"
 msgstr "Baralhar"
 
-#: JigsawPuzzleUI.py:188
+#: JigsawPuzzleUI.py:207
 msgid "My Picture"
 msgstr "Minha Imagem"
 
-#: JigsawPuzzleUI.py:192
+#: JigsawPuzzleUI.py:211
 msgid "Board Hint"
 msgstr "Ajuda"
 
-#: JigsawPuzzleUI.py:228
+#: JigsawPuzzleUI.py:246
 msgid "Time: "
 msgstr "Tempo"
 
-#: JigsawPuzzleUI.py:232 JigsawPuzzleUI.py:324
+#: JigsawPuzzleUI.py:255 JigsawPuzzleUI.py:426
 msgid "Lesson Plans"
 msgstr "Planos de Lição"
 
-#: JigsawPuzzleUI.py:253
+#: JigsawPuzzleUI.py:286
+msgid "Select image to share..."
+msgstr "Selecione imagem para partilhar"
+
+#: JigsawPuzzleUI.py:290
+msgid "Waiting for game image..."
+msgstr "Esperando imagem para jogar"
+
+#: JigsawPuzzleUI.py:292 JigsawPuzzleUI.py:326
+msgid "Buddies"
+msgstr ""
+
+#: JigsawPuzzleUI.py:313
+msgid "Give Up"
+msgstr "Desistir"
+
+#: JigsawPuzzleUI.py:315
+msgid "Start Game"
+msgstr "Iniciar Jogo"
+
+#: JigsawPuzzleUI.py:324
+msgid "Game Started!"
+msgstr "Jogo Iniciado!"
+
+#: JigsawPuzzleUI.py:345
 msgid "Choose a Subject"
 msgstr "Escolha um Tema"
 
-#: JigsawPuzzleUI.py:297
+#: JigsawPuzzleUI.py:399
 msgid "Jigsaw Puzzle Activity"
 msgstr "Actividade Puzzle"
 
-#: JigsawPuzzleUI.py:327
+#: JigsawPuzzleUI.py:429
 msgid "Close Lesson"
 msgstr "Fechar Lição"

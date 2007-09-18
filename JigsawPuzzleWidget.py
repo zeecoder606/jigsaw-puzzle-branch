@@ -31,6 +31,7 @@ class JigsawPiece (gtk.EventBox):
         self.index = None
         self.press_coords = (0,0)
         self.root_coords = (0,0)
+        self.last_coords = (0,0)
         self.shape = None
         self.image = gtk.Image()
         self.pb_wf = gtk.Image()
@@ -82,9 +83,11 @@ class JigsawPiece (gtk.EventBox):
 
     def get_position (self):
         # The position relative to the puzzle playing area
-        bx,by = self.parent.window.get_origin()
-        px,py = self.window.get_origin()
-        return (px-bx,py-by)
+        if self.parent.window is not None:
+            bx,by = self.parent.window.get_origin()
+            px,py = self.window.get_origin()
+            self.last_coords = (px-bx,py-by)
+        return self.last_coords
 
     def set_position (self, x, y):
         # The new position, relative to the piece parent
@@ -193,7 +196,6 @@ class CutterClassic (CutterBasic):
 CUTTERS['classic'] = CutterClassic
 
 class CutBoard (object):
-
     def __init__ (self, *args, **kwargs):
         if len(args) or len(kwargs):
             self._prepare(*args, **kwargs)
@@ -402,13 +404,13 @@ class CutBoard (object):
         if data is None:
             return
         if data.has_key('pb') and data['pb'] is not None:
-            fn = "/tmp/test"+ '.png'  #os.tempnam() 
+            fn = os.tempnam() 
             f = file(fn, 'w+b')
             f.write(data['pb'])
             f.close()
             i = gtk.Image()
             i.set_from_file(fn)
-            #os.remove(fn)
+            os.remove(fn)
             self.pb = i.get_pixbuf()
             del data['pb']
         print "cutboard._thaw(%s)" % str(data)
@@ -627,6 +629,9 @@ class JigsawPuzzleWidget (gtk.EventBox):
             piece.connect('dropped', self._drop_cb)
             if self.forced_location and len(self.forced_location)>n and self.forced_location[n] is None:
                 self.board.place_piece(piece)
+            while gtk.events_pending():
+                gtk.main_iteration(False)
+            piece.get_position()
         self.forced_location = None
         self.running = True
         return True

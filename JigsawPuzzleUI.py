@@ -35,6 +35,7 @@ from mamamedia_modules import ImageSelectorWidget
 from mamamedia_modules import LanguageComboBox
 from mamamedia_modules import TimerWidget
 from mamamedia_modules import NotebookReaderWidget
+from mamamedia_modules import BuddyPanel, BUDDYMODE_COLLABORATION
 
 from mamamedia_modules import GAME_IDLE, GAME_STARTED, GAME_FINISHED, GAME_QUIT
 
@@ -94,6 +95,8 @@ class JigsawPuzzleUI (BorderFrame):
         self.labels_to_translate = []
 
         self._state = GAME_IDLE
+        self._readonly = False
+        self._join_time = 0
 
         inner_table = gtk.Table(2,2,False)
         self.add(inner_table)
@@ -269,6 +272,9 @@ class JigsawPuzzleUI (BorderFrame):
 
         self.do_select_language(lang_combo)
         
+        self.buddy_panel = BuddyPanel(BUDDYMODE_COLLABORATION)
+        self.buddy_panel.show()
+
         if not parent._shared_activity:
             self.do_select_category(self)
 
@@ -284,9 +290,9 @@ class JigsawPuzzleUI (BorderFrame):
         """ The controls area below the logo needs different actions when in contest mode,
         and also if we are the contest initiators or not. """
         if self._contest_mode:
-            if self.get_game_state() > GAME_IDLE:
+            if self.get_game_state() > GAME_IDLE or not self.is_initiator():
                 self.set_readonly()
-            else:
+            if self.get_game_state() <= GAME_IDLE:
                 if self.is_initiator():
                     if self.timer.is_reset():
                         self.set_message(_("Select image to share..."))
@@ -298,7 +304,18 @@ class JigsawPuzzleUI (BorderFrame):
                     self.btn_add.get_child().set_label(_("Buddies"))
 
     def set_readonly (self):
-        pass
+        """ In collaborative mode, after an image is selected and the game started you can not change much """
+        self.thumb.set_readonly(True)
+        self.set_button_translation(self.btn_shuffle, "Game Running")
+        self.btn_shuffle.get_child().set_label(_("Game Running"))
+        self.btn_shuffle.set_sensitive(False)
+        for b in self.btn_cut_mapping.values() + self.btn_level_mapping.values():
+            if not (b.get_active() and self.is_initiator()):
+                b.set_sensitive(False)
+        self._readonly = True
+
+    def is_readonly (self):
+        return self._readonly
 
     def is_initiator (self):
         return self._parent.initiating
@@ -312,11 +329,13 @@ class JigsawPuzzleUI (BorderFrame):
 
     def set_contest_mode (self, mode):
         if getattr(self, '_contest_mode', None) != mode:
+            self.timer.set_can_stop(not bool(mode))
             self._contest_mode = bool(mode)
             self._set_control_area()
             if self._contest_mode:
-                self.set_button_translation(self.btn_solve, "Give Up")
-                self.btn_solve.get_child().set_label(_("Give Up"))
+                self.btn_solve.set_sensitive(False)
+                #self.set_button_translation(self.btn_solve, "Give Up")
+                #self.btn_solve.get_child().set_label(_("Give Up"))
                 self.set_button_translation(self.btn_shuffle, "Start Game")
                 self.btn_shuffle.get_child().set_label(_("Start Game"))
 
@@ -333,10 +352,11 @@ class JigsawPuzzleUI (BorderFrame):
                 if self._contest_mode:
                     if self.is_initiator():
                         self._send_game_update()
-                    else:
-                        c = gtk.gdk.Cursor(gtk.gdk.WATCH)
-                        self.window.set_cursor(c)
             self._send_status_update()
+        elif state[0] <= GAME_STARTED[0] and self._contest_mode and not self.is_initiator():
+            c = gtk.gdk.Cursor(gtk.gdk.WATCH)
+            self.window.set_cursor(c)
+            
 
     def get_game_state (self):
         return self._state
@@ -373,6 +393,8 @@ class JigsawPuzzleUI (BorderFrame):
     def do_shuffle (self, o, *args):
         #if self.thumb.has_image():
         #    print ("FN", self.thumb.category.filename)
+        if not self.thumb.has_image():
+            return
         self._show_game(utils.load_image(self.thumb.get_filename()))
         self.timer.reset(False)
         self.do_show_hint(self.btn_hint)
@@ -386,7 +408,15 @@ class JigsawPuzzleUI (BorderFrame):
         self.timer.stop(True)
 
     def do_add_image (self, o, *args):
-        self.thumb.add_image()
+        if self._contest_mode and self.get_game_state() >= GAME_STARTED:
+            # Buddy Panel
+            if not self.buddy_panel.get_parent():
+                #self.timer.stop()
+                self.game_box.push(self.buddy_panel)
+            else:
+                self.game_box.pop()
+        else:
+            self.thumb.add_image()
 
     @utils.trace
     def do_select_language (self, combo, *args):
@@ -425,7 +455,7 @@ class JigsawPuzzleUI (BorderFrame):
             s.connect('parent-set', self.do_lesson_plan_reparent)
             s.show_all()
             self.game_box.push(s)
-            self.timer.stop()
+            #self.timer.stop()
 
     def do_lesson_plan_reparent (self, widget, oldparent):
         if widget.parent is None:
@@ -436,19 +466,30 @@ class JigsawPuzzleUI (BorderFrame):
             self.btn_lesson.get_child().set_label(_("Close Lesson"))
 
     def set_piece_cut (self, btn, cutter, *args):
+        if self.is_readonly():
+            return
         self.game.set_cutter(cutter)
         if self.game.is_running():
             self.do_shuffle(btn)
 
-    @utils.trace
     def cutter_change_cb (self, o, cutter, tppl):
         # tppl = target pieces per line
         for c,b in self.btn_cut_mapping.items():
-            b.set_active(c == cutter)
+            if c == cutter:
+                b.set_sensitive(True)
+                b.set_active(True)
+            else:
+                b.set_active(False)
         for c,b in self.btn_level_mapping.items():
-            b.set_active(c == tppl)
+            if c == tppl:
+                b.set_sensitive(True)
+                b.set_active(True)
+            else:
+                b.set_active(False)
 
     def set_level (self, btn, level, *args):
+        if self.is_readonly():
+            return
         self.game.set_target_pieces_per_line(level)
         if self.game.is_running():
             self.do_shuffle(btn)
@@ -477,13 +518,17 @@ class JigsawPuzzleUI (BorderFrame):
         for k in ('thumb', 'timer', 'game'):
             if data.has_key(k):
                 getattr(self, k)._thaw(data[k])
+        if data.has_key('game') and not data.has_key('thumb'):
+            self.thumb.load_pb(self.game.board.cutboard.pb)
+        if data.has_key('timer'):
+            self._join_time = self.timer.ellapsed()
         self._show_game(reshuffle=False)
 
     @utils.trace
     def _send_status_update (self):
         """ Send a status update signal """
         if self._parent._shared_activity:
-            self._parent.game_tube.StatusUpdate(self._state[1], self.timer.is_running(), self.timer.ellapsed())
+            self._parent.game_tube.StatusUpdate(self._state[1], self._join_time)
 
     @utils.trace
     def _send_game_update (self):

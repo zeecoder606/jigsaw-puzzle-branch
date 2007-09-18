@@ -25,7 +25,7 @@ class GameTube (ExportedGObject):
 		super(GameTube, self).__init__(tube, PATH)
 		self.tube = tube
 		self.activity = activity
-		#self.add_status_update_handler()
+		self.add_status_update_handler()
 		self.get_buddy = activity._get_buddy
 		self.syncd_once = False
 		if is_initiator:
@@ -60,12 +60,11 @@ class GameTube (ExportedGObject):
 	def GameUpdate(self, game_state):
 		""" When an image is chosen by the initiator, this method gets called."""
 
-	@signal(dbus_interface=IFACE, signature='sbn')
-	def StatusUpdate (self, status, clock_running, ellapsed_time):
+	@signal(dbus_interface=IFACE, signature='su')
+	def StatusUpdate (self, status, ellapsed_time):
 		""" signal a reshufle, possibly with a new image """
-		logger.debug("Status Update to %s, %s, %i" % (status, str(clock_running), ellapsed_time))
 		# For some reason we don't get our own signals, so short circuit here
-		#self.status_update_cb(status, clock_running, ellapsed_time)
+		self.status_update_cb(status, ellapsed_time)
 
 	@signal(dbus_interface=IFACE, signature='')
 	def RequestImage (self):
@@ -151,6 +150,18 @@ class GameTube (ExportedGObject):
 	def piece_dropped_cb (self, index, position, sender=None):
 		self.activity.ui._recv_drop_notification(index, position)
 
+	def add_status_update_handler(self):
+		self.tube.add_signal_receiver(self.status_update_cb, 'StatusUpdate', IFACE,
+																	path=PATH, sender_keyword='sender')
+
+	def status_update_cb (self, status, join_time, sender=None):
+		if sender is None:
+			buddy = self.activity.owner
+		else:
+			buddy = self.get_buddy(self.tube.bus_name_to_handle[sender])
+		logger.debug("status_update: %s %s" % (str(sender), str(join_time)))
+		self.activity.ui.buddy_panel.update_player(buddy, status, True, int(join_time))
+
 	
 	##############
 	# Methods
@@ -158,10 +169,12 @@ class GameTube (ExportedGObject):
 	@method(dbus_interface=IFACE, in_signature='s', out_signature='')
 	def Welcome(self, game_state):
 		""" """
-		logger.debug("state: '%s' (%s)" % (state, type(state)))
+		logger.debug("state: '%s' (%s)" % (game_state, type(game_state)))
 		if game_state == GAME_STARTED[1]:
 			self.activity.ui.set_game_state(GAME_STARTED)
 			self.RequestImage()
+		else:
+			self.activity.ui.set_game_state(GAME_IDLE)
 
 	@method(dbus_interface=IFACE, in_signature='ayi', out_signature='', byte_arrays=True)
 	def ImageSync (self, image_part, part_nr):
@@ -179,8 +192,8 @@ class GameTube (ExportedGObject):
 		state = json.read(str(state))
 		state['game']['board']['cutboard']['pb'] = zlib.decompress(self.image.getvalue())
 		self.activity.ui._thaw(state)
+		self.activity.ui._send_status_update()
 		
-	#self.syncd_once = self.activity.frozen.thaw(str(state), forced_image=zlib.decompress(self.image.getvalue()), tube=self)
 
 class JigsawPuzzleActivity(Activity, TubeHelper):
 	def __init__(self, handle):
@@ -211,6 +224,18 @@ class JigsawPuzzleActivity(Activity, TubeHelper):
 	def new_tube_cb (self):
 		self.ui.set_contest_mode(True)
 
+	def shared_cb (self):
+		self.ui.buddy_panel.add_player(self.owner)
+
+	def joined_cb (self):
+		self.ui.set_readonly()
+
+	def buddy_joined_cb (self, buddy):
+		self.ui.buddy_panel.add_player(buddy)
+
+	def buddy_left_cb (self, buddy):
+		self.ui.buddy_panel.remove_player(buddy)
+
 	def read_file(self, file_path):
 		f = open(file_path, 'r')
 		try:
@@ -222,6 +247,10 @@ class JigsawPuzzleActivity(Activity, TubeHelper):
 		#logging.debug('Read session: %s.' % urllib.quote(session_data))
 		
 	def write_file(self, file_path):
+		# First make sure the game is showing, as we need that to get the piece positions
+		
+		if not self.ui.game.get_parent():
+			self.ui.game_box.pop()
 		session_data = json.write(self.ui._freeze())
 		f = open(file_path, 'w')
 		try:

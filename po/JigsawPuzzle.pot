@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-13 13:03+0100\n"
+"POT-Creation-Date: 2007-09-25 14:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,62 +36,62 @@ msgstr ""
 msgid "Lesson 2"
 msgstr ""
 
-#: JigsawPuzzleUI.py:199
+#: JigsawPuzzleUI.py:206
 msgid "Solve"
 msgstr ""
 
-#: JigsawPuzzleUI.py:203
+#: JigsawPuzzleUI.py:210
 msgid "Shuffle"
 msgstr ""
 
-#: JigsawPuzzleUI.py:207
+#: JigsawPuzzleUI.py:214
 msgid "My Picture"
 msgstr ""
 
-#: JigsawPuzzleUI.py:211
+#: JigsawPuzzleUI.py:218
 msgid "Board Hint"
 msgstr ""
 
-#: JigsawPuzzleUI.py:246
+#: JigsawPuzzleUI.py:255
 msgid "Time: "
 msgstr ""
 
-#: JigsawPuzzleUI.py:255 JigsawPuzzleUI.py:426
+#: JigsawPuzzleUI.py:264 JigsawPuzzleUI.py:463
 msgid "Lesson Plans"
 msgstr ""
 
-#: JigsawPuzzleUI.py:286
+#: JigsawPuzzleUI.py:298
 msgid "Select image to share..."
 msgstr ""
 
-#: JigsawPuzzleUI.py:290
+#: JigsawPuzzleUI.py:302
 msgid "Waiting for game image..."
 msgstr ""
 
-#: JigsawPuzzleUI.py:292 JigsawPuzzleUI.py:326
+#: JigsawPuzzleUI.py:304 JigsawPuzzleUI.py:351
 msgid "Buddies"
 msgstr ""
 
-#: JigsawPuzzleUI.py:313
-msgid "Give Up"
+#: JigsawPuzzleUI.py:310
+msgid "Game Running"
 msgstr ""
 
-#: JigsawPuzzleUI.py:315
+#: JigsawPuzzleUI.py:340
 msgid "Start Game"
 msgstr ""
 
-#: JigsawPuzzleUI.py:324
+#: JigsawPuzzleUI.py:349
 msgid "Game Started!"
 msgstr ""
 
-#: JigsawPuzzleUI.py:345
+#: JigsawPuzzleUI.py:371
 msgid "Choose a Subject"
 msgstr ""
 
-#: JigsawPuzzleUI.py:399
+#: JigsawPuzzleUI.py:436
 msgid "Jigsaw Puzzle Activity"
 msgstr ""
 
-#: JigsawPuzzleUI.py:429
+#: JigsawPuzzleUI.py:466
 msgid "Close Lesson"
 msgstr ""

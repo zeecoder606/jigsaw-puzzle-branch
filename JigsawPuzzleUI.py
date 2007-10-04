@@ -395,7 +395,7 @@ class JigsawPuzzleUI (BorderFrame):
         #    print ("FN", self.thumb.category.filename)
         if not self.thumb.has_image():
             return
-        self._show_game(utils.load_image(self.thumb.get_filename()))
+        self._show_game(self.thumb.get_image())#utils.load_image(self.thumb.get_filename()))
         self.timer.reset(False)
         self.do_show_hint(self.btn_hint)
         

@@ -393,11 +393,17 @@ class JigsawPuzzleUI (BorderFrame):
     def do_shuffle (self, o, *args):
         #if self.thumb.has_image():
         #    print ("FN", self.thumb.category.filename)
-        if not self.thumb.has_image():
-            return
-        self._show_game(self.thumb.get_image())#utils.load_image(self.thumb.get_filename()))
-        self.timer.reset(False)
-        self.do_show_hint(self.btn_hint)
+        if self._contest_mode and \
+             self.get_game_state() == GAME_IDLE and \
+             self.game.is_running() and \
+             o == self.btn_shuffle and \
+             self.timer.is_reset():
+            # Start
+            self.timer.start()
+        elif self.thumb.has_image():
+            self._show_game(self.thumb.get_image())
+            self.timer.reset(False)
+            self.do_show_hint(self.btn_hint)
         
     def do_solve (self, o, *args):
         if not self.game.is_running():

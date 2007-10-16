@@ -518,7 +518,7 @@ class JigsawPuzzleUI (BorderFrame):
         for k in ('thumb', 'timer', 'game'):
             if data.has_key(k):
                 getattr(self, k)._thaw(data[k])
-        if data.has_key('game') and not data.has_key('thumb'):
+        if data.has_key('game'):# and not data.has_key('thumb'):
             self.thumb.load_pb(self.game.board.cutboard.pb)
         if data.has_key('timer'):
             self._join_time = self.timer.ellapsed()

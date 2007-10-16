@@ -4,4 +4,4 @@ service_name = org.worldwideworkshop.olpc.JigsawPuzzle
 class = JigsawPuzzleActivity.JigsawPuzzleActivity
 icon = activity-jigsawpuzzle
 activity_version = 0
-show_launcher = no
+show_launcher = yes

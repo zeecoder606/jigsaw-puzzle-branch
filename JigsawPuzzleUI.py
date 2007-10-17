@@ -219,6 +219,7 @@ class JigsawPuzzleUI (BorderFrame):
         self.btn_hint.connect("clicked", self.do_show_hint)
         btn_box.attach(self.btn_hint, 1,2,3,4,0,0)
         control_panel_box.pack_start(btn_box, False)
+        self.control_panel_box = control_panel_box
 
         # Control panel end
         panel.pack_start(control_panel, expand=True, fill=True)
@@ -295,11 +296,11 @@ class JigsawPuzzleUI (BorderFrame):
             if self.get_game_state() <= GAME_IDLE:
                 if self.is_initiator():
                     if self.timer.is_reset():
-                        self.set_message(_("Select image to share..."))
+                        self.set_message(_("Select image and press Start Game..."))
                     else:
                         self.set_game_state(GAME_STARTED)
                 else:
-                    self.set_message(_("Waiting for game image..."))
+                    self.set_message(_("Waiting for Puzzle image to be chosen..."))
                     self.set_button_translation(self.btn_add, "Buddies")
                     self.btn_add.get_child().set_label(_("Buddies"))
 
@@ -346,7 +347,6 @@ class JigsawPuzzleUI (BorderFrame):
             self.emit('game-state-changed', state[0])
             self._set_control_area()
             if state == GAME_STARTED:
-                self.set_message(_("Game Started!"))
                 self.set_button_translation(self.btn_add, "Buddies")
                 self.btn_add.get_child().set_label(_("Buddies"))
                 if self._contest_mode:
@@ -412,6 +412,10 @@ class JigsawPuzzleUI (BorderFrame):
             self.game_box.pop()
         self.game.solve()
         self.timer.stop(True)
+        if self._contest_mode:
+            self.set_message(_("Puzzle Solved!"))
+            self.control_panel_box.foreach(self.control_panel_box.remove)
+            
 
     def do_add_image (self, o, *args):
         if self._contest_mode and self.get_game_state() >= GAME_STARTED:
@@ -534,6 +538,11 @@ class JigsawPuzzleUI (BorderFrame):
     def _send_status_update (self):
         """ Send a status update signal """
         if self._parent._shared_activity:
+            if self.get_game_state() == GAME_STARTED:
+                if self.thumb.has_image():
+                    self.set_message(_("Game Started!"))
+                else:
+                    self.set_message(_("Waiting for Puzzle image to be transfered..."))
             self._parent.game_tube.StatusUpdate(self._state[1], self._join_time)
 
     @utils.trace

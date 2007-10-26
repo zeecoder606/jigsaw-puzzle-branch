@@ -37,7 +37,7 @@ from mamamedia_modules import TimerWidget
 from mamamedia_modules import NotebookReaderWidget
 from mamamedia_modules import BuddyPanel, BUDDYMODE_COLLABORATION
 
-from mamamedia_modules import GAME_IDLE, GAME_STARTED, GAME_FINISHED, GAME_QUIT
+from mamamedia_modules import GAME_IDLE, GAME_STARTED, GAME_FINISHED
 
 from JigsawPuzzleWidget import JigsawPuzzleWidget
 
@@ -65,7 +65,7 @@ COLOR_BG_BUTTONS = (
     (gtk.STATE_ACTIVE,"#014D01"),
     (gtk.STATE_PRELIGHT,"#016D01"),
     (gtk.STATE_SELECTED,"#027F01"),
-    (gtk.STATE_INSENSITIVE,"#027F01"),
+    (gtk.STATE_INSENSITIVE,"#CCCCCC"),
     )
 
 def prepare_btn(btn, w=-1, h=-1):
@@ -188,7 +188,10 @@ class JigsawPuzzleUI (BorderFrame):
         btn_box.attach(gtk.Label(), 4,5,0,2)
         control_panel_box.pack_start(btn_box, expand=False)
 
-        self.thumb = ImageSelectorWidget(frame_color=COLOR_FRAME_THUMB, prepare_btn_cb=prepare_btn, method=utils.RESIZE_PAD)
+        self.thumb = ImageSelectorWidget(frame_color=COLOR_FRAME_THUMB,
+                                         prepare_btn_cb=prepare_btn,
+                                         method=utils.RESIZE_PAD,
+                                         image_dir="images")
         self.thumb.connect("category_press", self.do_select_category)
         self.thumb.connect("image_press", self.do_shuffle)
         control_panel_box.pack_start(self.thumb, expand=False)
@@ -284,7 +287,9 @@ class JigsawPuzzleUI (BorderFrame):
         # Assert consistent state
         self.cutter_change_cb(None, self.game.get_cutter(), self.game.get_target_pieces_per_line())
 
-    def set_message (self, msg):
+    def set_message (self, msg, frommesh=False):
+        if frommesh and self.get_game_state() != GAME_STARTED:
+            return
         self.msg_label.set_label(msg)
 
     def _set_control_area (self, *args):
@@ -368,7 +373,7 @@ class JigsawPuzzleUI (BorderFrame):
             #    self.do_add_image(None)
         else:
             if self.game.get_parent():
-                s = CategorySelector(_("Choose a Subject"), self.thumb.get_image_dir())
+                s = CategorySelector(_("Choose a Subject"), self.thumb.get_image_dir(), path="images")
                 s.connect("selected", self.do_select_category)
                 s.show()
                 self.game_box.push(s)
@@ -413,8 +418,16 @@ class JigsawPuzzleUI (BorderFrame):
         self.game.solve()
         self.timer.stop(True)
         if self._contest_mode:
+            self.set_game_state(GAME_FINISHED)
             self.set_message(_("Puzzle Solved!"))
             self.control_panel_box.foreach(self.control_panel_box.remove)
+            lbl = gtk.Label(_("Press Stop on the Toolbar to Exit Activity!"))
+            lbl.modify_font(pango.FontDescription("bold 9"))
+            lbl.set_line_wrap(True)
+            lbl.set_justify(gtk.JUSTIFY_CENTER)
+            lbl.set_size_request(200, -1)
+            lbl.show()
+            self.control_panel_box.pack_start(lbl, True)
             
 
     def do_add_image (self, o, *args):
@@ -542,7 +555,7 @@ class JigsawPuzzleUI (BorderFrame):
                 if self.thumb.has_image():
                     self.set_message(_("Game Started!"))
                 else:
-                    self.set_message(_("Waiting for Puzzle image to be transfered..."))
+                    self.set_message(_("Waiting for Puzzle image to be transferred..."))
             self._parent.game_tube.StatusUpdate(self._state[1], self._join_time)
 
     @utils.trace

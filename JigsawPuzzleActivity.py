@@ -20,242 +20,246 @@ IFACE = SERVICE
 PATH = "/org/worldwideworkshop/olpc/JigsawPuzzle/Tube"
 
 class GameTube (ExportedGObject):
-	""" Manage the communication between cooperating activities """
-	def __init__(self, tube, is_initiator, activity):
-		super(GameTube, self).__init__(tube, PATH)
-		self.tube = tube
-		self.activity = activity
-		self.add_status_update_handler()
-		self.get_buddy = activity._get_buddy
-		self.syncd_once = False
-		if is_initiator:
-			self.add_hello_handler()
-			self.add_request_image_handler()
-			#self.add_need_image_handler()
-			#self.activity.ui.connect('game-state-changed', self.game_state_cb)
-		else:
-			self.add_game_update_handler()
-			#self.add_re_sync_handler()
-			self.Hello()
-		self.add_piece_picked_handler()
-		self.add_piece_placed_handler()
-		self.add_piece_dropped_handler()
-		self.tube.watch_participants(self.participant_change_cb)
+    """ Manage the communication between cooperating activities """
+    def __init__(self, tube, is_initiator, activity):
+        super(GameTube, self).__init__(tube, PATH)
+        self.tube = tube
+        self.activity = activity
+        self.add_status_update_handler()
+        self.get_buddy = activity._get_buddy
+        self.syncd_once = False
+        if is_initiator:
+            self.add_hello_handler()
+            self.add_request_image_handler()
+            #self.add_need_image_handler()
+            #self.activity.ui.connect('game-state-changed', self.game_state_cb)
+        else:
+            self.add_game_update_handler()
+            #self.add_re_sync_handler()
+            self.Hello()
+        self.add_piece_picked_handler()
+        self.add_piece_placed_handler()
+        self.add_piece_dropped_handler()
+        self.tube.watch_participants(self.participant_change_cb)
 
-	def participant_change_cb(self, added, removed):
-		logger.debug('Adding participants: %r' % added)
-		logger.debug('Removing participants: %r' % type(removed))
+    def participant_change_cb(self, added, removed):
+        logger.debug('Adding participants: %r' % added)
+        logger.debug('Removing participants: %r' % removed)
 
 
-	###############
-	# Signals
-	
-	@signal(dbus_interface=IFACE, signature='')
-	def Hello(self):
-		"""Request that this player's Welcome method is called to bring it
-		up to date with the game state.
-		"""
+    ###############
+    # Signals
+    
+    @signal(dbus_interface=IFACE, signature='')
+    def Hello(self):
+        """Request that this player's Welcome method is called to bring it
+        up to date with the game state.
+        """
 
-	@signal(dbus_interface=IFACE, signature='s')
-	def GameUpdate(self, game_state):
-		""" When an image is chosen by the initiator, this method gets called."""
+    @signal(dbus_interface=IFACE, signature='s')
+    def GameUpdate(self, game_state):
+        """ When an image is chosen by the initiator, this method gets called."""
 
-	@signal(dbus_interface=IFACE, signature='su')
-	def StatusUpdate (self, status, ellapsed_time):
-		""" signal a reshufle, possibly with a new image """
-		# For some reason we don't get our own signals, so short circuit here
-		self.status_update_cb(status, ellapsed_time)
+    @signal(dbus_interface=IFACE, signature='su')
+    def StatusUpdate (self, status, ellapsed_time):
+        """ signal a reshufle, possibly with a new image """
+        # For some reason we don't get our own signals, so short circuit here
+        self.status_update_cb(status, ellapsed_time)
 
-	@signal(dbus_interface=IFACE, signature='')
-	def RequestImage (self):
-		""" Request that the game image be sent to us. """
+    @signal(dbus_interface=IFACE, signature='')
+    def RequestImage (self):
+        """ Request that the game image be sent to us. """
 
-	@signal(dbus_interface=IFACE, signature='i')
-	def PiecePicked (self, index):
-		""" Signals a piece picked in the correct board position """
-		
-	@signal(dbus_interface=IFACE, signature='i')
-	def PiecePlaced (self, index):
-		""" Signals a piece placed in the correct board position """
-		
-	@signal(dbus_interface=IFACE, signature='i(dd)')
-	def PieceDropped (self, index, position):
-		""" Signals a piece that has been moved around and dropped """
+    @signal(dbus_interface=IFACE, signature='i')
+    def PiecePicked (self, index):
+        """ Signals a piece picked in the correct board position """
+        
+    @signal(dbus_interface=IFACE, signature='i')
+    def PiecePlaced (self, index):
+        """ Signals a piece placed in the correct board position """
+        
+    @signal(dbus_interface=IFACE, signature='i(dd)')
+    def PieceDropped (self, index, position):
+        """ Signals a piece that has been moved around and dropped """
 
-	###############
-	# Callbacks
+    ###############
+    # Callbacks
 
-	def add_hello_handler(self):
-		self.tube.add_signal_receiver(self.hello_cb, 'Hello', IFACE,
-																	path=PATH, sender_keyword='sender')
+    def add_hello_handler(self):
+        self.tube.add_signal_receiver(self.hello_cb, 'Hello', IFACE,
+                                                                    path=PATH, sender_keyword='sender')
 
-	def hello_cb(self, obj=None, sender=None):
-		"""Tell the newcomer what's going on."""
-		logger.debug('Newcomer %s has joined', sender)
-#		if self.activity.ui.get_game_state() < GAME_STARTED:
-#			f = {}
-#		else:
-#			f = self.activity.ui._freeze(journal=False)
-		self.tube.get_object(sender, PATH).Welcome(self.activity.ui.get_game_state()[1], dbus_interface=IFACE)
+    def hello_cb(self, obj=None, sender=None):
+        """Tell the newcomer what's going on."""
+        logger.debug('Newcomer %s has joined', sender)
+#       if self.activity.ui.get_game_state() < GAME_STARTED:
+#           f = {}
+#       else:
+#           f = self.activity.ui._freeze(journal=False)
+        self.tube.get_object(sender, PATH).Welcome(self.activity.ui.get_game_state()[1], dbus_interface=IFACE)
 
-	def add_game_update_handler (self):
-		self.tube.add_signal_receiver(self.game_update_cb, 'GameUpdate', IFACE,
-																	path=PATH, sender_keyword='sender')
+    def add_game_update_handler (self):
+        self.tube.add_signal_receiver(self.game_update_cb, 'GameUpdate', IFACE,
+                                                                    path=PATH, sender_keyword='sender')
 
-	def game_update_cb (self, game_state, sender=None):
-		logger.debug('GameUpdate: %s' % game_state)
-		if game_state == GAME_STARTED[1]:
-			self.activity.ui.set_game_state(GAME_STARTED)
-			self.RequestImage()
-		#self.activity.ui.set_game_state(str(game_state))
-		#self.activity.ui._thaw(json.read(str(state)))
+    def game_update_cb (self, game_state, sender=None):
+        logger.debug('GameUpdate: %s' % game_state)
+        if game_state == GAME_STARTED[1]:
+            self.activity.ui.set_game_state(GAME_STARTED)
+            self.RequestImage()
+        #self.activity.ui.set_game_state(str(game_state))
+        #self.activity.ui._thaw(json.read(str(state)))
 
-	def add_request_image_handler (self):
-		self.tube.add_signal_receiver(self.request_image_cb, 'RequestImage', IFACE,
-																	path=PATH, sender_keyword='sender')
+    def add_request_image_handler (self):
+        self.tube.add_signal_receiver(self.request_image_cb, 'RequestImage', IFACE,
+                                                                    path=PATH, sender_keyword='sender')
 
-	def request_image_cb (self, sender=None):
-		logger.debug('Sending image to %s', sender)
-		img = self.activity.ui.game.board.cutboard.get_image_as_png()
-		t = time.time()
-		compressed = zlib.compress(img, 9)
-		# We will be sending the image, 24K at a time (my tests put the high water at 48K)
-		logger.debug("was %d, is %d. compressed to %d%% in %0.4f seconds" % (len(img), len(compressed), len(compressed)*100/len(img), time.time() - t))
-		part_size = 24*1024
-		parts = len(compressed) / part_size
-		for i in range(parts+1):
-			self.tube.get_object(sender, PATH).ImageSync(compressed[i*part_size:(i+1)*part_size], i+1,
+    def request_image_cb (self, sender=None):
+        logger.debug('Sending image to %s', sender)
+        img = self.activity.ui.game.board.cutboard.get_image_as_png()
+        t = time.time()
+        compressed = zlib.compress(img, 9)
+        # We will be sending the image, 24K at a time (my tests put the high water at 48K)
+        logger.debug("was %d, is %d. compressed to %d%% in %0.4f seconds" % (len(img), len(compressed), len(compressed)*100/len(img), time.time() - t))
+        part_size = 24*1024
+        parts = len(compressed) / part_size
+        for i in range(parts+1):
+            self.tube.get_object(sender, PATH).ImageSync(compressed[i*part_size:(i+1)*part_size], i+1,
                                                          dbus_interface=IFACE)
-		self.tube.get_object(sender, PATH).ImageDetailsSync(json.write(self.activity.ui._freeze(journal=False)), dbus_interface=IFACE)
+        self.tube.get_object(sender, PATH).ImageDetailsSync(json.write(self.activity.ui._freeze(journal=False)), dbus_interface=IFACE)
 
 
-	def add_piece_picked_handler (self):
-		self.tube.add_signal_receiver(self.piece_picked_cb, 'PiecePicked', IFACE,
-																	path=PATH, sender_keyword='sender')
+    def add_piece_picked_handler (self):
+        self.tube.add_signal_receiver(self.piece_picked_cb, 'PiecePicked', IFACE,
+                                                                    path=PATH, sender_keyword='sender')
 
-	def piece_picked_cb (self, index, sender=None):
-		self.activity.ui._recv_pick_notification(index)
+    def piece_picked_cb (self, index, sender=None):
+        self.activity.ui._recv_pick_notification(index)
 
-	def add_piece_placed_handler (self):
-		self.tube.add_signal_receiver(self.piece_placed_cb, 'PiecePlaced', IFACE,
-																	path=PATH, sender_keyword='sender')
+    def add_piece_placed_handler (self):
+        self.tube.add_signal_receiver(self.piece_placed_cb, 'PiecePlaced', IFACE,
+                                                                    path=PATH, sender_keyword='sender')
 
-	def piece_placed_cb (self, index, sender=None):
-		self.activity.ui._recv_drop_notification(index)
-	
-	def add_piece_dropped_handler (self):
-		self.tube.add_signal_receiver(self.piece_dropped_cb, 'PieceDropped', IFACE,
-																	path=PATH, sender_keyword='sender')
+    def piece_placed_cb (self, index, sender=None):
+        self.activity.ui._recv_drop_notification(index)
+    
+    def add_piece_dropped_handler (self):
+        self.tube.add_signal_receiver(self.piece_dropped_cb, 'PieceDropped', IFACE,
+                                                                    path=PATH, sender_keyword='sender')
 
-	def piece_dropped_cb (self, index, position, sender=None):
-		self.activity.ui._recv_drop_notification(index, position)
+    def piece_dropped_cb (self, index, position, sender=None):
+        self.activity.ui._recv_drop_notification(index, position)
 
-	def add_status_update_handler(self):
-		self.tube.add_signal_receiver(self.status_update_cb, 'StatusUpdate', IFACE,
-																	path=PATH, sender_keyword='sender')
+    def add_status_update_handler(self):
+        self.tube.add_signal_receiver(self.status_update_cb, 'StatusUpdate', IFACE,
+                                                                    path=PATH, sender_keyword='sender')
 
-	def status_update_cb (self, status, join_time, sender=None):
-		if sender is None:
-			buddy = self.activity.owner
-		else:
-			buddy = self.get_buddy(self.tube.bus_name_to_handle[sender])
-		logger.debug("status_update: %s %s" % (str(sender), str(join_time)))
-		self.activity.ui.buddy_panel.update_player(buddy, status, True, int(join_time))
+    def status_update_cb (self, status, join_time, sender=None):
+        if sender is None:
+            buddy = self.activity.owner
+        else:
+            buddy = self.get_buddy(self.tube.bus_name_to_handle[sender])
+        logger.debug("status_update: %s %s" % (str(sender), str(join_time)))
+        nick, stat = self.activity.ui.buddy_panel.update_player(buddy, status, True, int(join_time))
+        if buddy != self.activity.owner:
+            self.activity.ui.set_message(_("Buddy '%s' changed status: %s") % (nick, stat), frommesh=True)
 
-	
-	##############
-	# Methods
+    
+    ##############
+    # Methods
 
-	@method(dbus_interface=IFACE, in_signature='s', out_signature='')
-	def Welcome(self, game_state):
-		""" """
-		logger.debug("state: '%s' (%s)" % (game_state, type(game_state)))
-		if game_state == GAME_STARTED[1]:
-			self.activity.ui.set_game_state(GAME_STARTED)
-			self.RequestImage()
-		else:
-			self.activity.ui.set_game_state(GAME_IDLE)
+    @method(dbus_interface=IFACE, in_signature='s', out_signature='')
+    def Welcome(self, game_state):
+        """ """
+        logger.debug("state: '%s' (%s)" % (game_state, type(game_state)))
+        if game_state == GAME_STARTED[1]:
+            self.activity.ui.set_game_state(GAME_STARTED)
+            self.RequestImage()
+        else:
+            self.activity.ui.set_game_state(GAME_IDLE)
 
-	@method(dbus_interface=IFACE, in_signature='ayi', out_signature='', byte_arrays=True)
-	def ImageSync (self, image_part, part_nr):
-		""" """
-		logger.debug("Received image part #%d, length %d" % (part_nr, len(image_part)))
-		if part_nr == 1:
-			self.image = StringIO()
-			self.image.write(image_part)
-		else:
-			self.image.write(image_part)
+    @method(dbus_interface=IFACE, in_signature='ayi', out_signature='', byte_arrays=True)
+    def ImageSync (self, image_part, part_nr):
+        """ """
+        logger.debug("Received image part #%d, length %d" % (part_nr, len(image_part)))
+        if part_nr == 1:
+            self.image = StringIO()
+            self.image.write(image_part)
+        else:
+            self.image.write(image_part)
 
-	@method(dbus_interface=IFACE, in_signature='s', out_signature='', byte_arrays=True)
-	def ImageDetailsSync (self, state):
-		""" Signals end of image and shares the rest of the needed data to create the image remotely."""
-		state = json.read(str(state))
-		state['game']['board']['cutboard']['pb'] = zlib.decompress(self.image.getvalue())
-		self.activity.ui._thaw(state)
-		self.activity.ui._send_status_update()
-		
+    @method(dbus_interface=IFACE, in_signature='s', out_signature='', byte_arrays=True)
+    def ImageDetailsSync (self, state):
+        """ Signals end of image and shares the rest of the needed data to create the image remotely."""
+        state = json.read(str(state))
+        state['game']['board']['cutboard']['pb'] = zlib.decompress(self.image.getvalue())
+        self.activity.ui._thaw(state)
+        self.activity.ui._send_status_update()
+        
 
 class JigsawPuzzleActivity(Activity, TubeHelper):
-	def __init__(self, handle):
-		Activity.__init__(self, handle)
-		logger.debug('Starting Jigsaw Puzzle activity... %s' % str(get_bundle_path()))
-		os.chdir(get_bundle_path())
+    def __init__(self, handle):
+        Activity.__init__(self, handle)
+        logger.debug('Starting Jigsaw Puzzle activity... %s' % str(get_bundle_path()))
+        os.chdir(get_bundle_path())
 
-		self.connect('destroy', self._destroy_cb)
-		
-		toolbox = ActivityToolbox(self)
-		self.set_toolbox(toolbox)
-		toolbox.show()
+        self.connect('destroy', self._destroy_cb)
+        
+        toolbox = ActivityToolbox(self)
+        self.set_toolbox(toolbox)
+        toolbox.show()
 
     # Toolbar title size hack
-		title_widget = toolbox._activity_toolbar.title
-		title_widget.set_size_request(title_widget.get_layout().get_pixel_size()[0] + 20, -1)
-		
-		self.ui = JigsawPuzzleUI(self)
-		self.set_canvas(self.ui)
+        title_widget = toolbox._activity_toolbar.title
+        title_widget.set_size_request(title_widget.get_layout().get_pixel_size()[0] + 30, -1)
+        
+        self.ui = JigsawPuzzleUI(self)
+        self.set_canvas(self.ui)
 
-		self.show_all()
+        self.show_all()
 
-		TubeHelper.__init__(self, tube_class=GameTube, service=SERVICE)
+        TubeHelper.__init__(self, tube_class=GameTube, service=SERVICE)
 
-	def _destroy_cb(self, data=None):
-		return True
+    def _destroy_cb(self, data=None):
+        return True
 
-	def new_tube_cb (self):
-		self.ui.set_contest_mode(True)
+    def new_tube_cb (self):
+        self.ui.set_contest_mode(True)
 
-	def shared_cb (self):
-		self.ui.buddy_panel.add_player(self.owner)
+    def shared_cb (self):
+        self.ui.buddy_panel.add_player(self.owner)
 
-	def joined_cb (self):
-		self.ui.set_readonly()
+    def joined_cb (self):
+        self.ui.set_readonly()
 
-	def buddy_joined_cb (self, buddy):
-		self.ui.buddy_panel.add_player(buddy)
+    def buddy_joined_cb (self, buddy):
+        nick = self.ui.buddy_panel.add_player(buddy)
+        self.ui.set_message(_("Buddy '%s' joined the game!") % (nick), frommesh=True)
 
-	def buddy_left_cb (self, buddy):
-		self.ui.buddy_panel.remove_player(buddy)
+    def buddy_left_cb (self, buddy):
+        nick = self.ui.buddy_panel.remove_player(buddy)
+        self.ui.set_message(_("Buddy '%s' left the game!") % (nick), frommesh=True)
 
-	def read_file(self, file_path):
-		f = open(file_path, 'r')
-		try:
-			session_data = f.read()
-		finally:
-			f.close()
-		self.ui._thaw(json.read(session_data))
-		#import urllib
-		#logging.debug('Read session: %s.' % urllib.quote(session_data))
-		
-	def write_file(self, file_path):
-		# First make sure the game is showing, as we need that to get the piece positions
-		
-		if not self.ui.game.get_parent():
-			self.ui.game_box.pop()
-		session_data = json.write(self.ui._freeze())
-		f = open(file_path, 'w')
-		try:
-			f.write(session_data)
-		finally:
-			f.close()
-		#import urllib
-		#logging.debug('Write session data: %s.' % urllib.quote(session_data))
+    def read_file(self, file_path):
+        f = open(file_path, 'r')
+        try:
+            session_data = f.read()
+        finally:
+            f.close()
+        self.ui._thaw(json.read(session_data))
+        #import urllib
+        #logging.debug('Read session: %s.' % urllib.quote(session_data))
+        
+    def write_file(self, file_path):
+        # First make sure the game is showing, as we need that to get the piece positions
+        
+        if not self.ui.game.get_parent():
+            self.ui.game_box.pop()
+        session_data = json.write(self.ui._freeze())
+        f = open(file_path, 'w')
+        try:
+            f.write(session_data)
+        finally:
+            f.close()
+        #import urllib
+        #logging.debug('Write session data: %s.' % urllib.quote(session_data))

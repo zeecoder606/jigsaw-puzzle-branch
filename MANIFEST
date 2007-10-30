@@ -47,3 +47,18 @@ lessons/Lesson 1/default.abw
 lessons/Lesson 2/default.abw
 lessons/Lesson 3/default.abw
 po/pt.po
+mmm_modules/borderframe.py
+mmm_modules/buddy_panel.py
+mmm_modules/i18n.py
+mmm_modules/image_category.py
+mmm_modules/__init__.py
+mmm_modules/json.py
+mmm_modules/notebook_reader.py
+mmm_modules/timer.py
+mmm_modules/tubeconn.py
+mmm_modules/tube_helper.py
+mmm_modules/utils.py
+mamamedia_icons/arrow_left.png
+mamamedia_icons/arrow_right.png
+mamamedia_icons/circle-check.svg
+mamamedia_icons/circle-x.svg

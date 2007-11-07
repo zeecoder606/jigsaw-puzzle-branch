@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 12.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 51448)  -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   id="Icon"
+   width="480"
+   height="480"
+   viewBox="0 0 37.855 53.047"
+   overflow="visible"
+   enable-background="new 0 0 37.855 53.047"
+   xml:space="preserve"
+   sodipodi:version="0.32"
+   inkscape:version="0.45"
+   sodipodi:docname="image_XO.svg"
+   sodipodi:docbase="/home/cn/work/clients/wwworkshop/pygtk/SliderPuzzle.activity/images"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   sodipodi:modified="true"><metadata
+   id="metadata2981"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+   id="defs2979" /><sodipodi:namedview
+   inkscape:window-height="621"
+   inkscape:window-width="872"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="1"
+   guidetolerance="10.0"
+   gridtolerance="10.0"
+   objecttolerance="10.0"
+   borderopacity="1.0"
+   bordercolor="#666600"
+   pagecolor="#c5eae8"
+   id="base"
+   inkscape:zoom="0.84791667"
+   inkscape:cx="240"
+   inkscape:cy="240"
+   inkscape:window-x="0"
+   inkscape:window-y="0"
+   inkscape:current-layer="Icon"
+   showborder="true"
+   inkscape:showpageshadow="true"
+   borderlayer="true"
+   width="480px"
+   height="480px" />
+<rect
+   style="fill:#00ffff;fill-opacity:1"
+   id="rect3179"
+   width="53.047001"
+   height="53.047001"
+   x="-7.5960002"
+   y="-2.6645353e-15" /><path
+   d="M 24.787,34.124 L 34.887,44.224 C 35.639,44.974 36.104,46.009 36.104,47.156 C 36.104,49.443 34.249,51.299 31.958,51.299 C 30.813,51.299 29.78,50.836 29.026,50.088 L 18.926,39.986 L 8.826,50.086 C 8.076,50.836 7.039,51.297 5.893,51.297 C 3.608,51.297 1.751,49.443 1.751,47.156 C 1.751,46.01 2.216,44.972 2.963,44.222 L 13.066,34.122 L 2.963,24.02 C 2.216,23.271 1.751,22.235 1.751,21.09 C 1.751,18.801 3.604,16.945 5.896,16.945 C 7.039,16.945 8.076,17.41 8.826,18.159 L 18.925,28.26 L 29.025,18.158 C 29.779,17.409 30.812,16.944 31.959,16.944 C 34.248,16.944 36.105,18.8 36.105,21.089 C 36.105,22.234 35.638,23.268 34.888,24.019 L 24.787,34.124 z "
+   id="path2974"
+   style="fill:#c09a28;fill-opacity:1;stroke:#020202;stroke-width:3.5" />
+<circle
+   cx="18.924999"
+   cy="9.8719997"
+   r="8.1219997"
+   id="circle2976"
+   style="fill:#c09a28;fill-opacity:1;stroke:#020202;stroke-width:3.5"
+   sodipodi:cx="18.924999"
+   sodipodi:cy="9.8719997"
+   sodipodi:rx="8.1219997"
+   sodipodi:ry="8.1219997" />
+</svg>

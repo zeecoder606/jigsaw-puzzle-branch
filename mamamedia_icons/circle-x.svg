@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 12.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 51448)  -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   id="Icon"
+   width="19.997644"
+   height="19.997644"
+   viewBox="0 0 46.119 46.121"
+   overflow="visible"
+   enable-background="new 0 0 46.119 46.121"
+   xml:space="preserve"
+   sodipodi:version="0.32"
+   inkscape:version="0.45"
+   sodipodi:docname="circle-x.svg"
+   sodipodi:docbase="/home/cn/work/clients/wwworkshop/pygtk/SliderPuzzle.activity/icons"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   sodipodi:modified="true"><metadata
+   id="metadata3355"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+   id="defs3353" /><sodipodi:namedview
+   inkscape:window-height="621"
+   inkscape:window-width="872"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="1"
+   guidetolerance="10.0"
+   gridtolerance="10.0"
+   objecttolerance="10.0"
+   borderopacity="1.0"
+   bordercolor="#666666"
+   pagecolor="#0dffff"
+   id="base"
+   inkscape:zoom="8.8246138"
+   inkscape:cx="23.0595"
+   inkscape:cy="23.060499"
+   inkscape:window-x="20"
+   inkscape:window-y="134"
+   inkscape:current-layer="Icon"
+   width="20px"
+   height="20px" />
+<circle
+   cx="23.059999"
+   cy="23.061001"
+   r="21.311001"
+   id="circle3346"
+   sodipodi:cx="23.059999"
+   sodipodi:cy="23.061001"
+   sodipodi:rx="21.311001"
+   sodipodi:ry="21.311001"
+   transform="matrix(0.7071068,-0.7071068,0.7071068,0.7071068,-9.5556897,23.057075)"
+   style="fill:#ff0000;fill-opacity:0;stroke:#ffffff;stroke-width:3.5;stroke-opacity:1" />
+<line
+   x1="30.564133"
+   y1="30.765953"
+   x2="15.350733"
+   y2="15.552551"
+   id="line3348"
+   style="fill:#aaaaaa;stroke:#ffffff;stroke-width:3.5;stroke-linecap:round;stroke-opacity:1" />
+<line
+   x1="15.352855"
+   y1="30.764538"
+   x2="30.564133"
+   y2="15.551845"
+   id="line3350"
+   style="fill:#aaaaaa;fill-opacity:0;stroke:#ffffff;stroke-width:3.5;stroke-linecap:round;stroke-opacity:1" />
+</svg>

@@ -63,8 +63,6 @@ class GameTube (ExportedGObject):
     @signal(dbus_interface=IFACE, signature='su')
     def StatusUpdate (self, status, ellapsed_time):
         """ signal a reshufle, possibly with a new image """
-        # For some reason we don't get our own signals, so short circuit here
-        self.status_update_cb(status, ellapsed_time)
 
     @signal(dbus_interface=IFACE, signature='')
     def RequestImage (self):
@@ -142,29 +140,27 @@ class GameTube (ExportedGObject):
                                                                     path=PATH, sender_keyword='sender')
 
     def piece_placed_cb (self, index, sender=None):
-        self.activity.ui._recv_drop_notification(index)
+        if sender != self.activity.get_bus_name():
+            self.activity.ui._recv_drop_notification(index)
     
     def add_piece_dropped_handler (self):
         self.tube.add_signal_receiver(self.piece_dropped_cb, 'PieceDropped', IFACE,
                                                                     path=PATH, sender_keyword='sender')
 
     def piece_dropped_cb (self, index, position, sender=None):
-        self.activity.ui._recv_drop_notification(index, position)
+        if sender != self.activity.get_bus_name():
+            self.activity.ui._recv_drop_notification(index, position)
 
     def add_status_update_handler(self):
         self.tube.add_signal_receiver(self.status_update_cb, 'StatusUpdate', IFACE,
                                                                     path=PATH, sender_keyword='sender')
 
     def status_update_cb (self, status, join_time, sender=None):
-        if sender is None:
-            buddy = self.activity.owner
-        else:
-            buddy = self.get_buddy(self.tube.bus_name_to_handle[sender])
+        buddy = self.get_buddy(self.tube.bus_name_to_handle[sender])
         logger.debug("status_update: %s %s" % (str(sender), str(join_time)))
         nick, stat = self.activity.ui.buddy_panel.update_player(buddy, status, True, int(join_time))
         if buddy != self.activity.owner:
             self.activity.ui.set_message(_("Buddy '%s' changed status: %s") % (nick, stat), frommesh=True)
-
     
     ##############
     # Methods

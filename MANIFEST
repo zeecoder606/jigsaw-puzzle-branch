@@ -55,7 +55,6 @@ mmm_modules/__init__.py
 mmm_modules/json.py
 mmm_modules/notebook_reader.py
 mmm_modules/timer.py
-mmm_modules/tubeconn.py
 mmm_modules/tube_helper.py
 mmm_modules/utils.py
 mamamedia_icons/arrow_left.png

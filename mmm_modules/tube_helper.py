@@ -217,16 +217,18 @@ class TubeHelper (object):
             if state == telepathy.TUBE_STATE_LOCAL_PENDING:
                 self.tubes_chan[telepathy.CHANNEL_TYPE_TUBES].AcceptDBusTube(id)
 
-            tube_conn = TubeConnection(self.conn,
+            self.tube_conn = TubeConnection(self.conn,
                 self.tubes_chan[telepathy.CHANNEL_TYPE_TUBES],
                 id, group_iface=self.text_chan[telepathy.CHANNEL_INTERFACE_GROUP])
 
-            self.self_handle = self.tubes_chan[telepathy.CHANNEL_INTERFACE_GROUP].GetSelfHandle()
+            
             logger.debug("creating game tube")
-            self.game_tube = self.tube_class(tube_conn, self.initiating, self)
+            self.game_tube = self.tube_class(self.tube_conn, self.initiating, self)
 
         self.new_tube_cb()
 
+    def get_bus_name (self):
+        return self.tube_conn.participants.get(self.tubes_chan[telepathy.CHANNEL_INTERFACE_GROUP].GetSelfHandle(), None)
         
     def new_tube_cb (self):
         """ override this """

@@ -134,7 +134,8 @@ class GameTube (ExportedGObject):
                                                                     path=PATH, sender_keyword='sender')
 
     def piece_picked_cb (self, index, sender=None):
-        self.activity.ui._recv_pick_notification(index)
+        if sender != self.activity.get_bus_name():
+            self.activity.ui._recv_pick_notification(index)
 
     def add_piece_placed_handler (self):
         self.tube.add_signal_receiver(self.piece_placed_cb, 'PiecePlaced', IFACE,

@@ -43,8 +43,8 @@ class GameTube (ExportedGObject):
         self.tube.watch_participants(self.participant_change_cb)
 
     def participant_change_cb(self, added, removed):
-        logger.debug('Adding participants: %r' % added)
-        logger.debug('Removing participants: %r' % removed)
+        logger.debug('Adding participants: %r', added)
+        logger.debug('Removing participants: %r', removed)
 
 
     ###############

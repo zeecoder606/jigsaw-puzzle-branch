@@ -32,6 +32,9 @@ from abiword import Canvas
 
 from gettext import gettext as _
 import locale
+import logging
+
+logger = logging.getLogger('notebook-reader')
 
 class ReaderProvider (object):
     def __init__ (self, path, lang_details=None):
@@ -58,8 +61,6 @@ class ReaderProvider (object):
             code, encoding = locale.getdefaultlocale()
         if code is None:
             code = 'en'
-        canvas = Canvas()
-        canvas.show()
         files = map(lambda x: os.path.join(path, '%s.abw' % x),
                     ('_'+code.lower(), '_'+code.split('_')[0].lower(), 'default'))
         files = filter(lambda x: os.path.exists(x), files)
@@ -73,43 +74,31 @@ class ReaderProvider (object):
 class BasicReaderWidget (gtk.HBox):
     def __init__ (self, path, lang_details=None):
         super(BasicReaderWidget, self).__init__()
-        self._canvas = None
         self.provider = ReaderProvider(path, lang_details)
-        self._load_lesson(*self.provider.lesson_array[0])
-
+        self._canvas = Canvas()
+        self._canvas.show()
+        self.pack_start(self._canvas)
+        self._canvas.connect_after('map-event', self._map_event_cb)
+        
     def get_lessons(self):
         return self.provider.get_lessons()
 
     def load_lesson (self, path):
-        print "load_lesson:" + path
-        if self._canvas:
-            self._canvas.hide()
-            #self.remove(self._canvas)
-            #self._canvas.hide()
-            #del self._canvas
-        #if not self._canvas:
-	canvas = Canvas()
-  	canvas.show()
-        print "show"
-        self.pack_start(canvas)
-        print "pack"
+        logger.debug("load")
         try:
-            canvas.load_file('file://'+path, '')
+            self._canvas.load_file('file://'+path, '')
         except:
-            canvas.load_file(path)
-        print "load"
-        #canvas.view_online_layout()
-        #canvas.zoom_width()
-        #canvas.set_show_margin(False)
-        #while gtk.events_pending():
-        #    gtk.main_iteration(False)
-        if self._canvas:
-            #self.remove(self._canvas)
-            #self._canvas.unparent()
-            del self._canvas
-        self._canvas = canvas
+            self._canvas.load_file(path)
+        self._canvas.zoom_whole()
+        self._canvas.zoom_width()
+        
     def _load_lesson (self, name, path):
         self.load_lesson(path)
+
+    def _map_event_cb(self, o, e):
+        self._load_lesson(*self.provider.lesson_array[0])
+
+
 
 class NotebookReaderWidget (gtk.Notebook):
     def __init__ (self, path, lang_details=None):
@@ -117,16 +106,19 @@ class NotebookReaderWidget (gtk.Notebook):
         self.provider = ReaderProvider(path, lang_details)
         self.set_scrollable(True)
         for name, path in self.provider.get_lessons():
-            self._load_lesson(name, path)
+            canvas = Canvas()
+            canvas.connect_after('map-event', self._map_event_cb, path)
+            canvas.show()
+            canvas._mapped = False
+            try:
+                canvas.load_file('file://' + path, '')
+            except:
+                canvas.load_file(path)
+            self.append_page(canvas, gtk.Label(name))
 
-    def _load_lesson (self, name, path):
-        canvas = Canvas()
-        canvas.show()
-        try:
-            canvas.load_file(path, 'text/plain')
-        except:
-            canvas.load_file(path)
-        canvas.view_online_layout()
-        canvas.zoom_width()
-        canvas.set_show_margin(False)
-        self.append_page(canvas, gtk.Label(name))
+    def _map_event_cb(self, o, e, path):
+        logger.debug("map-event: %s" % path)
+        if not o._mapped:
+            o.zoom_whole()
+            o.zoom_width()
+            o._mapped = True

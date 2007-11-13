@@ -48,9 +48,9 @@ class TubeHelper (object):
         #bus = dbus.Bus()
 
 
-        #name, path = self.pservice.get_preferred_connection()
-        #self.tp_conn_name = name
-        #self.tp_conn_path = path
+        name, path = self.pservice.get_preferred_connection()
+        self.tp_conn_name = name
+        self.tp_conn_path = path
         #self.conn = telepathy.client.Connection(name, path)
         self.game_tube = False
         self.initiating = None
@@ -236,28 +236,23 @@ class TubeHelper (object):
 
     def _get_buddy(self, cs_handle):
         """Get a Buddy from a channel specific handle."""
-        return self._shared_activity.get_buddy_by_handle(cs_handle)
-        #logger.debug('Trying to find owner of handle %u...', cs_handle)
-        #group = self.text_chan[telepathy.CHANNEL_INTERFACE_GROUP]
-        #my_csh = group.GetSelfHandle()
-        #logger.debug('My handle in that group is %u', my_csh)
-        #if my_csh == cs_handle:
-        #    handle = self.conn.GetSelfHandle()
-        #    logger.debug('CS handle %u belongs to me, %u', cs_handle, handle)
-        #elif group.GetGroupFlags() & telepathy.CHANNEL_GROUP_FLAG_CHANNEL_SPECIFIC_HANDLES:
-        #    handle = group.GetHandleOwners([cs_handle])[0]
-        #    logger.debug('CS handle %u belongs to %u', cs_handle, handle)
-        #else:
-        #    handle = cs_handle
-        #    logger.debug('non-CS handle %u belongs to itself', handle)
-        #
-        #    # XXX: deal with failure to get the handle owner
-        #    assert handle != 0
-        #
-        ## XXX: we're assuming that we have Buddy objects for all contacts -
-        ## this might break when the server becomes scalable.
-        #return self.pservice.get_buddy_by_telepathy_handle(self.tp_conn_name,
-        #        self.tp_conn_path, handle)
+        logger.debug('Trying to find owner of handle %u...', cs_handle)
+        group = self.text_chan[telepathy.CHANNEL_INTERFACE_GROUP]
+        my_csh = group.GetSelfHandle()
+        logger.debug('My handle in that group is %u', my_csh)
+        if my_csh == cs_handle:
+            handle = self.conn.GetSelfHandle()
+            logger.debug('CS handle %u belongs to me, %u', cs_handle, handle)
+        elif group.GetGroupFlags() & telepathy.CHANNEL_GROUP_FLAG_CHANNEL_SPECIFIC_HANDLES:
+            handle = group.GetHandleOwners([cs_handle])[0]
+            logger.debug('CS handle %u belongs to %u', cs_handle, handle)
+        else:
+            handle = cs_handle
+            logger.debug('non-CS handle %u belongs to itself', handle)
+            # XXX: deal with failure to get the handle owner
+            assert handle != 0
+        return self.pservice.get_buddy_by_telepathy_handle(self.tp_conn_name,
+                self.tp_conn_path, handle)
 
     def _buddy_joined_cb (self, activity, buddy):
         logger.debug('Buddy %s joined' % buddy.props.nick)

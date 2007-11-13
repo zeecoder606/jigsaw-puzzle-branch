@@ -1,3 +1,12 @@
+2
+
+* Updated lesson plans.
+* Changed the way NotebookReader uses abiword Canvas, making open document look
+  consistent when opened multiple times.
+* Updated tube handling helper to match the new Presence API and removed local tubeconn.py.
+* Removed a little kungfu with soft links. This adds some files redundantly
+  across our activities, but makes activities self contained.
+
 1
 
 * Mesh support

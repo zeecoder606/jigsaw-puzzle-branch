@@ -1,5 +1,5 @@
-#!/usr/bin/env python
-
+# Copyright 2007 World Wide Workshop Foundation
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2 of the License, or
@@ -14,14 +14,9 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
-
-
-### borderframe.py
-### TODO: Describe
-### $Id: $
-###
-### author: Carlos Neves (cn (at) sueste.net)
-### (c) 2007 World Wide Workshop Foundation
+# If you find this activity useful or end up using parts of it in one of your
+# own creations we would love to hear from you at info@WorldWideWorkshop.org !
+#
 
 import pygtk
 pygtk.require('2.0')

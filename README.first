@@ -1,8 +1,0 @@
-From version 3 a set of symbolic links from MaMaMediaMenu.activity are needed, because of issues with security when using shared code based on anyther activity bundle.
-
-The code is still living inside the MaMaMediaMenu source tree, but gets included in this bundle from MANIFEST inclusion.
-
-ln -s ../MaMaMedia.activity/mmm_modules .
-ln -s ../MaMaMedia.activity/icons mamamedia_icons
-
-substitute ../MaMaMedia.activity with wherever you have MaMaMedia bundle installed.

@@ -2,24 +2,22 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-25 14:22+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-01-14 13:40+0000\n"
+"PO-Revision-Date: 2008-09-23 11:29-0400\n"
+"Last-Translator: Eduardo H. Silva <HoboPrimate@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Pootle 1.1.0rc2\n"
 
 #: activity/activity.info:2
-#, fuzzy
 msgid "Jigsaw Puzzle"
-msgstr "Actividade Puzzle"
+msgstr "Puzzle de Peças"
 
 #: i18n_misc_strings.py:1
 msgid "Overview"
@@ -37,65 +35,247 @@ msgstr "Lição 1"
 msgid "Lesson 2"
 msgstr "Lição 2"
 
-#: JigsawPuzzleUI.py:206
+#: JigsawPuzzleActivity.py:183
+#, python-format
+msgid "Buddy '%s' changed status: %s"
+msgstr "'%s' mudou de estado: %s"
+
+#: JigsawPuzzleActivity.py:254
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "'%s' juntou-se ao jogo!"
+
+#: JigsawPuzzleActivity.py:258
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "'%s' saiu do jogo!"
+
+#: JigsawPuzzleUI.py:204
 msgid "Solve"
 msgstr "Resolver"
 
-#: JigsawPuzzleUI.py:210
+#: JigsawPuzzleUI.py:208
 msgid "Shuffle"
 msgstr "Baralhar"
 
-#: JigsawPuzzleUI.py:214
+#: JigsawPuzzleUI.py:212
 msgid "My Picture"
 msgstr "Minha Imagem"
 
-#: JigsawPuzzleUI.py:218
+#: JigsawPuzzleUI.py:216
 msgid "Board Hint"
-msgstr "Ajuda"
+msgstr "Dica de Tabuleiro"
 
-#: JigsawPuzzleUI.py:255
+#: JigsawPuzzleUI.py:254
 msgid "Time: "
-msgstr "Tempo"
+msgstr "Tempo: "
 
-#: JigsawPuzzleUI.py:264 JigsawPuzzleUI.py:463
+#: JigsawPuzzleUI.py:263 JigsawPuzzleUI.py:481
 msgid "Lesson Plans"
 msgstr "Planos de Lição"
 
-#: JigsawPuzzleUI.py:298
-msgid "Select image to share..."
-msgstr "Selecione imagem para partilhar"
+#: JigsawPuzzleUI.py:299
+msgid "Select image and press Start Game..."
+msgstr "Escolhe a imagem e clica Iniciar Jogo..."
 
-#: JigsawPuzzleUI.py:302
-msgid "Waiting for game image..."
-msgstr "Esperando imagem para jogar"
+#: JigsawPuzzleUI.py:303
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr "À espera que a imagem do Puzzle seja escolhida..."
 
-#: JigsawPuzzleUI.py:304 JigsawPuzzleUI.py:351
+#: JigsawPuzzleUI.py:305 JigsawPuzzleUI.py:351
 msgid "Buddies"
-msgstr ""
+msgstr "Participantes"
 
-#: JigsawPuzzleUI.py:310
+#: JigsawPuzzleUI.py:311
 msgid "Game Running"
-msgstr ""
+msgstr "Jogo em Curso"
 
-#: JigsawPuzzleUI.py:340
+#: JigsawPuzzleUI.py:341
 msgid "Start Game"
 msgstr "Iniciar Jogo"
 
-#: JigsawPuzzleUI.py:349
-msgid "Game Started!"
-msgstr "Jogo Iniciado!"
-
 #: JigsawPuzzleUI.py:371
 msgid "Choose a Subject"
-msgstr "Escolha um Tema"
+msgstr "Escolhe um Tema"
 
-#: JigsawPuzzleUI.py:436
+#: JigsawPuzzleUI.py:417
+msgid "Puzzle Solved!"
+msgstr "Puzzle Resolvido!"
+
+#: JigsawPuzzleUI.py:419
+msgid "Press Stop on the Toolbar to Exit Activity!"
+msgstr "Clica Parar na barra de ferramentas para Sair da Actividade!"
+
+#: JigsawPuzzleUI.py:454
 msgid "Jigsaw Puzzle Activity"
-msgstr "Actividade Puzzle"
+msgstr "Actividade Puzzle de Peças"
 
-#: JigsawPuzzleUI.py:466
+#: JigsawPuzzleUI.py:484
 msgid "Close Lesson"
 msgstr "Fechar Lição"
+
+#: JigsawPuzzleUI.py:551
+msgid "Game Started!"
+msgstr "O Jogo Começou!"
+
+#: JigsawPuzzleUI.py:553
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "À espera enquanto a imagem do Puzzle é transferida..."
+
+#: mmm_modules/buddy_panel.py:49
+msgid "Buddy"
+msgstr "Participante"
+
+#: mmm_modules/buddy_panel.py:55
+msgid "Status"
+msgstr "Estado"
+
+#: mmm_modules/buddy_panel.py:62
+msgid "Play Time"
+msgstr "Tempo de Jogo"
+
+#: mmm_modules/buddy_panel.py:69
+msgid "Joined at"
+msgstr "Juntou-se hà"
+
+#: mmm_modules/buddy_panel.py:101
+msgid "synchronizing"
+msgstr "a sincronizar"
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Playing"
+msgstr "A Jogar"
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Paused"
+msgstr "Em Pausa"
+
+#: mmm_modules/buddy_panel.py:117
+msgid "Finished"
+msgstr "Terminou"
+
+#: mmm_modules/buddy_panel.py:119
+msgid "Gave up"
+msgstr "Desistiu"
+
+#: mmm_modules/buddy_panel.py:121
+msgid "Unknown"
+msgstr "Desconhecido"
+
+#: mmm_modules/buddy_panel.py:123
+#, python-format
+msgid "%i minutes"
+msgstr "%i minutos"
+
+#: mmm_modules/i18n.py:36
+msgid "Chinese (simplified)"
+msgstr "Chinês (simplificado)"
+
+#: mmm_modules/i18n.py:37
+msgid "Chinese (traditional)"
+msgstr "Chinês (tradicional)"
+
+#: mmm_modules/i18n.py:38
+msgid "Czech"
+msgstr "Checo"
+
+#: mmm_modules/i18n.py:39
+msgid "Danish"
+msgstr "Dinamarquês"
+
+#: mmm_modules/i18n.py:40
+msgid "Dutch"
+msgstr "Holandês"
+
+#: mmm_modules/i18n.py:41
+msgid "English"
+msgstr "Inglês"
+
+#: mmm_modules/i18n.py:42
+msgid "English - Great Britain"
+msgstr "Inglês - Grã-Bretanha"
+
+#: mmm_modules/i18n.py:43
+msgid "English - U.S."
+msgstr "Inglês - E.U.A."
+
+#: mmm_modules/i18n.py:44
+msgid "Finnish"
+msgstr "Finlandês"
+
+#: mmm_modules/i18n.py:45
+msgid "French"
+msgstr "Francês"
+
+#: mmm_modules/i18n.py:46
+msgid "German"
+msgstr "Alemão"
+
+#: mmm_modules/i18n.py:47
+msgid "Hungarian"
+msgstr "Húngaro"
+
+#: mmm_modules/i18n.py:48
+msgid "Italian"
+msgstr "Italiano"
+
+#: mmm_modules/i18n.py:49
+msgid "Japanese"
+msgstr "Japonês"
+
+#: mmm_modules/i18n.py:50
+msgid "Korean"
+msgstr "Coreano"
+
+#: mmm_modules/i18n.py:51
+msgid "Norwegian"
+msgstr "Norueguês"
+
+#: mmm_modules/i18n.py:52
+msgid "Polish"
+msgstr "Polaco"
+
+#: mmm_modules/i18n.py:53
+msgid "Portuguese"
+msgstr "Português"
+
+#: mmm_modules/i18n.py:54
+msgid "Portuguese - Brazilian"
+msgstr "Português - Brasil"
+
+#: mmm_modules/i18n.py:55
+msgid "Russian"
+msgstr "Russo"
+
+#: mmm_modules/i18n.py:56
+msgid "Slovak"
+msgstr "Eslovaco"
+
+#: mmm_modules/i18n.py:57
+msgid "Spanish"
+msgstr "Espanhol"
+
+#: mmm_modules/i18n.py:58
+msgid "Swedish"
+msgstr "Sueco"
+
+#: mmm_modules/i18n.py:59
+msgid "Turkish"
+msgstr "Turco"
+
+#: mmm_modules/image_category.py:215
+msgid "Choose image"
+msgstr "Escolhe a imagem"
+
+#: mmm_modules/image_category.py:226
+msgid "Not a valid image file"
+msgstr "O ficheiro de Imagem não é válido"
+
+#~ msgid "Select image to share..."
+#~ msgstr "Selecione imagem para partilhar"
+
+#~ msgid "Waiting for game image..."
+#~ msgstr "Esperando imagem para jogar"
 
 #~ msgid "Give Up"
 #~ msgstr "Desistir"

@@ -5,3 +5,4 @@ class = JigsawPuzzleActivity.JigsawPuzzleActivity
 icon = activity-jigsawpuzzle
 activity_version = 3
 show_launcher = yes
+license = GPLv2+

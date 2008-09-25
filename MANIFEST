@@ -61,3 +61,12 @@ mamamedia_icons/arrow_left.png
 mamamedia_icons/arrow_right.png
 mamamedia_icons/circle-check.svg
 mamamedia_icons/circle-x.svg
+AUTHORS
+NEWS
+setup.py
+activity/activity-jigsawpuzzle.svg
+activity/activity.info
+locale/pt/activity.linfo
+locale/pt/LC_MESSAGES/org.worldwideworkshop.olpc.JigsawPuzzle.mo
+mamamedia_icons/circle.svg.tmpl
+po/JigsawPuzzle.pot

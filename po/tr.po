@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-14 13:40+0000\n"
-"PO-Revision-Date: 2008-09-07 03:03-0400\n"
+"PO-Revision-Date: 2008-10-07 04:26-0400\n"
 "Last-Translator: abdullah kocabas <abdullah.kocabas@abcdizustu.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,23 +17,23 @@ msgstr ""
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
-msgstr "yapboz oyunu"
+msgstr "Yapboz Oyunu"
 
 #: i18n_misc_strings.py:1
 msgid "Overview"
-msgstr "göz gezdirmek"
+msgstr "Göz gezdir"
 
 #: i18n_misc_strings.py:2
 msgid "Lesson 3"
-msgstr "ders 3"
+msgstr "Ders 3"
 
 #: i18n_misc_strings.py:3
 msgid "Lesson 1"
-msgstr "ders 1"
+msgstr "Ders 1"
 
 #: i18n_misc_strings.py:4
 msgid "Lesson 2"
-msgstr "ders 2"
+msgstr "Ders 2"
 
 #: JigsawPuzzleActivity.py:183
 #, python-format
@@ -52,15 +52,15 @@ msgstr "'%s' arkadaşınız oyunu bıraktı"
 
 #: JigsawPuzzleUI.py:204
 msgid "Solve"
-msgstr "çözünüz."
+msgstr "Çöz"
 
 #: JigsawPuzzleUI.py:208
 msgid "Shuffle"
-msgstr "karıştırınız."
+msgstr "Karıştır"
 
 #: JigsawPuzzleUI.py:212
 msgid "My Picture"
-msgstr "resmim"
+msgstr "Resmim"
 
 #: JigsawPuzzleUI.py:216
 msgid "Board Hint"
@@ -68,99 +68,99 @@ msgstr "oyun tahtası işareti"
 
 #: JigsawPuzzleUI.py:254
 msgid "Time: "
-msgstr "zaman:"
+msgstr "Zaman:"
 
 #: JigsawPuzzleUI.py:263 JigsawPuzzleUI.py:481
 msgid "Lesson Plans"
-msgstr "ders planları"
+msgstr "Ders Planları"
 
 #: JigsawPuzzleUI.py:299
 msgid "Select image and press Start Game..."
-msgstr "obje seçiniz ve oyuna başla'ya basınız."
+msgstr "Resim seç ve Oyuna Başla'ya bas..."
 
 #: JigsawPuzzleUI.py:303
 msgid "Waiting for Puzzle image to be chosen..."
-msgstr "yapboz resminin seçilmesi bekleniyor."
+msgstr "Yapboz resminin seçilmesi bekleniyor..."
 
 #: JigsawPuzzleUI.py:305 JigsawPuzzleUI.py:351
 msgid "Buddies"
-msgstr "arkadaşlar"
+msgstr "Arkadaşlar"
 
 #: JigsawPuzzleUI.py:311
 msgid "Game Running"
-msgstr "oyun devam ediyor."
+msgstr "Oyun devam ediyor"
 
 #: JigsawPuzzleUI.py:341
 msgid "Start Game"
-msgstr "oyunu başlatınız."
+msgstr "Oyunu başlat"
 
 #: JigsawPuzzleUI.py:371
 msgid "Choose a Subject"
-msgstr "bir konu seçiniz."
+msgstr "Bir konu seç"
 
 #: JigsawPuzzleUI.py:417
 msgid "Puzzle Solved!"
-msgstr "yapboz çözüldü."
+msgstr "Yapboz Çözüldü!"
 
 #: JigsawPuzzleUI.py:419
 msgid "Press Stop on the Toolbar to Exit Activity!"
-msgstr "aktiviteden çıkmak için araç çubuğunda bulunan 'dur' duşuna basınız."
+msgstr "Aktiviteden çıkmak için araç çubuğunda bulunan 'dur' duşuna bas!"
 
 #: JigsawPuzzleUI.py:454
 msgid "Jigsaw Puzzle Activity"
-msgstr "yapboz oyunu aktivitesi"
+msgstr "Yapboz oyunu aktivitesi"
 
 #: JigsawPuzzleUI.py:484
 msgid "Close Lesson"
-msgstr "dersi kapatınız."
+msgstr "Dersi kapat"
 
 #: JigsawPuzzleUI.py:551
 msgid "Game Started!"
-msgstr "oyun başladı!"
+msgstr "Oyun başladı!"
 
 #: JigsawPuzzleUI.py:553
 msgid "Waiting for Puzzle image to be transferred..."
-msgstr "yapboz resminin aktarılması için bekleniyor..."
+msgstr "Yapboz resminin aktarılması için bekleniyor..."
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr "arkadaş"
+msgstr "Arkadaş"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
-msgstr "durum"
+msgstr "Durum"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
-msgstr "oyun zamanı"
+msgstr "Oyun Zamanı"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr "katılmıştır."
+msgstr "Katıldı"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr "birlikte hareket etmek"
+msgstr "birlikte hareket et"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr "oynatılıyor."
+msgstr "Oynatılıyor"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr "duraklatılmış."
+msgstr "Ara"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
-msgstr "tamamlanmıştır."
+msgstr "Tamamlandı"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
-msgstr "vazgeçiniz."
+msgstr "Vazgeçildi"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
-msgstr "bilinmeyen"
+msgstr "Bilinmeyen"
 
 #: mmm_modules/buddy_panel.py:123
 #, python-format
@@ -265,8 +265,8 @@ msgstr "Türkçe"
 
 #: mmm_modules/image_category.py:215
 msgid "Choose image"
-msgstr "Görüntü seçiniz."
+msgstr "Görüntü seç"
 
 #: mmm_modules/image_category.py:226
 msgid "Not a valid image file"
-msgstr "Geçerli resim dosyası değildir."
+msgstr "Geçerli resim dosyası değil"

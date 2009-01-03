@@ -433,7 +433,7 @@ class CutBoard (object):
             os.remove(fn)
             self.pb = i.get_pixbuf()
             del data['pb']
-        print "cutboard._thaw(%s)" % str(data)
+        logging.debug("cutboard._thaw(%s)" % str(data))
         cols, rows = data['geom']
         hch, vch = data['hints']
         cutter = data['cutter']
@@ -500,7 +500,7 @@ class JigsawBoard (BorderFrame):
                 pch -= 1
                 changed = True
 
-        print ("Board matrix", pcw, pch)
+        logging.debug("Board matrix %s %s" % (pcw, pch))
         if reshuffle:
             self.cutboard._prepare(pcw, pch)
         # Prepare the pieces
@@ -540,7 +540,7 @@ class JigsawBoard (BorderFrame):
         bx, by, mx, my = self.board_distribution[index]
         x -= self.padding[0]
         y -= self.padding[1]
-        print "Board drop for piece #%i (%i,%i) : (%i,%i)" % (index, x,y,bx,by)
+        logging.debug("Board drop for piece #%i (%i,%i) : (%i,%i)" % (index, x,y,bx,by))
         if abs(bx-x) < mx and abs(by-y) < my:
             # We have a positive positioning
             self.place_piece(piece)
@@ -676,7 +676,7 @@ class JigsawPuzzleWidget (gtk.EventBox):
             wx,wy = 0,0
         else:
             wx,wy = self._container.child_get(w, 'x', 'y')
-        #print "moving %i,%i : %i:%i : %i:%i" % (wx,wy, x, y,wx+x, wy+y)
+        #logging.debug("moving %i,%i : %i:%i : %i:%i" % (wx,wy, x, y,wx+x, wy+y))
         self._container.move(w, max(0,wx+x), max(0,wy+y))
 
     def _drop_cb (self, w, from_mesh=False):
@@ -685,7 +685,7 @@ class JigsawPuzzleWidget (gtk.EventBox):
         self.bring_to_top(w)
         x,y,a,b = w.get_allocation()
         c,d = w.get_size_request()
-        print "Dropped Widget allocation:",x,y,a,b,c,d
+        logging.debug("Dropped Widget allocation: %s %s %s %s %s %s" % (x,y,a,b,c,d))
         if w.intersect(self.board.get_allocation()):
             wx,wy,ww,wh = w.get_allocation()
             bx,by,bw,bh = self.board.get_allocation()
@@ -693,7 +693,7 @@ class JigsawPuzzleWidget (gtk.EventBox):
         self.emit('dropped', w, from_mesh)
         
     def _debug_cb (self, w, e, *args):
-        print w, e, args
+        logging.debug("%s %s %s" % (w, e, args))
 
     def _freeze (self, img_cksum_only=False):
         pieces = [(x.get_index(), None) for x in self.board.get_placed_pieces()]

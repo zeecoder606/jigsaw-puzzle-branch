@@ -110,7 +110,7 @@ class BuddyPanel (gtk.ScrolledWindow):
         if self.players.get(op, None) is None:
             logging.debug("Player %s not found" % op)
             return
-        print self.players[op]
+        logging.debug(self.players[op])
         if status == GAME_STARTED[1]:
             stat = clock_running and _("Playing") or _("Paused")
         elif status == GAME_FINISHED[1]:

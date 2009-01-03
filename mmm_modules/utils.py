@@ -21,6 +21,7 @@
 import pygtk
 pygtk.require('2.0')
 import gtk
+import logging
 
 RESIZE_STRETCH = 1
 RESIZE_CUT = 2
@@ -102,7 +103,7 @@ def load_image (filename, width=-1, height=-1, method=RESIZE_CUT):
 def resize_image (pb, width=-1, height=-1, method=RESIZE_CUT):
     if pb is None:
         return None
-    print "utils: method=%i" % method
+    logging.debug("utils: method=%i" % method)
     if method == RESIZE_STRETCH or width == -1 or height == -1:
         w,h = calculate_relative_size(pb.get_width(), pb.get_height(), width, height)
         scaled_pb = pb.scale_simple(w,h, gtk.gdk.INTERP_BILINEAR)
@@ -113,7 +114,7 @@ def resize_image (pb, width=-1, height=-1, method=RESIZE_CUT):
         factor = min(hr, wr)
         w = w * factor
         h = h * factor
-        print "RESIZE_PAD: %i,%i,%f" % (w,h,factor)
+        logging.debug("RESIZE_PAD: %i,%i,%f" % (w,h,factor))
         scaled_pb = pb.scale_simple(int(w), int(h), gtk.gdk.INTERP_BILINEAR)
     else: # RESIZE_CUT / default
         w,h = pb.get_width(), pb.get_height()
@@ -159,7 +160,7 @@ def resize_image (pb, width=-1, height=-1, method=RESIZE_CUT):
 
 def trace (func):
     def wrapped (*args, **kwargs):
-        print ("TRACE", func.func_name, args, kwargs)
+        logging.debug("TRACE %s %s %s" % (func.func_name, args, kwargs))
         return func(*args, **kwargs)
     return wrapped
 

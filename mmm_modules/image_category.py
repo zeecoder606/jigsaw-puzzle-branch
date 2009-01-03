@@ -132,7 +132,7 @@ class CategoryDirectory (object):
         return self.get_image(self.images[pos])
 
     def has_images (self):
-        print ("IMG", self.images)
+        logging.debug("IMG %s" % self.images)
         return len(self.images) > 0
 
     def count_images (self):
@@ -146,12 +146,12 @@ class CategoryDirectory (object):
             thumbs = glob(os.path.join(self.path, "thumb.*"))
             thumbs.extend(glob(os.path.join(self.path, "default_thumb.*")))
             thumbs.extend(glob(os.path.join(mmmpath, "mmm_images","default_thumb.*")))
-            print thumbs
+            logging.debug(thumbs)
             thumbs = filter(lambda x: os.path.exists(x), thumbs)
             thumbs.append(None)
         else:
             thumbs = [self.path]
-        print (self.path, thumbs)
+        logging.debug("%s %s" % (self.path, thumbs))
         return load_image(thumbs[0], self.twidth, self.theight)
     
 
@@ -440,7 +440,7 @@ class CategorySelector (gtk.ScrolledWindow):
         files.extend(extra)
         for fullpath, prettyname in [(x, _(os.path.basename(x))) for x in files if os.path.isdir(x)]:
             count = CategoryDirectory(fullpath).count_images()
-            print (fullpath, prettyname, count)
+            logging.debug("%s %s %s" % (fullpath, prettyname, count))
             store.append([fullpath, prettyname + (" (%i)" % count), len(self.thumbs)])
             self.thumbs.append(self.get_pb(fullpath))
         #if os.path.isdir(MYOWNPIC_FOLDER):

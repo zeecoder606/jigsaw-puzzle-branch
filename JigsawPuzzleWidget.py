@@ -374,8 +374,8 @@ class CutBoard (object):
 
         width += width_offset
         height += height_offset
-        px -= offsets['left']
-        py -= offsets['top']
+        px -= int(offsets['left'])
+        py -= int(offsets['top'])
 
         # The piece image
         self.refresh()

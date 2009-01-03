@@ -563,7 +563,8 @@ class JigsawPuzzleUI (BorderFrame):
     @utils.trace
     def _send_pick_notification (self, piece):
         """ """
-        self._parent.game_tube.PiecePicked(piece.get_index())
+        if self._parent._shared_activity:
+            self._parent.game_tube.PiecePicked(piece.get_index())
 
     @utils.trace
     def _recv_pick_notification (self, index):

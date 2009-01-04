@@ -676,8 +676,14 @@ class JigsawPuzzleWidget (gtk.EventBox):
             wx,wy = 0,0
         else:
             wx,wy = self._container.child_get(w, 'x', 'y')
-        #logging.debug("moving %i,%i : %i:%i : %i:%i" % (wx,wy, x, y,wx+x, wy+y))
-        self._container.move(w, max(0,wx+x), max(0,wy+y))
+
+        wa = w.get_allocation()
+        ca = self._container.get_allocation()
+
+        if wx+x > 0 and wy+y > 0 and wx+wa[2]+x <= ca[2] \
+                and wy+wa[3]+y <= ca[3]:
+            #logging.debug("moving %i,%i : %i:%i : %i:%i" % (wx,wy, x, y,wx+x, wy+y))
+            self._container.move(w, max(0,wx+x), max(0,wy+y))
 
     def _drop_cb (self, w, from_mesh=False):
         if w.get_parent() != self._container:

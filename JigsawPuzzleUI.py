@@ -407,8 +407,9 @@ class JigsawPuzzleUI (BorderFrame):
             logging.debug('do_shuffle')
             self.timer.start()
         elif self.thumb.has_image():
-            if self.timer.is_reset() and not self._shuffling:
+            if not self._shuffling:
                 logging.debug('do_shuffle start')
+                self.timer.stop()
                 self._shuffling = True
                 self._show_game(self.thumb.get_image())
                 self.timer.reset(False)
@@ -542,14 +543,17 @@ class JigsawPuzzleUI (BorderFrame):
                     'game': self.game._freeze(img_cksum_only=True),}
 
     def _thaw (self, data):
+        self.timer.reset()
         for k in ('thumb', 'timer', 'game'):
             if data.has_key(k):
+                logging.debug('_thaw data for %s: %s' % (k, data))
                 getattr(self, k)._thaw(data[k])
         if data.has_key('game'):# and not data.has_key('thumb'):
             self.thumb.load_pb(self.game.board.cutboard.pb)
         if data.has_key('timer'):
             self._join_time = self.timer.ellapsed()
-        self._show_game(reshuffle=False)
+        if data.has_key('game') and data['game']['piece_pos']:
+            self._show_game(reshuffle=False)
 
     @utils.trace
     def _send_status_update (self):

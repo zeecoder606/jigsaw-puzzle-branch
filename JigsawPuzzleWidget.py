@@ -103,7 +103,7 @@ class JigsawPiece (gtk.EventBox):
 
     def get_position (self):
         # The position relative to the puzzle playing area
-        if self.parent.window is not None:
+        if self.parent and self.parent.window:
             bx,by = self.parent.window.get_origin()
             px,py = self.window.get_origin()
             self.last_coords = (px-bx,py-by)

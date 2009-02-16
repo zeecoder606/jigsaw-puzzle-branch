@@ -18,6 +18,10 @@
 # own creations we would love to hear from you at info@WorldWideWorkshop.org !
 #
 
+# init gthreads before using abiword
+import gobject
+gobject.threads_init()
+
 from sugar.activity.activity import Activity, ActivityToolbox, get_bundle_path
 from gettext import gettext as _
 import logging, os, sys

@@ -274,8 +274,6 @@ class JigsawPuzzleActivity(Activity, TubeHelper):
     def write_file(self, file_path):
         # First make sure the game is showing, as we need that to get the piece positions
         
-        if not self.ui.game.get_parent():
-            self.ui.game_box.pop()
         session_data = json.write(self.ui._freeze())
         f = open(file_path, 'w')
         try:

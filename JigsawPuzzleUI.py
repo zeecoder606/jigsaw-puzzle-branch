@@ -83,6 +83,9 @@ class JigsawPuzzleUI (BorderFrame):
     
     def __init__(self, parent):
         super(JigsawPuzzleUI, self).__init__(border_color=COLOR_FRAME_OUTER)
+
+        self._shuffling = False
+
         self._parent = parent
         # We want the translatables to be detected but not yet translated
         global _
@@ -386,7 +389,9 @@ class JigsawPuzzleUI (BorderFrame):
         c = gtk.gdk.Cursor(gtk.gdk.WATCH)
         self.window.set_cursor(c)
         if not self.game.prepare_image(pixbuf, reshuffle):
+            self._shuffling = False
             return
+        self._shuffling = False
         self.window.set_cursor(None)
         #self.game.randomize()
 
@@ -399,11 +404,15 @@ class JigsawPuzzleUI (BorderFrame):
              o == self.btn_shuffle and \
              self.timer.is_reset():
             # Start
+            logging.debug('do_shuffle')
             self.timer.start()
         elif self.thumb.has_image():
-            self._show_game(self.thumb.get_image())
-            self.timer.reset(False)
-            self.do_show_hint(self.btn_hint)
+            if self.timer.is_reset() and not self._shuffling:
+                logging.debug('do_shuffle start')
+                self._shuffling = True
+                self._show_game(self.thumb.get_image())
+                self.timer.reset(False)
+                self.do_show_hint(self.btn_hint)
         
     def do_solve (self, o, *args):
         if not self.game.is_running():

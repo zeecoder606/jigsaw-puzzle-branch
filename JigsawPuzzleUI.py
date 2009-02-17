@@ -229,7 +229,13 @@ class JigsawPuzzleUI (BorderFrame):
 
         self.game_box = BorderFrame(border_color=COLOR_FRAME_GAME)
         self.game_box.add(self.game)
-        inner_table.attach(self.game_box, 1,2,0,1)
+
+        self.notebook = gtk.Notebook()
+        self.notebook.show()
+        self.notebook.props.show_border = False
+        self.notebook.props.show_tabs = False
+        self.notebook.append_page(self.game_box)
+        inner_table.attach(self.notebook, 1,2,0,1)
 
         lang_combo = prepare_btn(LanguageComboBox('org.worldwideworkshop.olpc.JigsawPuzzle'))
         lang_combo.connect('changed', self.do_select_language)
@@ -469,23 +475,28 @@ class JigsawPuzzleUI (BorderFrame):
                 lbl[0].set_label(_(lbl[1]))
         if not self.game.get_parent() and not first_time:
             self.game_box.pop()
-            if isinstance(self.game_box.get_child(), NotebookReaderWidget):
+            if self.notebook.get_current_page() == 1:
                 m = self.do_lesson_plan
             else:
                 m = self.do_select_category
             m(self)
 
     def do_lesson_plan (self, btn):
-        if isinstance(self.game_box.get_child(), NotebookReaderWidget):
-            self.game_box.pop()
-        else:
-            s = NotebookReaderWidget('lessons', self.selected_lang_details)
-            s.connect('parent-set', self.do_lesson_plan_reparent)
-            s.show_all()
-            self.game_box.push(s)
-            #self.timer.stop()
+        page = self.notebook.get_current_page()
+
+        if page == 0:
+            if self.notebook.get_n_pages() == 1:
+                lessons = NotebookReaderWidget('lessons',
+                        self.selected_lang_details)
+                lessons.connect('parent-set', self.do_lesson_plan_reparent)
+                lessons.show_all()
+                self.notebook.append_page(lessons)
+
+        self.notebook.set_current_page(int(not page))
 
     def do_lesson_plan_reparent (self, widget, oldparent):
+        if not self.btn_lesson.get_child():
+            return
         if widget.parent is None:
             self.set_button_translation(self.btn_lesson, "Lesson Plans")
             self.btn_lesson.get_child().set_label(_("Lesson Plans"))

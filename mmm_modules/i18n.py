@@ -69,7 +69,7 @@ class LangDetails (object):
 
     def guess_translation (self, fallback=False):
         try:
-            self.gnutranslation = gettext.translation(self.domain,
+            self.gnutranslation = gettext.translation(self.domain, 'locale',
                     languages=[self.code], fallback=fallback)
             return True
         except:

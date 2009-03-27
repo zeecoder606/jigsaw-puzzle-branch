@@ -8,6 +8,8 @@
 ]>
 <svg  version="1.1" id="Layer_2" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="54.949" height="54.959"
 	 viewBox="0 0 54.949 54.959" overflow="visible" enable-background="new 0 0 54.949 54.959" xml:space="preserve">
+<g transform="translate(4,4)">
+<g transform="scale(0.84)">
 <rect x="1.5" y="1.5" fill="&fill_color;" stroke="&stroke_color;" stroke-width="3" width="51.949" height="51.959"/>
 <rect x="6.567" y="7.26" fill="&fill_color;" stroke="&stroke_color;" stroke-width="3" width="41.59" height="40.194"/>
 <path fill="&fill_color;" stroke="&stroke_color;" stroke-width="3" d="M25.547,7.913v8.824c0,0-2.77-1.364-4.085,0.326
@@ -17,6 +19,8 @@
 	s-2.387-5.658,2.785-5.299c5.172,0.357,6.499,5.014,5.769,6.232c-0.729,1.216,6.166-0.143,6.166-0.143"/>
 <path fill="&fill_color;" stroke="&stroke_color;" stroke-width="3" d="M26.491,46.535v-6.23c0,0,4.641,1.792,6.169,0.288
 	c1.523-1.508,2.98-5.662,0.595-6.447c-2.386-0.79-7.758,0.571-7.758,0.571l-0.398-6.733"/>
+</g>
+</g>
 </svg>
 
 

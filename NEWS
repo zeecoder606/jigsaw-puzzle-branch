@@ -1,3 +1,13 @@
+6
+
+* #624 Several icons does not look nice in the ring 
+* Do not erase board on saving
+* Do not hang board after loading empty jobject
+* Set timer's value after loading
+* Do not multi shuffle
+* Init gthreads before using abiword
+* Update localization
+
 5
 
 * Fixed MANIFEST (morgs)

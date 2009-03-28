@@ -3,6 +3,6 @@ name = Jigsaw Puzzle
 bundle_id = org.worldwideworkshop.olpc.JigsawPuzzle
 exec = sugar-activity JigsawPuzzleActivity.JigsawPuzzleActivity -s
 icon = activity-jigsawpuzzle
-activity_version = 5
+activity_version = 6
 show_launcher = yes
 license = GPLv2+

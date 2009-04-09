@@ -27,6 +27,7 @@ from glob import glob
 import logging
 import md5
 
+from sugar import mime
 from sugar.graphics.objectchooser import ObjectChooser
 
 from borderframe import BorderFrame
@@ -212,8 +213,14 @@ class ImageSelectorWidget (gtk.Table):
     def add_image (self, *args):#widget=None, response=None, *args):
         """ Use to trigger and process the My Own Image selector. """
 
-        chooser = ObjectChooser(_('Choose image'), None, #self._parent,
-                                gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT)
+        if hasattr(mime, 'GENERIC_TYPE_IMAGE'):
+            chooser = ObjectChooser(_('Choose image'), None, #self._parent,
+                                    gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+                                    what_filter=mime.GENERIC_TYPE_IMAGE)
+        else:
+            chooser = ObjectChooser(_('Choose image'), None, #self._parent,
+                                    gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT)
+
         try:
             result = chooser.run()
             if result == gtk.RESPONSE_ACCEPT:

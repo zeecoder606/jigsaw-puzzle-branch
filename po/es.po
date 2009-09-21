@@ -7,13 +7,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-14 13:40+0000\n"
-"PO-Revision-Date: 2008-11-23 13:55-0500\n"
-"Last-Translator: Gabriel Caro <gecaro@gmail.com>\n"
+"PO-Revision-Date: 2009-06-10 10:57-0400\n"
+"Last-Translator: Gabriel Eirea <geirea@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.1.0rc2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 1.2.1\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
@@ -119,9 +121,8 @@ msgid "Game Started!"
 msgstr "Juego Comenzado!"
 
 #: JigsawPuzzleUI.py:553
-#, fuzzy
 msgid "Waiting for Puzzle image to be transferred..."
-msgstr "Esperando a que la imagen del Rompecabezas sea elejida..."
+msgstr "Esperando a que la imagen del Rompecabezas sea transferida..."
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"

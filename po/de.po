@@ -7,13 +7,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-14 13:40+0000\n"
-"PO-Revision-Date: 2008-09-19 10:26-0400\n"
+"PO-Revision-Date: 2009-09-23 18:57-0400\n"
 "Last-Translator: Markus Schlager <m.slg@gmx.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.1.0rc2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 1.2.1\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
@@ -56,7 +58,6 @@ msgstr "Lösen"
 
 # (Markus S.) war 'Schieben', ist hier aber gepaart mit 'Solve'
 #: JigsawPuzzleUI.py:208
-#, fuzzy
 msgid "Shuffle"
 msgstr "Mischen"
 
@@ -81,8 +82,8 @@ msgid "Select image and press Start Game..."
 msgstr "Wähle ein Bild aus und drücke 'Spiel starten'..."
 
 # (Markus S.) war 'Auf Auswahl des Puzzle-Bildes warten...'
+# O.T.: 1. Person ist richtig, da Statusmeldung.
 #: JigsawPuzzleUI.py:303
-#, fuzzy
 msgid "Waiting for Puzzle image to be chosen..."
 msgstr "Warte auf Auswahl des Puzzle-Bildes..."
 
@@ -92,7 +93,6 @@ msgstr "Spielkameraden"
 
 # (Markus S.) war 'Laufendes Spiel'
 #: JigsawPuzzleUI.py:311
-#, fuzzy
 msgid "Game Running"
 msgstr "Spiel läuft"
 
@@ -141,33 +141,34 @@ msgid "Play Time"
 msgstr "Spielzeit"
 
 #: mmm_modules/buddy_panel.py:69
-#, fuzzy
 msgid "Joined at"
 msgstr "Im Spiel seit"
 
 # (Markus S.) war 'Synchronisierung'; klingt nach Statusmeldung
 #: mmm_modules/buddy_panel.py:101
-#, fuzzy
 msgid "synchronizing"
 msgstr "Gleiche ab"
 
 # (Markus S.) war 'Im Spiel'
+# (Oliver T.) erscheint in der Buddyliste hinter den Spielern, die mitspielen; also passt 'Im Spiel'
 #: mmm_modules/buddy_panel.py:115
-#, fuzzy
 msgid "Playing"
-msgstr "Spiel läuft"
+msgstr "Im Spiel"
 
+# O.T.: war 'Angehalten'; Ist Attribut hinter dem Netz-Spielernamen. Vorschlag: 'Pausiert'
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr "Angehalten"
+msgstr "Pausiert"
 
+# O.T.: war 'Beendet'; Ist Attribut hinter dem Netz-Spielernamen. Vorschlag: 'Ist fertig'
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
-msgstr "Beendet"
+msgstr "Ist fertig"
 
+# O.T.: war 'Aufgegeben'; Ist Attribut hinter dem Netz-Spielernamen. Vorschlag: 'Hat aufgegeben'
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
-msgstr "Aufgegeben"
+msgstr "Hat aufgegeben"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"

@@ -166,8 +166,10 @@ class ImageSelectorWidget (gtk.Table):
                   frame_color=None,
                   prepare_btn_cb=prepare_btn,
                   method=RESIZE_CUT,
-                  image_dir=None):
+                  image_dir=None,
+                  parent=None):
         gtk.Table.__init__(self, 2,5,False)
+        self._parent = parent
         self._signals = []
         self.width = width
         self.height = height
@@ -214,11 +216,11 @@ class ImageSelectorWidget (gtk.Table):
         """ Use to trigger and process the My Own Image selector. """
 
         if hasattr(mime, 'GENERIC_TYPE_IMAGE'):
-            chooser = ObjectChooser(_('Choose image'), None, #self._parent,
+            chooser = ObjectChooser(_('Choose image'), self._parent,
                                     gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
                                     what_filter=mime.GENERIC_TYPE_IMAGE)
         else:
-            chooser = ObjectChooser(_('Choose image'), None, #self._parent,
+            chooser = ObjectChooser(_('Choose image'), self._parent,
                                     gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT)
 
         try:

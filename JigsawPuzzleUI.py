@@ -189,7 +189,8 @@ class JigsawPuzzleUI (BorderFrame):
         self.thumb = ImageSelectorWidget(frame_color=COLOR_FRAME_THUMB,
                                          prepare_btn_cb=prepare_btn,
                                          method=utils.RESIZE_PAD,
-                                         image_dir="images")
+                                         image_dir="images",
+                                         parent=self._parent)
         self.thumb.connect("category_press", self.do_select_category)
         self.thumb.connect("image_press", self.do_shuffle)
         control_panel_box.pack_start(self.thumb, expand=False)

@@ -1,3 +1,10 @@
+8
+
+* Puzzle: image does not fit in small screen (eee 90x sized) #867
+* Activity does not pass parent window xid to ObjectChooser #1999
+* Added localization for ar
+* Updated localization for de, es, fr and it
+
 7
 
 * Add filter to ObjectChooser invoking

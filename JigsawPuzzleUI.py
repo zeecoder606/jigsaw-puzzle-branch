@@ -121,7 +121,14 @@ class JigsawPuzzleUI (BorderFrame):
                                     border_color=COLOR_FRAME_CONTROLS,
                                     bg_color=COLOR_BG_CONTROLS)
         control_panel_box = gtk.VBox()
-        control_panel.add(control_panel_box)
+
+        scrolled = gtk.ScrolledWindow()
+        scrolled.props.hscrollbar_policy = gtk.POLICY_NEVER
+        scrolled.props.vscrollbar_policy = gtk.POLICY_AUTOMATIC
+        scrolled.show()
+        scrolled.add_with_viewport(control_panel_box)
+        scrolled.child.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse(COLOR_BG_CONTROLS))
+        control_panel.add(scrolled)
 
         spacer = gtk.Label()
         spacer.set_size_request(-1, 5)

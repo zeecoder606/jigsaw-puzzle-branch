@@ -1,0 +1,294 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-01-14 13:40+0000\n"
+"PO-Revision-Date: 2010-09-05 16:01+0200\n"
+"Last-Translator: Robert <robert_readman@hotmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.3\n"
+
+#: activity/activity.info:2
+msgid "Jigsaw Puzzle"
+msgstr "Jigsaw Puzzle"
+
+#: i18n_misc_strings.py:1
+msgid "Overview"
+msgstr "Overview"
+
+#: i18n_misc_strings.py:2
+msgid "Lesson 3"
+msgstr "Lesson 3"
+
+#: i18n_misc_strings.py:3
+msgid "Lesson 1"
+msgstr "Lesson 1"
+
+#: i18n_misc_strings.py:4
+msgid "Lesson 2"
+msgstr "Lesson 2"
+
+#: JigsawPuzzleActivity.py:183
+#, python-format
+msgid "Buddy '%s' changed status: %s"
+msgstr "Buddy '%s' changed status: %s"
+
+#: JigsawPuzzleActivity.py:254
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "Buddy '%s' joined the game!"
+
+#: JigsawPuzzleActivity.py:258
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "Buddy '%s' left the game!"
+
+#: JigsawPuzzleUI.py:204
+msgid "Solve"
+msgstr "Solve"
+
+#: JigsawPuzzleUI.py:208
+msgid "Shuffle"
+msgstr "Shuffle"
+
+#: JigsawPuzzleUI.py:212
+msgid "My Picture"
+msgstr "My Picture"
+
+#: JigsawPuzzleUI.py:216
+msgid "Board Hint"
+msgstr "Board Hint"
+
+#: JigsawPuzzleUI.py:254
+msgid "Time: "
+msgstr "Time: "
+
+#: JigsawPuzzleUI.py:263 JigsawPuzzleUI.py:481
+msgid "Lesson Plans"
+msgstr "Lesson Plans"
+
+#: JigsawPuzzleUI.py:299
+msgid "Select image and press Start Game..."
+msgstr "Select image and press Start Game..."
+
+#: JigsawPuzzleUI.py:303
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr "Waiting for Puzzle image to be chosen..."
+
+#: JigsawPuzzleUI.py:305 JigsawPuzzleUI.py:351
+msgid "Buddies"
+msgstr "Buddies"
+
+#: JigsawPuzzleUI.py:311
+msgid "Game Running"
+msgstr "Game Running"
+
+#: JigsawPuzzleUI.py:341
+msgid "Start Game"
+msgstr "Start Game"
+
+#: JigsawPuzzleUI.py:371
+msgid "Choose a Subject"
+msgstr "Choose a Subject"
+
+#: JigsawPuzzleUI.py:417
+msgid "Puzzle Solved!"
+msgstr "Puzzle Solved!"
+
+#: JigsawPuzzleUI.py:419
+msgid "Press Stop on the Toolbar to Exit Activity!"
+msgstr "Press Stop on the Toolbar to Exit Activity!"
+
+#: JigsawPuzzleUI.py:454
+msgid "Jigsaw Puzzle Activity"
+msgstr "Jigsaw Puzzle Activity"
+
+#: JigsawPuzzleUI.py:484
+msgid "Close Lesson"
+msgstr "Close Lesson"
+
+#: JigsawPuzzleUI.py:551
+msgid "Game Started!"
+msgstr "Game Started!"
+
+#: JigsawPuzzleUI.py:553
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "Waiting for Puzzle image to be transferred..."
+
+#: mmm_modules/buddy_panel.py:49
+msgid "Buddy"
+msgstr "Buddy"
+
+#: mmm_modules/buddy_panel.py:55
+msgid "Status"
+msgstr "Status"
+
+#: mmm_modules/buddy_panel.py:62
+msgid "Play Time"
+msgstr "Play Time"
+
+#: mmm_modules/buddy_panel.py:69
+msgid "Joined at"
+msgstr "Joined at"
+
+#: mmm_modules/buddy_panel.py:101
+msgid "synchronizing"
+msgstr "synchronising"
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Playing"
+msgstr "Playing"
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Paused"
+msgstr "Paused"
+
+#: mmm_modules/buddy_panel.py:117
+msgid "Finished"
+msgstr "Finished"
+
+#: mmm_modules/buddy_panel.py:119
+msgid "Gave up"
+msgstr "Gave up"
+
+#: mmm_modules/buddy_panel.py:121
+msgid "Unknown"
+msgstr "Unknown"
+
+#: mmm_modules/buddy_panel.py:123
+#, python-format
+msgid "%i minutes"
+msgstr "%i minutes"
+
+#: mmm_modules/i18n.py:36
+msgid "Chinese (simplified)"
+msgstr "Chinese (simplified)"
+
+#: mmm_modules/i18n.py:37
+msgid "Chinese (traditional)"
+msgstr "Chinese (traditional)"
+
+#: mmm_modules/i18n.py:38
+msgid "Czech"
+msgstr "Czech"
+
+#: mmm_modules/i18n.py:39
+msgid "Danish"
+msgstr "Danish"
+
+#: mmm_modules/i18n.py:40
+msgid "Dutch"
+msgstr "Dutch"
+
+#: mmm_modules/i18n.py:41
+msgid "English"
+msgstr "English"
+
+#: mmm_modules/i18n.py:42
+msgid "English - Great Britain"
+msgstr "English - Great Britain"
+
+#: mmm_modules/i18n.py:43
+msgid "English - U.S."
+msgstr "English - U.S."
+
+#: mmm_modules/i18n.py:44
+msgid "Finnish"
+msgstr "Finnish"
+
+#: mmm_modules/i18n.py:45
+msgid "French"
+msgstr "French"
+
+#: mmm_modules/i18n.py:46
+msgid "German"
+msgstr "German"
+
+#: mmm_modules/i18n.py:47
+msgid "Hungarian"
+msgstr "Hungarian"
+
+#: mmm_modules/i18n.py:48
+msgid "Italian"
+msgstr "Italian"
+
+#: mmm_modules/i18n.py:49
+msgid "Japanese"
+msgstr "Japanese"
+
+#: mmm_modules/i18n.py:50
+msgid "Korean"
+msgstr "Korean"
+
+#: mmm_modules/i18n.py:51
+msgid "Norwegian"
+msgstr "Norwegian"
+
+#: mmm_modules/i18n.py:52
+msgid "Polish"
+msgstr "Polish"
+
+#: mmm_modules/i18n.py:53
+msgid "Portuguese"
+msgstr "Portuguese"
+
+#: mmm_modules/i18n.py:54
+msgid "Portuguese - Brazilian"
+msgstr "Portuguese - Brazilian"
+
+#: mmm_modules/i18n.py:55
+msgid "Russian"
+msgstr "Russian"
+
+#: mmm_modules/i18n.py:56
+msgid "Slovak"
+msgstr "Slovak"
+
+#: mmm_modules/i18n.py:57
+msgid "Spanish"
+msgstr "Spanish"
+
+#: mmm_modules/i18n.py:58
+msgid "Swedish"
+msgstr "Swedish"
+
+#: mmm_modules/i18n.py:59
+msgid "Turkish"
+msgstr "Turkish"
+
+#: mmm_modules/image_category.py:215
+msgid "Choose image"
+msgstr "Choose image"
+
+#: mmm_modules/image_category.py:226
+msgid "Not a valid image file"
+msgstr "Not a valid image file"

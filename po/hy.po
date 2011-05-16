@@ -18,20 +18,24 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-14 13:40+0000\n"
-"PO-Revision-Date: 2011-01-24 07:21+0200\n"
-"Last-Translator: rubina <rubina@aua.am>\n"
+"PO-Revision-Date: 2011-05-15 13:01+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.3\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
@@ -82,15 +86,15 @@ msgstr "Իմ պատկերը"
 
 #: JigsawPuzzleUI.py:216
 msgid "Board Hint"
-msgstr ""
+msgstr "Հարթակի հուշաբառ"
 
 #: JigsawPuzzleUI.py:254
 msgid "Time: "
-msgstr "Ժամանակ՝"
+msgstr "Ժամանակ՝ "
 
 #: JigsawPuzzleUI.py:263 JigsawPuzzleUI.py:481
 msgid "Lesson Plans"
-msgstr ""
+msgstr "Դասի պլաններ"
 
 #: JigsawPuzzleUI.py:299
 msgid "Select image and press Start Game..."
@@ -98,7 +102,7 @@ msgstr "Ընտրեք պատկերը և սեղմեք Սկսել խաղը"
 
 #: JigsawPuzzleUI.py:303
 msgid "Waiting for Puzzle image to be chosen..."
-msgstr ""
+msgstr "Սպասում է՝ մինչեւ գլուխկոտրուկի նկարն ընտրվի..."
 
 #: JigsawPuzzleUI.py:305 JigsawPuzzleUI.py:351
 msgid "Buddies"
@@ -106,7 +110,7 @@ msgstr "Ընկերներ"
 
 #: JigsawPuzzleUI.py:311
 msgid "Game Running"
-msgstr ""
+msgstr "Խաղն ընթացքի մեջ է"
 
 #: JigsawPuzzleUI.py:341
 msgid "Start Game"
@@ -118,173 +122,173 @@ msgstr "Ընտրել առարկան"
 
 #: JigsawPuzzleUI.py:417
 msgid "Puzzle Solved!"
-msgstr ""
+msgstr "Գլուխկոտրուկը լուծվեց"
 
 #: JigsawPuzzleUI.py:419
 msgid "Press Stop on the Toolbar to Exit Activity!"
-msgstr ""
+msgstr "Գործողությունից դուրս գալու համար Գործիքների ձողի վրա սեղմեք Կանգառ"
 
 #: JigsawPuzzleUI.py:454
 msgid "Jigsaw Puzzle Activity"
-msgstr ""
+msgstr "Խճանկար-գլուխկոտրուկային խաղ"
 
 #: JigsawPuzzleUI.py:484
 msgid "Close Lesson"
-msgstr ""
+msgstr "Փակել դասը"
 
 #: JigsawPuzzleUI.py:551
 msgid "Game Started!"
-msgstr ""
+msgstr "Խաղը սկսեց"
 
 #: JigsawPuzzleUI.py:553
 msgid "Waiting for Puzzle image to be transferred..."
-msgstr ""
+msgstr "Սպասում է մինչեւ Գլուխկոտրուկի նկարը փոխանցվի"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr ""
+msgstr "Ընկեր"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
-msgstr ""
+msgstr "Կարգավիճակ"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
-msgstr ""
+msgstr "Խաղաժամանակ"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr ""
+msgstr "Միացել է ... մոտ"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr ""
+msgstr "սինքրոնացում"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr ""
+msgstr "Խաղում է"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr ""
+msgstr "Ընդհատված է"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
-msgstr ""
+msgstr "Ավարտված է"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
-msgstr ""
+msgstr "Հանձնվեց"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
-msgstr ""
+msgstr "Անծանոթ"
 
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
-msgstr ""
+msgstr "%i րոպե"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
-msgstr ""
+msgstr "Չինարեն (պարզեցված)"
 
 #: mmm_modules/i18n.py:37
 msgid "Chinese (traditional)"
-msgstr ""
+msgstr "Չինարեն (ավանդական)"
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr ""
+msgstr "Չեխերեն"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr ""
+msgstr "Դանիերեն"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
-msgstr ""
+msgstr "Հոլանդերեն"
 
 #: mmm_modules/i18n.py:41
 msgid "English"
-msgstr ""
+msgstr "Անգլերեն"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr ""
+msgstr "Անգլերեն - Մեծ Բրիտանիա"
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr ""
+msgstr "Անգլերեն - ԱՄՆ"
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
-msgstr ""
+msgstr "Ֆիններեն"
 
 #: mmm_modules/i18n.py:45
 msgid "French"
-msgstr ""
+msgstr "Ֆրանսերեն"
 
 #: mmm_modules/i18n.py:46
 msgid "German"
-msgstr ""
+msgstr "Գերմաներեն"
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
-msgstr ""
+msgstr "Հունգարերեն"
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
-msgstr ""
+msgstr "Իտալերեն"
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
-msgstr ""
+msgstr "Ճապոներեն"
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"
-msgstr ""
+msgstr "Կորեերեն"
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
-msgstr ""
+msgstr "Նորվեգերեն"
 
 #: mmm_modules/i18n.py:52
 msgid "Polish"
-msgstr ""
+msgstr "Լեհերեն"
 
 #: mmm_modules/i18n.py:53
 msgid "Portuguese"
-msgstr ""
+msgstr "Պորտուգալերեն"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr ""
+msgstr "Պորտուգալերեն - Բրազիլական"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
-msgstr ""
+msgstr "Ռուսերեն"
 
 #: mmm_modules/i18n.py:56
 msgid "Slovak"
-msgstr ""
+msgstr "Սլովակերեն"
 
 #: mmm_modules/i18n.py:57
 msgid "Spanish"
-msgstr ""
+msgstr "Իսպաներեն"
 
 #: mmm_modules/i18n.py:58
 msgid "Swedish"
-msgstr ""
+msgstr "Շվեդերեն"
 
 #: mmm_modules/i18n.py:59
 msgid "Turkish"
-msgstr ""
+msgstr "Թուրքերեն"
 
 #: mmm_modules/image_category.py:215
 msgid "Choose image"
-msgstr ""
+msgstr "Ընտրել նկար"
 
 #: mmm_modules/image_category.py:226
 msgid "Not a valid image file"
-msgstr ""
+msgstr "Նկարի ֆայլի ոչ ընդունելի տեսակ է"

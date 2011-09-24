@@ -184,7 +184,10 @@ class GameTube (ExportedGObject):
         logger.debug("status_update: %s %s" % (str(sender), str(join_time)))
         nick, stat = self.activity.ui.buddy_panel.update_player(buddy, status, True, int(join_time))
         if buddy != self.activity.owner:
-            self.activity.ui.set_message(_("Buddy '%s' changed status: %s") % (nick, stat), frommesh=True)
+            self.activity.ui.set_message(
+                    _("Buddy '%(buddy)s' changed status: %(status)s") % \
+                        {'buddy': nick, 'status': stat},
+                    frommesh=True)
     
     ##############
     # Methods

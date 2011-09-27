@@ -22,24 +22,128 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 13:40+0000\n"
-"PO-Revision-Date: 2010-01-25 07:33+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"POT-Creation-Date: 2011-09-25 00:31-0400\n"
+"PO-Revision-Date: 2011-09-27 11:26+0200\n"
+"Last-Translator: samy boutayeb <s.boutayeb@free.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
 msgstr "Puzzle"
+
+#: JigsawPuzzleActivity.py:188
+#, python-format
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr "Le joueur '%(buddy)s' a changé de statut : %(status)s"
+
+#: JigsawPuzzleActivity.py:261
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "Le joueur '%s' a rejoint la partie !"
+
+#: JigsawPuzzleActivity.py:265
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "Le joueur '%s' a quitté la partie !"
+
+#: JigsawPuzzleUI.py:215
+msgid "Solve"
+msgstr "Résoudre"
+
+#: JigsawPuzzleUI.py:219
+msgid "Shuffle"
+msgstr "Mélanger"
+
+#: JigsawPuzzleUI.py:223
+msgid "My Picture"
+msgstr "Mon image"
+
+#: JigsawPuzzleUI.py:227
+msgid "Board Hint"
+msgstr "Indice tableau"
+
+#: JigsawPuzzleUI.py:271
+msgid "Time: "
+msgstr "Temps : "
+
+#: JigsawPuzzleUI.py:280 JigsawPuzzleUI.py:510
+msgid "Lesson Plans"
+msgstr "Plans de cours"
+
+#: JigsawPuzzleUI.py:316
+msgid "Select image and press Start Game..."
+msgstr "Choisir une image et appuyer sur Lancer la partie..."
+
+#: JigsawPuzzleUI.py:320
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr "Attente du choix d'une image de Puzzle..."
+
+#: JigsawPuzzleUI.py:322 JigsawPuzzleUI.py:368
+msgid "Buddies"
+msgstr "Joueurs"
+
+#: JigsawPuzzleUI.py:328
+msgid "Game Running"
+msgstr "Partie en cours"
+
+#: JigsawPuzzleUI.py:358
+msgid "Start Game"
+msgstr "Lancer la partie"
+
+#: JigsawPuzzleUI.py:388
+msgid "Choose a Subject"
+msgstr "Choisir un sujet"
+
+#: JigsawPuzzleUI.py:441
+msgid "Puzzle Solved!"
+msgstr "Puzzle résolu !"
+
+#: JigsawPuzzleUI.py:443
+msgid "Press Stop on the Toolbar to Exit Activity!"
+msgstr ""
+"Merci d'appuyer sur Stop dans la barre d'outils pour sortir de l'activité !"
+
+#: JigsawPuzzleUI.py:478
+msgid "Jigsaw Puzzle Activity"
+msgstr "Activité Puzzle"
+
+#: JigsawPuzzleUI.py:513
+msgid "Close Lesson"
+msgstr "Fermer le cours"
+
+#: JigsawPuzzleUI.py:583
+msgid "Game Started!"
+msgstr "Partie commencée !"
+
+#: JigsawPuzzleUI.py:585
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "Attente du transfert d'une image de Puzzle..."
 
 #: i18n_misc_strings.py:1
 msgid "Overview"
@@ -56,94 +160,6 @@ msgstr "Cours 1"
 #: i18n_misc_strings.py:4
 msgid "Lesson 2"
 msgstr "Cours 2"
-
-#: JigsawPuzzleActivity.py:183
-#, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr "Le joueur '%s' a changé de statut: %s"
-
-#: JigsawPuzzleActivity.py:254
-#, python-format
-msgid "Buddy '%s' joined the game!"
-msgstr "Le joueur '%s' a rejoint la partie !"
-
-#: JigsawPuzzleActivity.py:258
-#, python-format
-msgid "Buddy '%s' left the game!"
-msgstr "Le joueur '%s' a quitté la partie !"
-
-#: JigsawPuzzleUI.py:204
-msgid "Solve"
-msgstr "Résoudre"
-
-#: JigsawPuzzleUI.py:208
-msgid "Shuffle"
-msgstr "Mélanger"
-
-#: JigsawPuzzleUI.py:212
-msgid "My Picture"
-msgstr "Mon image"
-
-#: JigsawPuzzleUI.py:216
-msgid "Board Hint"
-msgstr "Indice tableau"
-
-#: JigsawPuzzleUI.py:254
-msgid "Time: "
-msgstr "Temps : "
-
-#: JigsawPuzzleUI.py:263 JigsawPuzzleUI.py:481
-msgid "Lesson Plans"
-msgstr "Plans de cours"
-
-#: JigsawPuzzleUI.py:299
-msgid "Select image and press Start Game..."
-msgstr "Choisir une image et appuyer sur Lancer la partie..."
-
-#: JigsawPuzzleUI.py:303
-msgid "Waiting for Puzzle image to be chosen..."
-msgstr "Attente du choix d'une image de Puzzle..."
-
-#: JigsawPuzzleUI.py:305 JigsawPuzzleUI.py:351
-msgid "Buddies"
-msgstr "Joueurs"
-
-#: JigsawPuzzleUI.py:311
-msgid "Game Running"
-msgstr "Partie en cours"
-
-#: JigsawPuzzleUI.py:341
-msgid "Start Game"
-msgstr "Lancer la partie"
-
-#: JigsawPuzzleUI.py:371
-msgid "Choose a Subject"
-msgstr "Choisir un sujet"
-
-#: JigsawPuzzleUI.py:417
-msgid "Puzzle Solved!"
-msgstr "Puzzle résolu !"
-
-#: JigsawPuzzleUI.py:419
-msgid "Press Stop on the Toolbar to Exit Activity!"
-msgstr ""
-"Merci d'appuyer sur Stop dans la barre d'outils pour sortir de l'activité !"
-
-#: JigsawPuzzleUI.py:454
-msgid "Jigsaw Puzzle Activity"
-msgstr "Activité Puzzle"
-
-#: JigsawPuzzleUI.py:484
-msgid "Close Lesson"
-msgstr "Fermer le cours"
-
-#: JigsawPuzzleUI.py:551
-msgid "Game Started!"
-msgstr "Partie commencée !"
-
-#: JigsawPuzzleUI.py:553
-msgid "Waiting for Puzzle image to be transferred..."
-msgstr "Attente du transfert d'une image de Puzzle..."
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
@@ -286,10 +302,14 @@ msgstr "Suédois"
 msgid "Turkish"
 msgstr "Turc"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:219 mmm_modules/image_category.py:223
 msgid "Choose image"
 msgstr "Choisir une image"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:235
 msgid "Not a valid image file"
 msgstr "Fichier image non valide"
+
+#, python-format
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "Le joueur '%s' a changé de statut: %s"

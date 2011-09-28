@@ -2,22 +2,143 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 13:40+0000\n"
-"PO-Revision-Date: 2008-08-29 17:46-0400\n"
-"Last-Translator: John Sarlis <sarlis@sch.gr>\n"
+"POT-Creation-Date: 2011-09-25 00:31-0400\n"
+"PO-Revision-Date: 2011-03-14 18:24+0200\n"
+"Last-Translator: pavlos hatzopoulos <phatzopoulos@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.1.0rc2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
-msgstr "Παζλ Ζιγκσώ"
+msgstr "Παζλ Κομματιών"
+
+#: JigsawPuzzleActivity.py:188
+#, python-format
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr ""
+
+#: JigsawPuzzleActivity.py:261
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "Ο φίλος «%s» εισήλθε στο παιχνίδι!"
+
+#: JigsawPuzzleActivity.py:265
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "Ο φίλος «%s» αποχώρησε από το παιχνίδι!"
+
+#: JigsawPuzzleUI.py:215
+msgid "Solve"
+msgstr "Επίλυση"
+
+#: JigsawPuzzleUI.py:219
+msgid "Shuffle"
+msgstr "Ανακάτεμα"
+
+#: JigsawPuzzleUI.py:223
+msgid "My Picture"
+msgstr "Η εικόνα μου"
+
+#: JigsawPuzzleUI.py:227
+msgid "Board Hint"
+msgstr "Βοήθεια ταμπλό"
+
+#: JigsawPuzzleUI.py:271
+msgid "Time: "
+msgstr "Χρόνος: "
+
+#: JigsawPuzzleUI.py:280 JigsawPuzzleUI.py:510
+msgid "Lesson Plans"
+msgstr "Σχέδια Μαθημάτων"
+
+#: JigsawPuzzleUI.py:316
+msgid "Select image and press Start Game..."
+msgstr "Επιλέξτε εικόνα και πατήστε Έναρξη Παιχνιδιού..."
+
+#: JigsawPuzzleUI.py:320
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr "Αναμονή για επιλογή εικόνας του Παζλ..."
+
+#: JigsawPuzzleUI.py:322 JigsawPuzzleUI.py:368
+msgid "Buddies"
+msgstr "Φιλαράκια"
+
+#: JigsawPuzzleUI.py:328
+msgid "Game Running"
+msgstr "Παιχνίδι σε Εξέλιξη"
+
+#: JigsawPuzzleUI.py:358
+msgid "Start Game"
+msgstr "Έναρξη Παιχνιδιού"
+
+#: JigsawPuzzleUI.py:388
+msgid "Choose a Subject"
+msgstr "Επιλογή Θέματος"
+
+#: JigsawPuzzleUI.py:441
+msgid "Puzzle Solved!"
+msgstr "Το Παζλ λύθηκε!"
+
+#: JigsawPuzzleUI.py:443
+msgid "Press Stop on the Toolbar to Exit Activity!"
+msgstr "Πάτησε Σταμάτημα στη Γραμμή Εργαλείων για Έξοδο από τη Δραστηριότητα!"
+
+#: JigsawPuzzleUI.py:478
+msgid "Jigsaw Puzzle Activity"
+msgstr "Δραστηριότητα Παζλ Κομματιών"
+
+#: JigsawPuzzleUI.py:513
+msgid "Close Lesson"
+msgstr "Κλείσιμο Μαθήματος"
+
+#: JigsawPuzzleUI.py:583
+msgid "Game Started!"
+msgstr "Το Παιχνίδι Άρχισε!"
+
+#: JigsawPuzzleUI.py:585
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "Περιμένετε μέχρι να μεταφερθεί η εικόνα του παζλ..."
 
 #: i18n_misc_strings.py:1
 msgid "Overview"
@@ -35,96 +156,9 @@ msgstr "Μάθημα 1"
 msgid "Lesson 2"
 msgstr "Μάθημα 2"
 
-#: JigsawPuzzleActivity.py:183
-#, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr "Ο φίλαράκος «%s» άλλαξε κατάσταση: %s"
-
-#: JigsawPuzzleActivity.py:254
-#, python-format
-msgid "Buddy '%s' joined the game!"
-msgstr "Ο φιλαράκος «%s» εισήλθε στο παιχνίδι!"
-
-#: JigsawPuzzleActivity.py:258
-#, python-format
-msgid "Buddy '%s' left the game!"
-msgstr "Ο φιλαράκος «%s» αποχώρησε από το παιχνίδι!"
-
-#: JigsawPuzzleUI.py:204
-msgid "Solve"
-msgstr "Επίλυση"
-
-#: JigsawPuzzleUI.py:208
-msgid "Shuffle"
-msgstr "Ανακάτεμα"
-
-#: JigsawPuzzleUI.py:212
-msgid "My Picture"
-msgstr "Η εικόνα μου"
-
-#: JigsawPuzzleUI.py:216
-msgid "Board Hint"
-msgstr "Βοήθεια ταμπλό"
-
-#: JigsawPuzzleUI.py:254
-msgid "Time: "
-msgstr "Χρόνος:"
-
-#: JigsawPuzzleUI.py:263 JigsawPuzzleUI.py:481
-msgid "Lesson Plans"
-msgstr "Σχέδια Μαθημάτων"
-
-#: JigsawPuzzleUI.py:299
-msgid "Select image and press Start Game..."
-msgstr "Επιλέξτε εικόνα και πατήστε Έναρξη Παιχνιδιού..."
-
-#: JigsawPuzzleUI.py:303
-msgid "Waiting for Puzzle image to be chosen..."
-msgstr "Αναμονή για επιλογή εικόνας του Puzzle..."
-
-#: JigsawPuzzleUI.py:305 JigsawPuzzleUI.py:351
-msgid "Buddies"
-msgstr "Φιλαράκια"
-
-#: JigsawPuzzleUI.py:311
-msgid "Game Running"
-msgstr "Παιχνίδι σε Εξέλιξη"
-
-#: JigsawPuzzleUI.py:341
-msgid "Start Game"
-msgstr "Έναρξη Παιχνιδιού"
-
-#: JigsawPuzzleUI.py:371
-msgid "Choose a Subject"
-msgstr "Επιλογή Θέματος"
-
-#: JigsawPuzzleUI.py:417
-msgid "Puzzle Solved!"
-msgstr "Το Puzzle λύθηκε!"
-
-#: JigsawPuzzleUI.py:419
-msgid "Press Stop on the Toolbar to Exit Activity!"
-msgstr "Πάτησε Σταμάτημα στη Γραμμή Εργαλείων για Έξοδο από τη Δραστηριότητα!"
-
-#: JigsawPuzzleUI.py:454
-msgid "Jigsaw Puzzle Activity"
-msgstr "Δραστηριότητα Παζλ Ζιγκσώ"
-
-#: JigsawPuzzleUI.py:484
-msgid "Close Lesson"
-msgstr "Κλείσιμο Μαθήματος"
-
-#: JigsawPuzzleUI.py:551
-msgid "Game Started!"
-msgstr "Το Παιχνίδι Άρχισε!"
-
-#: JigsawPuzzleUI.py:553
-msgid "Waiting for Puzzle image to be transferred..."
-msgstr "Περιμένετε μέχρι να μεταφερθεί η εικόνα του παζλ..."
-
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr "Φιλαράκος"
+msgstr "Φίλος"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
@@ -263,10 +297,14 @@ msgstr "Σουηδικά"
 msgid "Turkish"
 msgstr "Τούρκικα"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:219 mmm_modules/image_category.py:223
 msgid "Choose image"
 msgstr "Επιλογή εικόνας"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:235
 msgid "Not a valid image file"
 msgstr "Μη έγκυρο αρχείο εικόνας"
+
+#, python-format
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "Ο φίλος «%s» άλλαξε κατάσταση: %s"

@@ -58,20 +58,111 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 13:40+0000\n"
-"PO-Revision-Date: 2010-02-26 05:04+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"POT-Creation-Date: 2011-09-25 00:31-0400\n"
+"PO-Revision-Date: 2011-09-29 23:30+0200\n"
+"Last-Translator: Markus <m.slg@gmx.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
 msgstr "Puzzlespiel"
+
+#: JigsawPuzzleActivity.py:188
+#, python-format
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr "Der Partner '%(buddy)s' hat den Status gewechselt: %(status)s"
+
+#: JigsawPuzzleActivity.py:261
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "Spielkamerad '%s' ist zum Spiel dazugekommen!"
+
+#: JigsawPuzzleActivity.py:265
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "Spielkamerad '%s' hat das Spiel verlassen!"
+
+#: JigsawPuzzleUI.py:215
+msgid "Solve"
+msgstr "Lösen"
+
+# (Markus S.) war 'Schieben', ist hier aber gepaart mit 'Solve'
+#: JigsawPuzzleUI.py:219
+msgid "Shuffle"
+msgstr "Mischen"
+
+#: JigsawPuzzleUI.py:223
+msgid "My Picture"
+msgstr "Mein Bild"
+
+#: JigsawPuzzleUI.py:227
+msgid "Board Hint"
+msgstr "Hinweis"
+
+#: JigsawPuzzleUI.py:271
+msgid "Time: "
+msgstr "Zeit: "
+
+#: JigsawPuzzleUI.py:280 JigsawPuzzleUI.py:510
+msgid "Lesson Plans"
+msgstr "Übungspläne"
+
+#: JigsawPuzzleUI.py:316
+msgid "Select image and press Start Game..."
+msgstr "Wähle ein Bild aus und drücke 'Spiel starten'..."
+
+# (Markus S.) war 'Auf Auswahl des Puzzle-Bildes warten...'
+# O.T.: 1. Person ist richtig, da Statusmeldung.
+#: JigsawPuzzleUI.py:320
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr "Warte auf Auswahl des Puzzle-Bildes..."
+
+#: JigsawPuzzleUI.py:322 JigsawPuzzleUI.py:368
+msgid "Buddies"
+msgstr "Spielkameraden"
+
+# (Markus S.) war 'Laufendes Spiel'
+#: JigsawPuzzleUI.py:328
+msgid "Game Running"
+msgstr "Spiel läuft"
+
+#: JigsawPuzzleUI.py:358
+msgid "Start Game"
+msgstr "Spiel starten"
+
+#: JigsawPuzzleUI.py:388
+msgid "Choose a Subject"
+msgstr "Thema auswählen"
+
+#: JigsawPuzzleUI.py:441
+msgid "Puzzle Solved!"
+msgstr "Puzzle gelöst!"
+
+#: JigsawPuzzleUI.py:443
+msgid "Press Stop on the Toolbar to Exit Activity!"
+msgstr "Stopp auf der Werkzeugleiste drücken, um die Aktivität zu verlassen!"
+
+#: JigsawPuzzleUI.py:478
+msgid "Jigsaw Puzzle Activity"
+msgstr "Puzzlespiel-Aktivität"
+
+#: JigsawPuzzleUI.py:513
+msgid "Close Lesson"
+msgstr "Übung schließen"
+
+#: JigsawPuzzleUI.py:583
+msgid "Game Started!"
+msgstr "Spiel gestartet!"
+
+#: JigsawPuzzleUI.py:585
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "Auf die Übertragung des Puzzle-Bildes warten..."
 
 #: i18n_misc_strings.py:1
 msgid "Overview"
@@ -88,97 +179,6 @@ msgstr "Übung 1"
 #: i18n_misc_strings.py:4
 msgid "Lesson 2"
 msgstr "Übung 2"
-
-#: JigsawPuzzleActivity.py:183
-#, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr "Spielkamerad '%s' hat sich verändert: %s"
-
-#: JigsawPuzzleActivity.py:254
-#, python-format
-msgid "Buddy '%s' joined the game!"
-msgstr "Spielkamerad '%s' ist zum Spiel dazugekommen!"
-
-#: JigsawPuzzleActivity.py:258
-#, python-format
-msgid "Buddy '%s' left the game!"
-msgstr "Spielkamerad '%s' hat das Spiel verlassen!"
-
-#: JigsawPuzzleUI.py:204
-msgid "Solve"
-msgstr "Lösen"
-
-# (Markus S.) war 'Schieben', ist hier aber gepaart mit 'Solve'
-#: JigsawPuzzleUI.py:208
-msgid "Shuffle"
-msgstr "Mischen"
-
-#: JigsawPuzzleUI.py:212
-msgid "My Picture"
-msgstr "Mein Bild"
-
-#: JigsawPuzzleUI.py:216
-msgid "Board Hint"
-msgstr "Hinweis"
-
-#: JigsawPuzzleUI.py:254
-msgid "Time: "
-msgstr "Zeit: "
-
-#: JigsawPuzzleUI.py:263 JigsawPuzzleUI.py:481
-msgid "Lesson Plans"
-msgstr "Übungspläne"
-
-#: JigsawPuzzleUI.py:299
-msgid "Select image and press Start Game..."
-msgstr "Wähle ein Bild aus und drücke 'Spiel starten'..."
-
-# (Markus S.) war 'Auf Auswahl des Puzzle-Bildes warten...'
-# O.T.: 1. Person ist richtig, da Statusmeldung.
-#: JigsawPuzzleUI.py:303
-msgid "Waiting for Puzzle image to be chosen..."
-msgstr "Warte auf Auswahl des Puzzle-Bildes..."
-
-#: JigsawPuzzleUI.py:305 JigsawPuzzleUI.py:351
-msgid "Buddies"
-msgstr "Spielkameraden"
-
-# (Markus S.) war 'Laufendes Spiel'
-#: JigsawPuzzleUI.py:311
-msgid "Game Running"
-msgstr "Spiel läuft"
-
-#: JigsawPuzzleUI.py:341
-msgid "Start Game"
-msgstr "Spiel starten"
-
-#: JigsawPuzzleUI.py:371
-msgid "Choose a Subject"
-msgstr "Thema auswählen"
-
-#: JigsawPuzzleUI.py:417
-msgid "Puzzle Solved!"
-msgstr "Puzzle gelöst!"
-
-#: JigsawPuzzleUI.py:419
-msgid "Press Stop on the Toolbar to Exit Activity!"
-msgstr "Stopp auf der Werkzeugleiste drücken, um die Aktivität zu verlassen!"
-
-#: JigsawPuzzleUI.py:454
-msgid "Jigsaw Puzzle Activity"
-msgstr "Puzzlespiel-Aktivität"
-
-#: JigsawPuzzleUI.py:484
-msgid "Close Lesson"
-msgstr "Übung schließen"
-
-#: JigsawPuzzleUI.py:551
-msgid "Game Started!"
-msgstr "Spiel gestartet!"
-
-#: JigsawPuzzleUI.py:553
-msgid "Waiting for Puzzle image to be transferred..."
-msgstr "Auf die Übertragung des Puzzle-Bildes warten..."
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
@@ -327,10 +327,14 @@ msgstr "Schwedisch"
 msgid "Turkish"
 msgstr "Türkisch"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:219 mmm_modules/image_category.py:223
 msgid "Choose image"
 msgstr "Bild auswählen"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:235
 msgid "Not a valid image file"
 msgstr "Keine zulässige Bilddatei"
+
+#, python-format
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "Spielkamerad '%s' hat sich verändert: %s"

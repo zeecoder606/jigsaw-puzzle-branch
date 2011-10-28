@@ -2,126 +2,132 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 13:40+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2011-09-25 00:31-0400\n"
+"PO-Revision-Date: 2011-04-28 16:38+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.1.1rc4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
 msgstr ""
 
-#: i18n_misc_strings.py:1
-msgid "Overview"
-msgstr ""
-
-#: i18n_misc_strings.py:2
-msgid "Lesson 3"
-msgstr ""
-
-#: i18n_misc_strings.py:3
-msgid "Lesson 1"
-msgstr ""
-
-#: i18n_misc_strings.py:4
-msgid "Lesson 2"
-msgstr ""
-
-#: JigsawPuzzleActivity.py:183
+#: JigsawPuzzleActivity.py:188
 #, python-format
-msgid "Buddy '%s' changed status: %s"
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
 msgstr ""
 
-#: JigsawPuzzleActivity.py:254
+#: JigsawPuzzleActivity.py:261
 #, python-format
 msgid "Buddy '%s' joined the game!"
 msgstr ""
 
-#: JigsawPuzzleActivity.py:258
+#: JigsawPuzzleActivity.py:265
 #, python-format
 msgid "Buddy '%s' left the game!"
 msgstr ""
 
-#: JigsawPuzzleUI.py:204
+#: JigsawPuzzleUI.py:215
 msgid "Solve"
-msgstr ""
+msgstr "ដោះ​ស្រាយ"
 
-#: JigsawPuzzleUI.py:208
+#: JigsawPuzzleUI.py:219
 msgid "Shuffle"
-msgstr ""
+msgstr "ចម្រៀក"
 
-#: JigsawPuzzleUI.py:212
+#: JigsawPuzzleUI.py:223
+#, fuzzy
 msgid "My Picture"
-msgstr ""
+msgstr "គ្មាន​រូបភាព"
 
-#: JigsawPuzzleUI.py:216
+#: JigsawPuzzleUI.py:227
 msgid "Board Hint"
 msgstr ""
 
-#: JigsawPuzzleUI.py:254
+#: JigsawPuzzleUI.py:271
 msgid "Time: "
-msgstr ""
+msgstr "ពេលវេលា ៖ "
 
-#: JigsawPuzzleUI.py:263 JigsawPuzzleUI.py:481
+#: JigsawPuzzleUI.py:280 JigsawPuzzleUI.py:510
 msgid "Lesson Plans"
 msgstr ""
 
-#: JigsawPuzzleUI.py:299
+#: JigsawPuzzleUI.py:316
 msgid "Select image and press Start Game..."
 msgstr ""
 
-#: JigsawPuzzleUI.py:303
+#: JigsawPuzzleUI.py:320
 msgid "Waiting for Puzzle image to be chosen..."
 msgstr ""
 
-#: JigsawPuzzleUI.py:305 JigsawPuzzleUI.py:351
+#: JigsawPuzzleUI.py:322 JigsawPuzzleUI.py:368
 msgid "Buddies"
-msgstr ""
+msgstr "មិត្តជិតស្និទ្ធិ"
 
-#: JigsawPuzzleUI.py:311
+#: JigsawPuzzleUI.py:328
 msgid "Game Running"
-msgstr ""
+msgstr "ល្បែង​កំពុង​រត់"
 
-#: JigsawPuzzleUI.py:341
+#: JigsawPuzzleUI.py:358
 msgid "Start Game"
-msgstr ""
+msgstr "ចាប់ផ្ដើម​ល្បែង"
 
-#: JigsawPuzzleUI.py:371
+#: JigsawPuzzleUI.py:388
+#, fuzzy
 msgid "Choose a Subject"
-msgstr ""
+msgstr "ជ្រើស​វត្ថុ"
 
-#: JigsawPuzzleUI.py:417
+#: JigsawPuzzleUI.py:441
 msgid "Puzzle Solved!"
 msgstr ""
 
-#: JigsawPuzzleUI.py:419
+#: JigsawPuzzleUI.py:443
 msgid "Press Stop on the Toolbar to Exit Activity!"
 msgstr ""
 
-#: JigsawPuzzleUI.py:454
+#: JigsawPuzzleUI.py:478
 msgid "Jigsaw Puzzle Activity"
 msgstr ""
 
-#: JigsawPuzzleUI.py:484
+#: JigsawPuzzleUI.py:513
 msgid "Close Lesson"
 msgstr ""
 
-#: JigsawPuzzleUI.py:551
+#: JigsawPuzzleUI.py:583
 msgid "Game Started!"
-msgstr ""
+msgstr "ចាប់ផ្ដើម​ល្បែង"
 
-#: JigsawPuzzleUI.py:553
+#: JigsawPuzzleUI.py:585
 msgid "Waiting for Puzzle image to be transferred..."
 msgstr ""
+
+#: i18n_misc_strings.py:1
+msgid "Overview"
+msgstr "ទិដ្ឋភាព​ទូទៅ"
+
+#: i18n_misc_strings.py:2
+#, fuzzy
+msgid "Lesson 3"
+msgstr "មេរៀន"
+
+#: i18n_misc_strings.py:3
+#, fuzzy
+msgid "Lesson 1"
+msgstr "មេរៀន"
+
+#: i18n_misc_strings.py:4
+#, fuzzy
+msgid "Lesson 2"
+msgstr "មេរៀន"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
@@ -129,7 +135,7 @@ msgstr ""
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
-msgstr ""
+msgstr "ស្ថានភាព"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
@@ -145,15 +151,15 @@ msgstr ""
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr ""
+msgstr "កំពុង​ចាក់"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr ""
+msgstr "បាន​ផ្អាក"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
-msgstr ""
+msgstr "បាន​បញ្ចប់"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
@@ -161,113 +167,113 @@ msgstr ""
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
-msgstr ""
+msgstr "មិន​ស្គាល់"
 
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
-msgstr ""
+msgstr "%i នាទី"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
-msgstr ""
+msgstr "ចិន (សាមញ្ញ)"
 
 #: mmm_modules/i18n.py:37
 msgid "Chinese (traditional)"
-msgstr ""
+msgstr "ចិន (បុរាណ)"
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr ""
+msgstr "ឆែក​ (cs)"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr ""
+msgstr "ដាណឺម៉ាក (da)"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
-msgstr ""
+msgstr "ហូឡង់​ (nl)"
 
 #: mmm_modules/i18n.py:41
 msgid "English"
-msgstr ""
+msgstr "អង់គ្លេស (en)"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr ""
+msgstr "អង់គ្លេស (en)"
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr ""
+msgstr "អង់គ្លេស (en)"
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
-msgstr ""
+msgstr "ហ្វាំងឡង់ (fi)"
 
 #: mmm_modules/i18n.py:45
 msgid "French"
-msgstr ""
+msgstr "បារាំង (fr)"
 
 #: mmm_modules/i18n.py:46
 msgid "German"
-msgstr ""
+msgstr "អាល្លឺម៉ង់ (de)"
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
-msgstr ""
+msgstr "ហុងគ្រី (hu)"
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
-msgstr ""
+msgstr "អ៊ីតាលី (it)"
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
-msgstr ""
+msgstr "ជប៉ុន (ja)"
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"
-msgstr ""
+msgstr "កូរ៉េ (ko)"
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
-msgstr ""
+msgstr "ន័រវែស"
 
 #: mmm_modules/i18n.py:52
 msgid "Polish"
-msgstr ""
+msgstr "ប៉ូឡូញ (pl)"
 
 #: mmm_modules/i18n.py:53
 msgid "Portuguese"
-msgstr ""
+msgstr "ព័រទុយហ្គាល់ (pt)"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr ""
+msgstr "ព័រទុយហ្គាល់ (ប្រេស៊ីល)"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
-msgstr ""
+msgstr "រុស្ស៊ី (ru)"
 
 #: mmm_modules/i18n.py:56
 msgid "Slovak"
-msgstr ""
+msgstr "ស្លូវ៉ាគី (sk)"
 
 #: mmm_modules/i18n.py:57
 msgid "Spanish"
-msgstr ""
+msgstr "អេស្ប៉ាញ (es)"
 
 #: mmm_modules/i18n.py:58
 msgid "Swedish"
-msgstr ""
+msgstr "ស៊ុយអែដ (sv)"
 
 #: mmm_modules/i18n.py:59
 msgid "Turkish"
-msgstr ""
+msgstr "តួក​គី (tr)"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:219 mmm_modules/image_category.py:223
 msgid "Choose image"
-msgstr ""
+msgstr "ជ្រើសរើស​រូបភាព"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:235
 msgid "Not a valid image file"
 msgstr ""

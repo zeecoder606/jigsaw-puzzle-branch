@@ -158,28 +158,32 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-04 13:31+0000\n"
-"PO-Revision-Date: 2011-01-09 08:04+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"POT-Creation-Date: 2011-09-25 00:31-0400\n"
+"PO-Revision-Date: 2011-09-28 13:54+0200\n"
+"Last-Translator: Gonzalo <godiard@sugarlabs.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.3\n"
+"X-Generator: Pootle 2.0.5\n"
 
-#: JigsawPuzzleActivity.py:187
+#: activity/activity.info:2
+msgid "Jigsaw Puzzle"
+msgstr "Rompecabezas"
+
+#: JigsawPuzzleActivity.py:188
 #, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr "El compañero '%s' cambió de estado: %s"
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr "El amigo '%(buddy)s' cambió su estado: %(status)s"
 
-#: JigsawPuzzleActivity.py:258
+#: JigsawPuzzleActivity.py:261
 #, python-format
 msgid "Buddy '%s' joined the game!"
 msgstr "¡El amigo '%s' se ha unido al juego!"
 
-#: JigsawPuzzleActivity.py:262
+#: JigsawPuzzleActivity.py:265
 #, python-format
 msgid "Buddy '%s' left the game!"
 msgstr "¡El amigo '%s' ha dejado el juego!"
@@ -256,10 +260,6 @@ msgstr "¡Juego Comenzado!"
 msgid "Waiting for Puzzle image to be transferred..."
 msgstr "Esperando a que la imagen del Rompecabezas sea transferida..."
 
-#: activity/activity.info:2
-msgid "Jigsaw Puzzle"
-msgstr "Rompecabezas"
-
 #: i18n_misc_strings.py:1
 msgid "Overview"
 msgstr "Descripción"
@@ -297,12 +297,12 @@ msgid "synchronizing"
 msgstr "sincronizando"
 
 #: mmm_modules/buddy_panel.py:115
-msgid "Paused"
-msgstr "Pausado"
-
-#: mmm_modules/buddy_panel.py:115
 msgid "Playing"
 msgstr "Jugando"
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Paused"
+msgstr "Pausado"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
@@ -424,3 +424,7 @@ msgstr "Elegir imagen"
 #: mmm_modules/image_category.py:235
 msgid "Not a valid image file"
 msgstr "No es una imagen válida"
+
+#, python-format
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "El compañero '%s' cambió de estado: %s"

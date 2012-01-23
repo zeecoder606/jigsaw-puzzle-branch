@@ -35,14 +35,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-09-25 00:31-0400\n"
-"PO-Revision-Date: 2008-09-23 11:29-0400\n"
-"Last-Translator: Eduardo H. Silva <HoboPrimate@gmail.com>\n"
+"PO-Revision-Date: 2012-01-16 10:32+0200\n"
+"Last-Translator: Eduardo H. <hoboprimate@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.1.0rc2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
@@ -51,17 +52,17 @@ msgstr "Puzzle de Peças"
 #: JigsawPuzzleActivity.py:188
 #, python-format
 msgid "Buddy '%(buddy)s' changed status: %(status)s"
-msgstr ""
+msgstr "Parceiro '%(buddy)s' mudou de estado: %(status)s"
 
 #: JigsawPuzzleActivity.py:261
 #, python-format
 msgid "Buddy '%s' joined the game!"
-msgstr "'%s' juntou-se ao jogo!"
+msgstr "Parceiro '%s' juntou-se ao jogo!"
 
 #: JigsawPuzzleActivity.py:265
 #, python-format
 msgid "Buddy '%s' left the game!"
-msgstr "'%s' saiu do jogo!"
+msgstr "Parceiro '%s' saiu do jogo!"
 
 #: JigsawPuzzleUI.py:215
 msgid "Solve"
@@ -97,7 +98,7 @@ msgstr "À espera que a imagem do Puzzle seja escolhida..."
 
 #: JigsawPuzzleUI.py:322 JigsawPuzzleUI.py:368
 msgid "Buddies"
-msgstr "Participantes"
+msgstr "Parceiros"
 
 #: JigsawPuzzleUI.py:328
 msgid "Game Running"
@@ -153,7 +154,7 @@ msgstr "Lição 2"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr "Participante"
+msgstr "Parceiro"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"

@@ -2,272 +2,310 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#, fuzzy
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 13:40+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-02-15 00:31-0500\n"
+"PO-Revision-Date: 2011-12-22 16:08+0200\n"
+"Last-Translator: lite <litekok@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.1.1rc4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
-msgstr ""
+msgstr "拼图"
+
+#: JigsawPuzzleActivity.py:188
+#, python-format
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr "好友'%(buddy)s'状态改变：%(status)s"
+
+#: JigsawPuzzleActivity.py:261
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "伙伴'%s' 加入游戏！"
+
+#: JigsawPuzzleActivity.py:265
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "伙伴'%s' 离开游戏！"
+
+#: JigsawPuzzleUI.py:215
+msgid "Solve"
+msgstr "拼图"
+
+#: JigsawPuzzleUI.py:219
+msgid "Shuffle"
+msgstr "搅乱"
+
+#: JigsawPuzzleUI.py:223
+msgid "My Picture"
+msgstr "我的图片"
+
+#: JigsawPuzzleUI.py:227
+msgid "Board Hint"
+msgstr "提示"
+
+#: JigsawPuzzleUI.py:271
+msgid "Time: "
+msgstr "时间："
+
+#: JigsawPuzzleUI.py:280 JigsawPuzzleUI.py:510
+msgid "Lesson Plans"
+msgstr "课程计划"
+
+#: JigsawPuzzleUI.py:316
+msgid "Select image and press Start Game..."
+msgstr "选择图片然后按开始游戏键..."
+
+#: JigsawPuzzleUI.py:320
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr "请选择拼图图片..."
+
+#: JigsawPuzzleUI.py:322 JigsawPuzzleUI.py:368
+msgid "Buddies"
+msgstr "小朋友们"
+
+#: JigsawPuzzleUI.py:328
+msgid "Game Running"
+msgstr "游戏运行中"
+
+#: JigsawPuzzleUI.py:358
+msgid "Start Game"
+msgstr "开始游戏"
+
+#: JigsawPuzzleUI.py:388
+msgid "Choose a Subject"
+msgstr "选择一个主题"
+
+#: JigsawPuzzleUI.py:441
+msgid "Puzzle Solved!"
+msgstr "拼图完成!"
+
+#: JigsawPuzzleUI.py:443
+msgid "Press Stop on the Toolbar to Exit Activity!"
+msgstr "按工具栏上的停止键退出游戏!"
+
+#: JigsawPuzzleUI.py:478
+msgid "Jigsaw Puzzle Activity"
+msgstr "拼图游戏"
+
+#: JigsawPuzzleUI.py:513
+msgid "Close Lesson"
+msgstr "关闭课程"
+
+#: JigsawPuzzleUI.py:583
+msgid "Game Started!"
+msgstr "游戏开始"
+
+#: JigsawPuzzleUI.py:585
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "拼图图片转移中，请等待..."
 
 #: i18n_misc_strings.py:1
 msgid "Overview"
-msgstr ""
+msgstr "介绍"
 
 #: i18n_misc_strings.py:2
 msgid "Lesson 3"
-msgstr ""
+msgstr "第三课"
 
 #: i18n_misc_strings.py:3
 msgid "Lesson 1"
-msgstr ""
+msgstr "第一课"
 
 #: i18n_misc_strings.py:4
 msgid "Lesson 2"
-msgstr ""
-
-#: JigsawPuzzleActivity.py:183
-#, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr ""
-
-#: JigsawPuzzleActivity.py:254
-#, python-format
-msgid "Buddy '%s' joined the game!"
-msgstr ""
-
-#: JigsawPuzzleActivity.py:258
-#, python-format
-msgid "Buddy '%s' left the game!"
-msgstr ""
-
-#: JigsawPuzzleUI.py:204
-msgid "Solve"
-msgstr ""
-
-#: JigsawPuzzleUI.py:208
-msgid "Shuffle"
-msgstr ""
-
-#: JigsawPuzzleUI.py:212
-msgid "My Picture"
-msgstr ""
-
-#: JigsawPuzzleUI.py:216
-msgid "Board Hint"
-msgstr ""
-
-#: JigsawPuzzleUI.py:254
-msgid "Time: "
-msgstr ""
-
-#: JigsawPuzzleUI.py:263 JigsawPuzzleUI.py:481
-msgid "Lesson Plans"
-msgstr ""
-
-#: JigsawPuzzleUI.py:299
-msgid "Select image and press Start Game..."
-msgstr ""
-
-#: JigsawPuzzleUI.py:303
-msgid "Waiting for Puzzle image to be chosen..."
-msgstr ""
-
-#: JigsawPuzzleUI.py:305 JigsawPuzzleUI.py:351
-msgid "Buddies"
-msgstr ""
-
-#: JigsawPuzzleUI.py:311
-msgid "Game Running"
-msgstr ""
-
-#: JigsawPuzzleUI.py:341
-msgid "Start Game"
-msgstr ""
-
-#: JigsawPuzzleUI.py:371
-msgid "Choose a Subject"
-msgstr ""
-
-#: JigsawPuzzleUI.py:417
-msgid "Puzzle Solved!"
-msgstr ""
-
-#: JigsawPuzzleUI.py:419
-msgid "Press Stop on the Toolbar to Exit Activity!"
-msgstr ""
-
-#: JigsawPuzzleUI.py:454
-msgid "Jigsaw Puzzle Activity"
-msgstr ""
-
-#: JigsawPuzzleUI.py:484
-msgid "Close Lesson"
-msgstr ""
-
-#: JigsawPuzzleUI.py:551
-msgid "Game Started!"
-msgstr ""
-
-#: JigsawPuzzleUI.py:553
-msgid "Waiting for Puzzle image to be transferred..."
-msgstr ""
+msgstr "第二课"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr ""
+msgstr "小朋友"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
-msgstr ""
+msgstr "状态"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
-msgstr ""
+msgstr "游戏时间"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr ""
+msgstr "加入"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr ""
+msgstr "同步"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr ""
+msgstr "开始"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr ""
+msgstr "暂停"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
-msgstr ""
+msgstr "结束"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
-msgstr ""
+msgstr "放弃"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
-msgstr ""
+msgstr "%i 分钟"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
-msgstr ""
+msgstr "中文简体"
 
 #: mmm_modules/i18n.py:37
 msgid "Chinese (traditional)"
-msgstr ""
+msgstr "中文繁体"
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr ""
+msgstr "捷克文"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr ""
+msgstr "丹麦文"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
-msgstr ""
+msgstr "荷兰文"
 
 #: mmm_modules/i18n.py:41
 msgid "English"
-msgstr ""
+msgstr "英文"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr ""
+msgstr "英式英文"
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr ""
+msgstr "美式英文"
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
-msgstr ""
+msgstr "芬兰文"
 
 #: mmm_modules/i18n.py:45
 msgid "French"
-msgstr ""
+msgstr "法文"
 
 #: mmm_modules/i18n.py:46
 msgid "German"
-msgstr ""
+msgstr "德文"
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
-msgstr ""
+msgstr "匈牙利文"
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
-msgstr ""
+msgstr "意大利文"
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
-msgstr ""
+msgstr "日文"
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"
-msgstr ""
+msgstr "韩文"
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
-msgstr ""
+msgstr "挪威文"
 
 #: mmm_modules/i18n.py:52
 msgid "Polish"
-msgstr ""
+msgstr "波兰文"
 
 #: mmm_modules/i18n.py:53
 msgid "Portuguese"
-msgstr ""
+msgstr "葡萄牙文"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr ""
+msgstr "巴西葡萄牙文"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
-msgstr ""
+msgstr "俄文"
 
 #: mmm_modules/i18n.py:56
 msgid "Slovak"
-msgstr ""
+msgstr "斯洛伐克文"
 
 #: mmm_modules/i18n.py:57
 msgid "Spanish"
-msgstr ""
+msgstr "西班牙文"
 
 #: mmm_modules/i18n.py:58
 msgid "Swedish"
-msgstr ""
+msgstr "瑞典文"
 
 #: mmm_modules/i18n.py:59
 msgid "Turkish"
-msgstr ""
+msgstr "土耳其文"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:219 mmm_modules/image_category.py:223
 msgid "Choose image"
-msgstr ""
+msgstr "选择图片"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:235
 msgid "Not a valid image file"
-msgstr ""
+msgstr "无效的图片文件"
+
+#, python-format
+#, fuzzy
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "伙伴‘%s’改变状态为：%s"

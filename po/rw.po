@@ -2,22 +2,139 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 13:40+0000\n"
-"PO-Revision-Date: 2008-08-28 10:20+0200\n"
-"Last-Translator: carine <carine.umutesi@rita.rw>\n"
+"POT-Creation-Date: 2012-02-15 00:31-0500\n"
+"PO-Revision-Date: 2012-02-23 02:24+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: rw\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.1.1rc4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1) ;\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
 msgstr "Jigsaw Puzzle"
+
+#: JigsawPuzzleActivity.py:188
+#, python-format
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr ""
+
+#: JigsawPuzzleActivity.py:261
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "Inshuti'%s' yiyunze ku mukino!"
+
+#: JigsawPuzzleActivity.py:265
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "Inshuti '%s' yaretse umukino!"
+
+#: JigsawPuzzleUI.py:215
+msgid "Solve"
+msgstr "Kemura"
+
+#: JigsawPuzzleUI.py:219
+msgid "Shuffle"
+msgstr "Gushyira kuri gahunda"
+
+#: JigsawPuzzleUI.py:223
+msgid "My Picture"
+msgstr "Ifoto Yanjye"
+
+#: JigsawPuzzleUI.py:227
+msgid "Board Hint"
+msgstr "Board Hint"
+
+#: JigsawPuzzleUI.py:271
+msgid "Time: "
+msgstr "Igihe: "
+
+#: JigsawPuzzleUI.py:280 JigsawPuzzleUI.py:510
+msgid "Lesson Plans"
+msgstr "Iteganyanyigisho"
+
+#: JigsawPuzzleUI.py:316
+msgid "Select image and press Start Game..."
+msgstr "Toranya ishusho noneho ukande Tangira Umukino..."
+
+#: JigsawPuzzleUI.py:320
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr "Tegereza ishusho y`Ihurizo itoranywe..."
+
+#: JigsawPuzzleUI.py:322 JigsawPuzzleUI.py:368
+msgid "Buddies"
+msgstr "Inshuti nyinshi"
+
+#: JigsawPuzzleUI.py:328
+msgid "Game Running"
+msgstr "Umukino Ukinwa"
+
+#: JigsawPuzzleUI.py:358
+msgid "Start Game"
+msgstr "Tangira Umukino"
+
+#: JigsawPuzzleUI.py:388
+msgid "Choose a Subject"
+msgstr "Hitamo ingingo nyamukuru"
+
+#: JigsawPuzzleUI.py:441
+msgid "Puzzle Solved!"
+msgstr "Ihurizo Ryasubijwe!"
+
+#: JigsawPuzzleUI.py:443
+msgid "Press Stop on the Toolbar to Exit Activity!"
+msgstr "Kanda Hagarika ku dukoresho urangize igikorwa!"
+
+#: JigsawPuzzleUI.py:478
+msgid "Jigsaw Puzzle Activity"
+msgstr "Jigsaw Puzzle Activity"
+
+#: JigsawPuzzleUI.py:513
+msgid "Close Lesson"
+msgstr "Hagarika Isomo"
+
+#: JigsawPuzzleUI.py:583
+msgid "Game Started!"
+msgstr "Umukino Watangiye"
+
+#: JigsawPuzzleUI.py:585
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "Gutegereza ko ishusho y`ihurizo yoherezwa..."
 
 #: i18n_misc_strings.py:1
 msgid "Overview"
@@ -34,93 +151,6 @@ msgstr "Isomo rya 1"
 #: i18n_misc_strings.py:4
 msgid "Lesson 2"
 msgstr "Isomo rya 2"
-
-#: JigsawPuzzleActivity.py:183
-#, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr "Inshuti '%s' yahinduye irangamimerere: %s"
-
-#: JigsawPuzzleActivity.py:254
-#, python-format
-msgid "Buddy '%s' joined the game!"
-msgstr "Inshuti'%s' yiyunze ku mukino!"
-
-#: JigsawPuzzleActivity.py:258
-#, python-format
-msgid "Buddy '%s' left the game!"
-msgstr "Inshuti '%s' yaretse umukino!"
-
-#: JigsawPuzzleUI.py:204
-msgid "Solve"
-msgstr "Kemura"
-
-#: JigsawPuzzleUI.py:208
-msgid "Shuffle"
-msgstr "Gushyira kuri gahunda"
-
-#: JigsawPuzzleUI.py:212
-msgid "My Picture"
-msgstr "Ifoto Yanjye"
-
-#: JigsawPuzzleUI.py:216
-msgid "Board Hint"
-msgstr "Board Hint"
-
-#: JigsawPuzzleUI.py:254
-msgid "Time: "
-msgstr "Igihe"
-
-#: JigsawPuzzleUI.py:263 JigsawPuzzleUI.py:481
-msgid "Lesson Plans"
-msgstr "Iteganyanyigisho"
-
-#: JigsawPuzzleUI.py:299
-msgid "Select image and press Start Game..."
-msgstr "Toranya ishusho noneho ukande Tangira Umukino..."
-
-#: JigsawPuzzleUI.py:303
-msgid "Waiting for Puzzle image to be chosen..."
-msgstr "Tegereza ishusho y`Ihurizo itoranywe.."
-
-#: JigsawPuzzleUI.py:305 JigsawPuzzleUI.py:351
-msgid "Buddies"
-msgstr "Inshuti nyinshi"
-
-#: JigsawPuzzleUI.py:311
-msgid "Game Running"
-msgstr "Umukino Ukinwa"
-
-#: JigsawPuzzleUI.py:341
-msgid "Start Game"
-msgstr "Tangira Umukino"
-
-#: JigsawPuzzleUI.py:371
-msgid "Choose a Subject"
-msgstr "Hitamo ingingo nyamukuru"
-
-#: JigsawPuzzleUI.py:417
-msgid "Puzzle Solved!"
-msgstr "Ihurizo Ryasubijwe!"
-
-#: JigsawPuzzleUI.py:419
-msgid "Press Stop on the Toolbar to Exit Activity!"
-msgstr "Kanda Hagarika ku dukoresho urangize igikorwa!"
-
-#: JigsawPuzzleUI.py:454
-msgid "Jigsaw Puzzle Activity"
-msgstr "Jigsaw Puzzle Activity"
-
-#: JigsawPuzzleUI.py:484
-msgid "Close Lesson"
-msgstr "Hagarika Isomo"
-
-#: JigsawPuzzleUI.py:551
-msgid "Game Started!"
-msgstr "Umukino Watangiye"
-
-#: JigsawPuzzleUI.py:553
-msgid "Waiting for Puzzle image to be transferred..."
-msgstr "Gutegereza ko ishusho y`ihurizo yoherezwa"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
@@ -148,7 +178,7 @@ msgstr "Gukina bikomeza"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr "Byahagaritswe "
+msgstr "Byahagaritswe"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
@@ -165,7 +195,7 @@ msgstr "Ikitazwi"
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
-msgstr "iminota %i "
+msgstr "iminota %i"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
@@ -177,11 +207,11 @@ msgstr "Igishinwa (umuco)"
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr "Czech"
+msgstr "Ikinyaceke"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr "Iki Danish"
+msgstr "Ikidanwa"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
@@ -193,15 +223,15 @@ msgstr "Icyongereza"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr "Icyongereza- cy'Abongereza"
+msgstr "Icyongereza - cy'Abongereza"
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr "Icyongereza- U.S."
+msgstr "Icyongereza - U.S."
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
-msgstr "Finnish"
+msgstr "Ikinyafinilande"
 
 #: mmm_modules/i18n.py:45
 msgid "French"
@@ -213,11 +243,11 @@ msgstr "Ikidage"
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
-msgstr "Igihongoli"
+msgstr "Ikinyahangariya"
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
-msgstr "Igitariyani"
+msgstr "Igitaliyani"
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
@@ -229,19 +259,19 @@ msgstr "Igikoreya"
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
-msgstr "Ikinoruveje"
+msgstr "Ikinyanoruveji nayinorusiki"
 
 #: mmm_modules/i18n.py:52
 msgid "Polish"
-msgstr "Igipolishi"
+msgstr "Ikinyapolonye"
 
 #: mmm_modules/i18n.py:53
 msgid "Portuguese"
-msgstr "Igiporitigare"
+msgstr "Igiporutigali"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr "Portuguese - Brazilian"
+msgstr "Igiporutigali - Brazilian"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
@@ -249,11 +279,11 @@ msgstr "Ikirusiya"
 
 #: mmm_modules/i18n.py:56
 msgid "Slovak"
-msgstr "Ikinyaslovakiya"
+msgstr "Igisilovake"
 
 #: mmm_modules/i18n.py:57
 msgid "Spanish"
-msgstr "Icyesipanyoro"
+msgstr "Igisipanyole"
 
 #: mmm_modules/i18n.py:58
 msgid "Swedish"
@@ -261,12 +291,16 @@ msgstr "Igisuwede"
 
 #: mmm_modules/i18n.py:59
 msgid "Turkish"
-msgstr "Turkish"
+msgstr "Ikinyaturukiya"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:219 mmm_modules/image_category.py:223
 msgid "Choose image"
 msgstr "Hitamo ishusho"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:235
 msgid "Not a valid image file"
 msgstr "Nta bubiko bw`ishusho nyabwo"
+
+#, python-format
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "Inshuti '%s' yahinduye irangamimerere: %s"

@@ -34,9 +34,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-25 00:31-0400\n"
-"PO-Revision-Date: 2012-01-26 01:16+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"POT-Creation-Date: 2012-02-15 00:31-0500\n"
+"PO-Revision-Date: 2012-03-21 00:36+0200\n"
+"Last-Translator: Eduardo H. <hoboprimate@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
@@ -74,7 +74,7 @@ msgstr "Baralhar"
 
 #: JigsawPuzzleUI.py:223
 msgid "My Picture"
-msgstr "Minha Imagem"
+msgstr "A Minha Imagem"
 
 #: JigsawPuzzleUI.py:227
 msgid "Board Hint"
@@ -118,11 +118,11 @@ msgstr "Puzzle Resolvido!"
 
 #: JigsawPuzzleUI.py:443
 msgid "Press Stop on the Toolbar to Exit Activity!"
-msgstr "Clica Parar na barra de ferramentas para Sair da Actividade!"
+msgstr "Clica Parar na barra de ferramentas para Sair da Atividade!"
 
 #: JigsawPuzzleUI.py:478
 msgid "Jigsaw Puzzle Activity"
-msgstr "Actividade Puzzle de Peças"
+msgstr "Atividade Puzzle de Peças"
 
 #: JigsawPuzzleUI.py:513
 msgid "Close Lesson"
@@ -166,7 +166,7 @@ msgstr "Tempo de Jogo"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr "Juntou-se hà"
+msgstr "Juntou-se em"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
@@ -295,7 +295,7 @@ msgstr "Turco"
 
 #: mmm_modules/image_category.py:219 mmm_modules/image_category.py:223
 msgid "Choose image"
-msgstr "Escolhe a imagem"
+msgstr "Escolhe uma imagem"
 
 #: mmm_modules/image_category.py:235
 msgid "Not a valid image file"

@@ -34,16 +34,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-25 00:31-0400\n"
-"PO-Revision-Date: 2011-07-03 14:38+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"POT-Creation-Date: 2012-02-15 00:31-0500\n"
+"PO-Revision-Date: 2012-03-09 09:59+0200\n"
+"Last-Translator: Thangamani <thangam.arunx@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
@@ -52,7 +52,7 @@ msgstr "குறுக்குப்புதிர்"
 #: JigsawPuzzleActivity.py:188
 #, python-format
 msgid "Buddy '%(buddy)s' changed status: %(status)s"
-msgstr ""
+msgstr "நண்பனின் '%(buddy)s' மாறிய நிலமை: %(status)s"
 
 #: JigsawPuzzleActivity.py:261
 #, python-format

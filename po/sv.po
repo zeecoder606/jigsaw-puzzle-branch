@@ -2,22 +2,139 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 13:40+0000\n"
-"PO-Revision-Date: 2008-10-14 08:45-0400\n"
-"Last-Translator: Mattias Ohlsson <mattias_oh@yahoo.com>\n"
+"POT-Creation-Date: 2012-02-15 00:31-0500\n"
+"PO-Revision-Date: 2010-02-12 06:19+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.1.0rc2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
 msgstr "Pussel"
+
+#: JigsawPuzzleActivity.py:188
+#, python-format
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr ""
+
+#: JigsawPuzzleActivity.py:261
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "Kompis '%s' gick med i spelet"
+
+#: JigsawPuzzleActivity.py:265
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "Kompis '%s' lämnade spelet"
+
+#: JigsawPuzzleUI.py:215
+msgid "Solve"
+msgstr "Lös"
+
+#: JigsawPuzzleUI.py:219
+msgid "Shuffle"
+msgstr "Blanda"
+
+#: JigsawPuzzleUI.py:223
+msgid "My Picture"
+msgstr "Min bild"
+
+#: JigsawPuzzleUI.py:227
+msgid "Board Hint"
+msgstr "Ledtråd"
+
+#: JigsawPuzzleUI.py:271
+msgid "Time: "
+msgstr "Tid: "
+
+#: JigsawPuzzleUI.py:280 JigsawPuzzleUI.py:510
+msgid "Lesson Plans"
+msgstr "Lektionsplaner"
+
+#: JigsawPuzzleUI.py:316
+msgid "Select image and press Start Game..."
+msgstr "Välj en bild och tryck sedan på Starta spel..."
+
+#: JigsawPuzzleUI.py:320
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr "Väntar på att en bild ska väljas..."
+
+#: JigsawPuzzleUI.py:322 JigsawPuzzleUI.py:368
+msgid "Buddies"
+msgstr "Kompisar"
+
+#: JigsawPuzzleUI.py:328
+msgid "Game Running"
+msgstr "Aktiva spel"
+
+#: JigsawPuzzleUI.py:358
+msgid "Start Game"
+msgstr "Starta spel"
+
+#: JigsawPuzzleUI.py:388
+msgid "Choose a Subject"
+msgstr "Välj ett ämne"
+
+#: JigsawPuzzleUI.py:441
+msgid "Puzzle Solved!"
+msgstr "Pusslet löst!"
+
+#: JigsawPuzzleUI.py:443
+msgid "Press Stop on the Toolbar to Exit Activity!"
+msgstr "Tryck på avsluta i verktygslisten för att avsluta aktiviteten"
+
+#: JigsawPuzzleUI.py:478
+msgid "Jigsaw Puzzle Activity"
+msgstr "Pusselaktivitet"
+
+#: JigsawPuzzleUI.py:513
+msgid "Close Lesson"
+msgstr "Stäng lektion"
+
+#: JigsawPuzzleUI.py:583
+msgid "Game Started!"
+msgstr "Spelet startat!"
+
+#: JigsawPuzzleUI.py:585
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "Väntar på att bilden ska överföras..."
 
 #: i18n_misc_strings.py:1
 msgid "Overview"
@@ -34,93 +151,6 @@ msgstr "Lektion 1"
 #: i18n_misc_strings.py:4
 msgid "Lesson 2"
 msgstr "Lektion 2"
-
-#: JigsawPuzzleActivity.py:183
-#, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr "Kompis '%s' ändrade sin status till %s"
-
-#: JigsawPuzzleActivity.py:254
-#, python-format
-msgid "Buddy '%s' joined the game!"
-msgstr "Kompis '%s' gick med i spelet"
-
-#: JigsawPuzzleActivity.py:258
-#, python-format
-msgid "Buddy '%s' left the game!"
-msgstr "Kompis '%s' lämnade spelet"
-
-#: JigsawPuzzleUI.py:204
-msgid "Solve"
-msgstr "Lös"
-
-#: JigsawPuzzleUI.py:208
-msgid "Shuffle"
-msgstr "Blanda"
-
-#: JigsawPuzzleUI.py:212
-msgid "My Picture"
-msgstr "Min bild"
-
-#: JigsawPuzzleUI.py:216
-msgid "Board Hint"
-msgstr "Ledtråd"
-
-#: JigsawPuzzleUI.py:254
-msgid "Time: "
-msgstr "Tid: "
-
-#: JigsawPuzzleUI.py:263 JigsawPuzzleUI.py:481
-msgid "Lesson Plans"
-msgstr "Lektionsplaner"
-
-#: JigsawPuzzleUI.py:299
-msgid "Select image and press Start Game..."
-msgstr "Välj en bild och tryck sedan på Starta spel..."
-
-#: JigsawPuzzleUI.py:303
-msgid "Waiting for Puzzle image to be chosen..."
-msgstr "Väntar på att en bild ska väljas..."
-
-#: JigsawPuzzleUI.py:305 JigsawPuzzleUI.py:351
-msgid "Buddies"
-msgstr "Kompisar"
-
-#: JigsawPuzzleUI.py:311
-msgid "Game Running"
-msgstr "Aktiva spel"
-
-#: JigsawPuzzleUI.py:341
-msgid "Start Game"
-msgstr "Starta spel"
-
-#: JigsawPuzzleUI.py:371
-msgid "Choose a Subject"
-msgstr "Välj ett ämne"
-
-#: JigsawPuzzleUI.py:417
-msgid "Puzzle Solved!"
-msgstr "Pusslet löst!"
-
-#: JigsawPuzzleUI.py:419
-msgid "Press Stop on the Toolbar to Exit Activity!"
-msgstr "Tryck på avsluta i verktygslisten för att avsluta aktiviteten"
-
-#: JigsawPuzzleUI.py:454
-msgid "Jigsaw Puzzle Activity"
-msgstr "Pusselaktivitet"
-
-#: JigsawPuzzleUI.py:484
-msgid "Close Lesson"
-msgstr "Stäng lektion"
-
-#: JigsawPuzzleUI.py:551
-msgid "Game Started!"
-msgstr "Spelet startat!"
-
-#: JigsawPuzzleUI.py:553
-msgid "Waiting for Puzzle image to be transferred..."
-msgstr "Väntar på att bilden ska överföras..."
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
@@ -237,7 +267,7 @@ msgstr "Polska"
 
 #: mmm_modules/i18n.py:53
 msgid "Portuguese"
-msgstr "Portugisiska "
+msgstr "Portugisiska"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
@@ -263,10 +293,14 @@ msgstr "Svenska"
 msgid "Turkish"
 msgstr "Turkiska"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:219 mmm_modules/image_category.py:223
 msgid "Choose image"
 msgstr "Välj bild"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:235
 msgid "Not a valid image file"
 msgstr "Inte en giltig bildfil"
+
+#, python-format
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "Kompis '%s' ändrade sin status till %s"

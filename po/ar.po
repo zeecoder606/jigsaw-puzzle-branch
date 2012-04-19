@@ -1,16 +1,20 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # Khaled Hosny <khaledhosny@eglug.org>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 13:40+0000\n"
+"POT-Creation-Date: 2012-02-15 00:31-0500\n"
 "PO-Revision-Date: 2010-02-19 18:05+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
-"Language: ar\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,6 +25,93 @@ msgstr ""
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
 msgstr "أحجية المنشار"
+
+#: JigsawPuzzleActivity.py:188
+#, python-format
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr ""
+
+#: JigsawPuzzleActivity.py:261
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "انضم الصديق '%s' للعبة."
+
+#: JigsawPuzzleActivity.py:265
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "غادر الصديق '%s' اللعبة."
+
+#: JigsawPuzzleUI.py:215
+msgid "Solve"
+msgstr "حُل"
+
+#: JigsawPuzzleUI.py:219
+msgid "Shuffle"
+msgstr "اخلط"
+
+#: JigsawPuzzleUI.py:223
+msgid "My Picture"
+msgstr "صورتي"
+
+#: JigsawPuzzleUI.py:227
+msgid "Board Hint"
+msgstr "تلميحة اللوحة"
+
+#: JigsawPuzzleUI.py:271
+msgid "Time: "
+msgstr "الوقت: "
+
+#: JigsawPuzzleUI.py:280 JigsawPuzzleUI.py:510
+msgid "Lesson Plans"
+msgstr "جدول الدروس"
+
+#: JigsawPuzzleUI.py:316
+msgid "Select image and press Start Game..."
+msgstr "اختر صورة ثم اضغط على ابدأ اللعبة..."
+
+#: JigsawPuzzleUI.py:320
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr "ينتظر اختيار صورة أحجية..."
+
+#: JigsawPuzzleUI.py:322 JigsawPuzzleUI.py:368
+msgid "Buddies"
+msgstr "الأصدقاء"
+
+#: JigsawPuzzleUI.py:328
+msgid "Game Running"
+msgstr "اللعبة مشغلة"
+
+#: JigsawPuzzleUI.py:358
+msgid "Start Game"
+msgstr "ابدأ اللعبة"
+
+#: JigsawPuzzleUI.py:388
+msgid "Choose a Subject"
+msgstr "اختر موضوعا"
+
+#: JigsawPuzzleUI.py:441
+msgid "Puzzle Solved!"
+msgstr "حُلَّ اللغز."
+
+#: JigsawPuzzleUI.py:443
+msgid "Press Stop on the Toolbar to Exit Activity!"
+msgstr "انقر أوقف في شريط الأدوات للخروج من النشاط"
+
+#: JigsawPuzzleUI.py:478
+msgid "Jigsaw Puzzle Activity"
+msgstr "نشاط أحجية المنشار"
+
+#: JigsawPuzzleUI.py:513
+msgid "Close Lesson"
+msgstr "أغلق الدرس"
+
+#: JigsawPuzzleUI.py:583
+msgid "Game Started!"
+msgstr "بدأت اللعبة"
+
+#: JigsawPuzzleUI.py:585
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "ينتظر اكتمال نقل صورة الأحجية..."
 
 #: i18n_misc_strings.py:1
 msgid "Overview"
@@ -37,93 +128,6 @@ msgstr "درس 1"
 #: i18n_misc_strings.py:4
 msgid "Lesson 2"
 msgstr "درس 2"
-
-#: JigsawPuzzleActivity.py:183
-#, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr "غيّر الصديق '%s' حالته : %s"
-
-#: JigsawPuzzleActivity.py:254
-#, python-format
-msgid "Buddy '%s' joined the game!"
-msgstr "انضم الصديق '%s' للعبة."
-
-#: JigsawPuzzleActivity.py:258
-#, python-format
-msgid "Buddy '%s' left the game!"
-msgstr "غادر الصديق '%s' اللعبة."
-
-#: JigsawPuzzleUI.py:204
-msgid "Solve"
-msgstr "حُل"
-
-#: JigsawPuzzleUI.py:208
-msgid "Shuffle"
-msgstr "اخلط"
-
-#: JigsawPuzzleUI.py:212
-msgid "My Picture"
-msgstr "صورتي"
-
-#: JigsawPuzzleUI.py:216
-msgid "Board Hint"
-msgstr "تلميحة اللوحة"
-
-#: JigsawPuzzleUI.py:254
-msgid "Time: "
-msgstr "الوقت: "
-
-#: JigsawPuzzleUI.py:263 JigsawPuzzleUI.py:481
-msgid "Lesson Plans"
-msgstr "جدول الدروس"
-
-#: JigsawPuzzleUI.py:299
-msgid "Select image and press Start Game..."
-msgstr "اختر صورة ثم اضغط على ابدأ اللعبة..."
-
-#: JigsawPuzzleUI.py:303
-msgid "Waiting for Puzzle image to be chosen..."
-msgstr "ينتظر اختيار صورة أحجية..."
-
-#: JigsawPuzzleUI.py:305 JigsawPuzzleUI.py:351
-msgid "Buddies"
-msgstr "الأصدقاء"
-
-#: JigsawPuzzleUI.py:311
-msgid "Game Running"
-msgstr "اللعبة مشغلة"
-
-#: JigsawPuzzleUI.py:341
-msgid "Start Game"
-msgstr "ابدأ اللعبة"
-
-#: JigsawPuzzleUI.py:371
-msgid "Choose a Subject"
-msgstr "اختر موضوعا"
-
-#: JigsawPuzzleUI.py:417
-msgid "Puzzle Solved!"
-msgstr "حُلَّ اللغز."
-
-#: JigsawPuzzleUI.py:419
-msgid "Press Stop on the Toolbar to Exit Activity!"
-msgstr "انقر أوقف في شريط الأدوات للخروج من النشاط"
-
-#: JigsawPuzzleUI.py:454
-msgid "Jigsaw Puzzle Activity"
-msgstr "نشاط أحجية المنشار"
-
-#: JigsawPuzzleUI.py:484
-msgid "Close Lesson"
-msgstr "أغلق الدرس"
-
-#: JigsawPuzzleUI.py:551
-msgid "Game Started!"
-msgstr "بدأت اللعبة"
-
-#: JigsawPuzzleUI.py:553
-msgid "Waiting for Puzzle image to be transferred..."
-msgstr "ينتظر اكتمال نقل صورة الأحجية..."
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
@@ -266,10 +270,14 @@ msgstr "سويدية"
 msgid "Turkish"
 msgstr "تركية"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:219 mmm_modules/image_category.py:223
 msgid "Choose image"
 msgstr "اختر صورة"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:235
 msgid "Not a valid image file"
 msgstr "ليس ملف صورة سليم"
+
+#, python-format
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "غيّر الصديق '%s' حالته : %s"

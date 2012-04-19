@@ -22,24 +22,119 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 13:40+0000\n"
-"PO-Revision-Date: 2009-11-24 17:28-0400\n"
-"Last-Translator: Carlo Falciola <cfalciola@yahoo.it>\n"
+"POT-Creation-Date: 2012-02-15 00:31-0500\n"
+"PO-Revision-Date: 2012-02-22 07:54+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 1.2.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
 msgstr "Puzzle"
+
+#: JigsawPuzzleActivity.py:188
+#, python-format
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr "Il giocatore '%(buddy)s' ha cambiato status: %(status)s"
+
+#: JigsawPuzzleActivity.py:261
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "Il giocatore '%s' si è unito alla partita!"
+
+#: JigsawPuzzleActivity.py:265
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "Il giocatore '%s' ha smesso di giocare!"
+
+#: JigsawPuzzleUI.py:215
+msgid "Solve"
+msgstr "Risolvi"
+
+#: JigsawPuzzleUI.py:219
+msgid "Shuffle"
+msgstr "Sposta"
+
+#: JigsawPuzzleUI.py:223
+msgid "My Picture"
+msgstr "Immagine"
+
+#: JigsawPuzzleUI.py:227
+msgid "Board Hint"
+msgstr "Suggerimento"
+
+#: JigsawPuzzleUI.py:271
+msgid "Time: "
+msgstr "Tempo: "
+
+#: JigsawPuzzleUI.py:280 JigsawPuzzleUI.py:510
+msgid "Lesson Plans"
+msgstr "Piano Lezioni"
+
+#: JigsawPuzzleUI.py:316
+msgid "Select image and press Start Game..."
+msgstr "Scegli una immagine e premi Inizia Partita..."
+
+#: JigsawPuzzleUI.py:320
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr "In attesa della selezione di una immagine per il Puzzle..."
+
+#: JigsawPuzzleUI.py:322 JigsawPuzzleUI.py:368
+msgid "Buddies"
+msgstr "Giocatori"
+
+#: JigsawPuzzleUI.py:328
+msgid "Game Running"
+msgstr "Partita in corso"
+
+#: JigsawPuzzleUI.py:358
+msgid "Start Game"
+msgstr "Inizio Partita"
+
+#: JigsawPuzzleUI.py:388
+msgid "Choose a Subject"
+msgstr "Scegli un Soggetto"
+
+#: JigsawPuzzleUI.py:441
+msgid "Puzzle Solved!"
+msgstr "Puzzle Risolto!"
+
+#: JigsawPuzzleUI.py:443
+msgid "Press Stop on the Toolbar to Exit Activity!"
+msgstr "Premi Stop sulla cornice per chiudere l'Attività!"
+
+#: JigsawPuzzleUI.py:478
+msgid "Jigsaw Puzzle Activity"
+msgstr "Attività Puzzle"
+
+#: JigsawPuzzleUI.py:513
+msgid "Close Lesson"
+msgstr "Chiudi la Guida"
+
+#: JigsawPuzzleUI.py:583
+msgid "Game Started!"
+msgstr "Partita iniziata!"
+
+#: JigsawPuzzleUI.py:585
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "Immagine per il Puzzle in trasferimento, attendere..."
 
 #: i18n_misc_strings.py:1
 msgid "Overview"
@@ -56,93 +151,6 @@ msgstr "Lezione 1"
 #: i18n_misc_strings.py:4
 msgid "Lesson 2"
 msgstr "Lezione 2"
-
-#: JigsawPuzzleActivity.py:183
-#, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr "Il giocatore '%s' ha cambiato stato: %s"
-
-#: JigsawPuzzleActivity.py:254
-#, python-format
-msgid "Buddy '%s' joined the game!"
-msgstr "Il giocatore '%s' si è unito alla partita!"
-
-#: JigsawPuzzleActivity.py:258
-#, python-format
-msgid "Buddy '%s' left the game!"
-msgstr "Il giocatore '%s' ha smesso di giocare!"
-
-#: JigsawPuzzleUI.py:204
-msgid "Solve"
-msgstr "Risolvi"
-
-#: JigsawPuzzleUI.py:208
-msgid "Shuffle"
-msgstr "Sposta"
-
-#: JigsawPuzzleUI.py:212
-msgid "My Picture"
-msgstr "Immagine"
-
-#: JigsawPuzzleUI.py:216
-msgid "Board Hint"
-msgstr "Suggerimento"
-
-#: JigsawPuzzleUI.py:254
-msgid "Time: "
-msgstr "Tempo: "
-
-#: JigsawPuzzleUI.py:263 JigsawPuzzleUI.py:481
-msgid "Lesson Plans"
-msgstr "Piano Lezioni"
-
-#: JigsawPuzzleUI.py:299
-msgid "Select image and press Start Game..."
-msgstr "Scegli una immagine e premi Inizia Partita..."
-
-#: JigsawPuzzleUI.py:303
-msgid "Waiting for Puzzle image to be chosen..."
-msgstr "In attesa della selezione di una immagine per il Puzzle..."
-
-#: JigsawPuzzleUI.py:305 JigsawPuzzleUI.py:351
-msgid "Buddies"
-msgstr "Giocatori"
-
-#: JigsawPuzzleUI.py:311
-msgid "Game Running"
-msgstr "Partita in corso"
-
-#: JigsawPuzzleUI.py:341
-msgid "Start Game"
-msgstr "Inizio Partita"
-
-#: JigsawPuzzleUI.py:371
-msgid "Choose a Subject"
-msgstr "Scegli un Soggetto"
-
-#: JigsawPuzzleUI.py:417
-msgid "Puzzle Solved!"
-msgstr "Puzzle Risolto!"
-
-#: JigsawPuzzleUI.py:419
-msgid "Press Stop on the Toolbar to Exit Activity!"
-msgstr "Premi Stop sulla cornice per chiudere l'Attività!"
-
-#: JigsawPuzzleUI.py:454
-msgid "Jigsaw Puzzle Activity"
-msgstr "Attività Puzzle"
-
-#: JigsawPuzzleUI.py:484
-msgid "Close Lesson"
-msgstr "Chiudi la Guida"
-
-#: JigsawPuzzleUI.py:551
-msgid "Game Started!"
-msgstr "Partita iniziata!"
-
-#: JigsawPuzzleUI.py:553
-msgid "Waiting for Puzzle image to be transferred..."
-msgstr "Immagine per il Puzzle in trasferimento, attendere..."
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
@@ -285,10 +293,14 @@ msgstr "Svedese"
 msgid "Turkish"
 msgstr "Turco"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:219 mmm_modules/image_category.py:223
 msgid "Choose image"
 msgstr "Scegli immagine"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:235
 msgid "Not a valid image file"
 msgstr "File immagine non valido"
+
+#, python-format
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "Il giocatore '%s' ha cambiato stato: %s"

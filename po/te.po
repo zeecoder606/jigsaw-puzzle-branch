@@ -2,22 +2,138 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#, fuzzy
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 13:40+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-02-15 00:31-0500\n"
+"PO-Revision-Date: 2011-11-27 06:14+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.1.1rc4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
+msgstr "జిగ్సా పజిల్"
+
+#: JigsawPuzzleActivity.py:188
+#, python-format
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr ""
+
+#: JigsawPuzzleActivity.py:261
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "నేస్తం '%s' ఆటలో కలిసారు!"
+
+#: JigsawPuzzleActivity.py:265
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "నేస్తం '%s' ఆటను వదిలేసారు"
+
+#: JigsawPuzzleUI.py:215
+msgid "Solve"
+msgstr "ముడివిప్పు"
+
+#: JigsawPuzzleUI.py:219
+msgid "Shuffle"
+msgstr "కలుపు"
+
+#: JigsawPuzzleUI.py:223
+msgid "My Picture"
+msgstr "నా బొమ్మ"
+
+#: JigsawPuzzleUI.py:227
+msgid "Board Hint"
+msgstr ""
+
+#: JigsawPuzzleUI.py:271
+msgid "Time: "
+msgstr "కాలము: "
+
+#: JigsawPuzzleUI.py:280 JigsawPuzzleUI.py:510
+msgid "Lesson Plans"
+msgstr "పాఠ ప్రణాళికలు"
+
+#: JigsawPuzzleUI.py:316
+msgid "Select image and press Start Game..."
+msgstr ""
+
+#: JigsawPuzzleUI.py:320
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr ""
+
+#: JigsawPuzzleUI.py:322 JigsawPuzzleUI.py:368
+msgid "Buddies"
+msgstr "నేస్తాలు"
+
+#: JigsawPuzzleUI.py:328
+msgid "Game Running"
+msgstr "ఆట జరుగుతుంది"
+
+#: JigsawPuzzleUI.py:358
+msgid "Start Game"
+msgstr "ఆట మొదలు పెట్టు"
+
+#: JigsawPuzzleUI.py:388
+msgid "Choose a Subject"
+msgstr "ఒక విషయము ఎంచుకో"
+
+#: JigsawPuzzleUI.py:441
+msgid "Puzzle Solved!"
+msgstr "శభాష్! చిక్కు ముడి విప్పారు"
+
+#: JigsawPuzzleUI.py:443
+msgid "Press Stop on the Toolbar to Exit Activity!"
+msgstr ""
+
+#: JigsawPuzzleUI.py:478
+msgid "Jigsaw Puzzle Activity"
+msgstr ""
+
+#: JigsawPuzzleUI.py:513
+msgid "Close Lesson"
+msgstr "పాఠం ముగించు"
+
+#: JigsawPuzzleUI.py:583
+msgid "Game Started!"
+msgstr "ఆట మొదలైంది!"
+
+#: JigsawPuzzleUI.py:585
+msgid "Waiting for Puzzle image to be transferred..."
 msgstr ""
 
 #: i18n_misc_strings.py:1
@@ -26,118 +142,31 @@ msgstr ""
 
 #: i18n_misc_strings.py:2
 msgid "Lesson 3"
-msgstr ""
+msgstr "పాఠం3"
 
 #: i18n_misc_strings.py:3
 msgid "Lesson 1"
-msgstr ""
+msgstr "పాఠం1"
 
 #: i18n_misc_strings.py:4
 msgid "Lesson 2"
-msgstr ""
-
-#: JigsawPuzzleActivity.py:183
-#, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr ""
-
-#: JigsawPuzzleActivity.py:254
-#, python-format
-msgid "Buddy '%s' joined the game!"
-msgstr ""
-
-#: JigsawPuzzleActivity.py:258
-#, python-format
-msgid "Buddy '%s' left the game!"
-msgstr ""
-
-#: JigsawPuzzleUI.py:204
-msgid "Solve"
-msgstr ""
-
-#: JigsawPuzzleUI.py:208
-msgid "Shuffle"
-msgstr ""
-
-#: JigsawPuzzleUI.py:212
-msgid "My Picture"
-msgstr ""
-
-#: JigsawPuzzleUI.py:216
-msgid "Board Hint"
-msgstr ""
-
-#: JigsawPuzzleUI.py:254
-msgid "Time: "
-msgstr ""
-
-#: JigsawPuzzleUI.py:263 JigsawPuzzleUI.py:481
-msgid "Lesson Plans"
-msgstr ""
-
-#: JigsawPuzzleUI.py:299
-msgid "Select image and press Start Game..."
-msgstr ""
-
-#: JigsawPuzzleUI.py:303
-msgid "Waiting for Puzzle image to be chosen..."
-msgstr ""
-
-#: JigsawPuzzleUI.py:305 JigsawPuzzleUI.py:351
-msgid "Buddies"
-msgstr ""
-
-#: JigsawPuzzleUI.py:311
-msgid "Game Running"
-msgstr ""
-
-#: JigsawPuzzleUI.py:341
-msgid "Start Game"
-msgstr ""
-
-#: JigsawPuzzleUI.py:371
-msgid "Choose a Subject"
-msgstr ""
-
-#: JigsawPuzzleUI.py:417
-msgid "Puzzle Solved!"
-msgstr ""
-
-#: JigsawPuzzleUI.py:419
-msgid "Press Stop on the Toolbar to Exit Activity!"
-msgstr ""
-
-#: JigsawPuzzleUI.py:454
-msgid "Jigsaw Puzzle Activity"
-msgstr ""
-
-#: JigsawPuzzleUI.py:484
-msgid "Close Lesson"
-msgstr ""
-
-#: JigsawPuzzleUI.py:551
-msgid "Game Started!"
-msgstr ""
-
-#: JigsawPuzzleUI.py:553
-msgid "Waiting for Puzzle image to be transferred..."
-msgstr ""
+msgstr "పాఠం2"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr ""
+msgstr "నేస్తం"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
-msgstr ""
+msgstr "ఉనికి"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
-msgstr ""
+msgstr "ఆట సమయ"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr ""
+msgstr "వద్దకలిసారు"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
@@ -145,28 +174,28 @@ msgstr ""
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr ""
+msgstr "ఆట నడుస్తుంది"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr ""
+msgstr "ఆగినది"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
-msgstr ""
+msgstr "పూర్తయినది"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
-msgstr ""
+msgstr "ఓటమి అంగీకరించా"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
-msgstr ""
+msgstr "తెలియని"
 
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
-msgstr ""
+msgstr "%i నిమిషాలు"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
@@ -264,10 +293,14 @@ msgstr ""
 msgid "Turkish"
 msgstr ""
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:219 mmm_modules/image_category.py:223
 msgid "Choose image"
-msgstr ""
+msgstr "బొమ్మ ఎంచుకో"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:235
 msgid "Not a valid image file"
 msgstr ""
+
+#, python-format
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "నేస్తం '%s' ఉనికి మారింది: %s"

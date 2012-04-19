@@ -2,272 +2,281 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 13:40+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-02-15 00:31-0500\n"
+"PO-Revision-Date: 2011-08-29 03:28+0200\n"
+"Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.7.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
+msgstr "Mu´uchik"
+
+#: JigsawPuzzleActivity.py:188
+#, python-format
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
 msgstr ""
+
+#: JigsawPuzzleActivity.py:261
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "¡U ja´ub ´%s´ junkun ti ubat kal wawa´!"
+
+#: JigsawPuzzleActivity.py:265
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "¡U ja´úb ´%s´ in jilamal ti ubat!"
+
+#: JigsawPuzzleUI.py:215
+msgid "Solve"
+msgstr "Ts´ejkan"
+
+#: JigsawPuzzleUI.py:219
+msgid "Shuffle"
+msgstr "Xaludh"
+
+# k´otbil = imagen
+#: JigsawPuzzleUI.py:223
+msgid "My Picture"
+msgstr "U k´otbil"
+
+#: JigsawPuzzleUI.py:227
+msgid "Board Hint"
+msgstr "Wachik olchixtaláb"
+
+#: JigsawPuzzleUI.py:271
+msgid "Time: "
+msgstr "Jolát: "
+
+#: JigsawPuzzleUI.py:280 JigsawPuzzleUI.py:510
+msgid "Lesson Plans"
+msgstr "Ts´ekaj exobintaláb"
+
+#: JigsawPuzzleUI.py:316
+msgid "Select image and press Start Game..."
+msgstr "Ka takuy an t´ipláb ani ka ni´chij kabal ka tsi´kin an ubat´..."
+
+#: JigsawPuzzleUI.py:320
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr "U aychal an k´otbidh t´ilab mu´uchik, abal ku takuy..."
+
+#: JigsawPuzzleUI.py:322 JigsawPuzzleUI.py:368
+msgid "Buddies"
+msgstr "Ja´únchik"
+
+#: JigsawPuzzleUI.py:328
+msgid "Game Running"
+msgstr "éxom an ubat´láb"
+
+# ts´ikinal, tujel = iniciar o comenzar
+#: JigsawPuzzleUI.py:358
+msgid "Start Game"
+msgstr "Ts´ikinal an ubat´láb"
+
+#: JigsawPuzzleUI.py:388
+msgid "Choose a Subject"
+msgstr "Ka takuy in bij a exobintaláb"
+
+#: JigsawPuzzleUI.py:441
+msgid "Puzzle Solved!"
+msgstr "¡Ts´ejkan an mu´uchik!"
+
+#: JigsawPuzzleUI.py:443
+msgid "Press Stop on the Toolbar to Exit Activity!"
+msgstr ""
+"¡Ka ni'i'iy kuba' ti kwene' ayixtaláb abal ki kaldha' ti bá' an t'ojláb!"
+
+#: JigsawPuzzleUI.py:478
+msgid "Jigsaw Puzzle Activity"
+msgstr "T´ojláb kan mu´uchik"
+
+#: JigsawPuzzleUI.py:513
+msgid "Close Lesson"
+msgstr "Ka mápuy an pejach exobintaláb"
+
+#: JigsawPuzzleUI.py:583
+msgid "Game Started!"
+msgstr "¡Ts´ikinenek an ubatláb!"
+
+#: JigsawPuzzleUI.py:585
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "Aychal an mu´uchik k´otbidh ka k´alej..."
 
 #: i18n_misc_strings.py:1
 msgid "Overview"
-msgstr ""
+msgstr "Tejwa'medhomtaláb"
 
 #: i18n_misc_strings.py:2
 msgid "Lesson 3"
-msgstr ""
+msgstr "Oxchil pejach exobintaláb"
 
 #: i18n_misc_strings.py:3
 msgid "Lesson 1"
-msgstr ""
+msgstr "K´a´al pejach exobintaláb"
 
 #: i18n_misc_strings.py:4
 msgid "Lesson 2"
-msgstr ""
-
-#: JigsawPuzzleActivity.py:183
-#, python-format
-msgid "Buddy '%s' changed status: %s"
-msgstr ""
-
-#: JigsawPuzzleActivity.py:254
-#, python-format
-msgid "Buddy '%s' joined the game!"
-msgstr ""
-
-#: JigsawPuzzleActivity.py:258
-#, python-format
-msgid "Buddy '%s' left the game!"
-msgstr ""
-
-#: JigsawPuzzleUI.py:204
-msgid "Solve"
-msgstr ""
-
-#: JigsawPuzzleUI.py:208
-msgid "Shuffle"
-msgstr ""
-
-#: JigsawPuzzleUI.py:212
-msgid "My Picture"
-msgstr ""
-
-#: JigsawPuzzleUI.py:216
-msgid "Board Hint"
-msgstr ""
-
-#: JigsawPuzzleUI.py:254
-msgid "Time: "
-msgstr ""
-
-#: JigsawPuzzleUI.py:263 JigsawPuzzleUI.py:481
-msgid "Lesson Plans"
-msgstr ""
-
-#: JigsawPuzzleUI.py:299
-msgid "Select image and press Start Game..."
-msgstr ""
-
-#: JigsawPuzzleUI.py:303
-msgid "Waiting for Puzzle image to be chosen..."
-msgstr ""
-
-#: JigsawPuzzleUI.py:305 JigsawPuzzleUI.py:351
-msgid "Buddies"
-msgstr ""
-
-#: JigsawPuzzleUI.py:311
-msgid "Game Running"
-msgstr ""
-
-#: JigsawPuzzleUI.py:341
-msgid "Start Game"
-msgstr ""
-
-#: JigsawPuzzleUI.py:371
-msgid "Choose a Subject"
-msgstr ""
-
-#: JigsawPuzzleUI.py:417
-msgid "Puzzle Solved!"
-msgstr ""
-
-#: JigsawPuzzleUI.py:419
-msgid "Press Stop on the Toolbar to Exit Activity!"
-msgstr ""
-
-#: JigsawPuzzleUI.py:454
-msgid "Jigsaw Puzzle Activity"
-msgstr ""
-
-#: JigsawPuzzleUI.py:484
-msgid "Close Lesson"
-msgstr ""
-
-#: JigsawPuzzleUI.py:551
-msgid "Game Started!"
-msgstr ""
-
-#: JigsawPuzzleUI.py:553
-msgid "Waiting for Puzzle image to be transferred..."
-msgstr ""
+msgstr "Tsabchil pejach exobintaláb"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr ""
+msgstr "Juntal"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
-msgstr ""
+msgstr "Wichát"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
-msgstr ""
+msgstr "Ubat´ xowe´"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr ""
+msgstr "Junkun kal"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr ""
+msgstr "junkux"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr ""
+msgstr "Ubat´"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr ""
+msgstr "Tonk´idh"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
-msgstr ""
+msgstr "Talits"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
-msgstr ""
+msgstr "In Walba´its"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
-msgstr ""
+msgstr "Yab éxladh"
 
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
-msgstr ""
+msgstr "%i tsakamk´ij"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
-msgstr ""
+msgstr "Chino (simplificado)"
 
 #: mmm_modules/i18n.py:37
 msgid "Chinese (traditional)"
-msgstr ""
+msgstr "Chino (tradicional)"
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr ""
+msgstr "Checo"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr ""
+msgstr "Danés"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
-msgstr ""
+msgstr "Holandés"
 
 #: mmm_modules/i18n.py:41
 msgid "English"
-msgstr ""
+msgstr "Inglés"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr ""
+msgstr "Inglés - Gran Bretaña"
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr ""
+msgstr "Inglés - Estados Unidos"
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
-msgstr ""
+msgstr "Finlandés"
 
 #: mmm_modules/i18n.py:45
 msgid "French"
-msgstr ""
+msgstr "Francés"
 
 #: mmm_modules/i18n.py:46
 msgid "German"
-msgstr ""
+msgstr "Alemán"
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
-msgstr ""
+msgstr "Húngaro"
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
-msgstr ""
+msgstr "Italiano"
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
-msgstr ""
+msgstr "Japonés"
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"
-msgstr ""
+msgstr "Coreano"
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
-msgstr ""
+msgstr "Noruego"
 
 #: mmm_modules/i18n.py:52
 msgid "Polish"
-msgstr ""
+msgstr "Polaco"
 
 #: mmm_modules/i18n.py:53
 msgid "Portuguese"
-msgstr ""
+msgstr "Portugués"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr ""
+msgstr "Portugués - Brasileño"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
-msgstr ""
+msgstr "Ruso"
 
 #: mmm_modules/i18n.py:56
 msgid "Slovak"
-msgstr ""
+msgstr "Eslovaco"
 
 #: mmm_modules/i18n.py:57
 msgid "Spanish"
-msgstr ""
+msgstr "láb"
 
 #: mmm_modules/i18n.py:58
 msgid "Swedish"
-msgstr ""
+msgstr "Sueco"
 
 #: mmm_modules/i18n.py:59
 msgid "Turkish"
-msgstr ""
+msgstr "Turco"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:219 mmm_modules/image_category.py:223
 msgid "Choose image"
-msgstr ""
+msgstr "Ka takuy an t´ipláb"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:235
 msgid "Not a valid image file"
-msgstr ""
+msgstr "Yáb alwa axe xi t´ipláb"
+
+#, python-format
+#, python-format,
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "U juntal ´%s´ in jalk´uy in bichowil: %s"

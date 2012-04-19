@@ -2,134 +2,166 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#, fuzzy
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-14 13:40+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-02-15 00:31-0500\n"
+"PO-Revision-Date: 2008-10-22 08:21-0400\n"
+"Last-Translator: Geno Roupsky <groupsky@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.1.1rc4\n"
+"X-Generator: Pootle 1.1.0rc2\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
-msgstr ""
+msgstr "Пъзел"
 
-#: i18n_misc_strings.py:1
-msgid "Overview"
-msgstr ""
-
-#: i18n_misc_strings.py:2
-msgid "Lesson 3"
-msgstr ""
-
-#: i18n_misc_strings.py:3
-msgid "Lesson 1"
-msgstr ""
-
-#: i18n_misc_strings.py:4
-msgid "Lesson 2"
-msgstr ""
-
-#: JigsawPuzzleActivity.py:183
+#: JigsawPuzzleActivity.py:188
 #, python-format
-msgid "Buddy '%s' changed status: %s"
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
 msgstr ""
 
-#: JigsawPuzzleActivity.py:254
+#: JigsawPuzzleActivity.py:261
 #, python-format
 msgid "Buddy '%s' joined the game!"
-msgstr ""
+msgstr "Играч '%s' се присъедини към играта!"
 
-#: JigsawPuzzleActivity.py:258
+#: JigsawPuzzleActivity.py:265
 #, python-format
 msgid "Buddy '%s' left the game!"
-msgstr ""
+msgstr "Играч '%s' напусна играта!"
 
-#: JigsawPuzzleUI.py:204
+#: JigsawPuzzleUI.py:215
 msgid "Solve"
-msgstr ""
+msgstr "Решаване"
 
-#: JigsawPuzzleUI.py:208
+#: JigsawPuzzleUI.py:219
 msgid "Shuffle"
-msgstr ""
+msgstr "Разбъркване"
 
-#: JigsawPuzzleUI.py:212
+#: JigsawPuzzleUI.py:223
 msgid "My Picture"
-msgstr ""
+msgstr "Мое изображение"
 
-#: JigsawPuzzleUI.py:216
+#: JigsawPuzzleUI.py:227
 msgid "Board Hint"
 msgstr ""
 
-#: JigsawPuzzleUI.py:254
+#: JigsawPuzzleUI.py:271
 msgid "Time: "
-msgstr ""
+msgstr "Време: "
 
-#: JigsawPuzzleUI.py:263 JigsawPuzzleUI.py:481
+#: JigsawPuzzleUI.py:280 JigsawPuzzleUI.py:510
 msgid "Lesson Plans"
-msgstr ""
+msgstr "Учебни планове"
 
-#: JigsawPuzzleUI.py:299
+#: JigsawPuzzleUI.py:316
 msgid "Select image and press Start Game..."
-msgstr ""
+msgstr "Изберете изображение и натиснете \"Начало\"..."
 
-#: JigsawPuzzleUI.py:303
+#: JigsawPuzzleUI.py:320
 msgid "Waiting for Puzzle image to be chosen..."
-msgstr ""
+msgstr "Изчакване за избор на изображение..."
 
-#: JigsawPuzzleUI.py:305 JigsawPuzzleUI.py:351
+#: JigsawPuzzleUI.py:322 JigsawPuzzleUI.py:368
 msgid "Buddies"
-msgstr ""
+msgstr "Приятели"
 
-#: JigsawPuzzleUI.py:311
+#: JigsawPuzzleUI.py:328
 msgid "Game Running"
 msgstr ""
 
-#: JigsawPuzzleUI.py:341
+#: JigsawPuzzleUI.py:358
 msgid "Start Game"
-msgstr ""
+msgstr "Начало"
 
-#: JigsawPuzzleUI.py:371
+#: JigsawPuzzleUI.py:388
 msgid "Choose a Subject"
 msgstr ""
 
-#: JigsawPuzzleUI.py:417
+#: JigsawPuzzleUI.py:441
 msgid "Puzzle Solved!"
-msgstr ""
+msgstr "Пъзелът е разрешен!"
 
-#: JigsawPuzzleUI.py:419
+#: JigsawPuzzleUI.py:443
 msgid "Press Stop on the Toolbar to Exit Activity!"
 msgstr ""
 
-#: JigsawPuzzleUI.py:454
+#: JigsawPuzzleUI.py:478
 msgid "Jigsaw Puzzle Activity"
-msgstr ""
+msgstr "Занятие \"Пъзел\""
 
-#: JigsawPuzzleUI.py:484
+#: JigsawPuzzleUI.py:513
 msgid "Close Lesson"
-msgstr ""
+msgstr "Затваряне на урока"
 
-#: JigsawPuzzleUI.py:551
+#: JigsawPuzzleUI.py:583
 msgid "Game Started!"
-msgstr ""
+msgstr "Изграта е започнала!"
 
-#: JigsawPuzzleUI.py:553
+#: JigsawPuzzleUI.py:585
 msgid "Waiting for Puzzle image to be transferred..."
-msgstr ""
+msgstr "Изчакване докато се прехвърли изображението на пъзела..."
+
+#: i18n_misc_strings.py:1
+msgid "Overview"
+msgstr "Резюме"
+
+#: i18n_misc_strings.py:2
+msgid "Lesson 3"
+msgstr "Урок 3"
+
+#: i18n_misc_strings.py:3
+msgid "Lesson 1"
+msgstr "Урок 1"
+
+#: i18n_misc_strings.py:4
+msgid "Lesson 2"
+msgstr "Урок 2"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr ""
+msgstr "Играч"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
-msgstr ""
+msgstr "Състояние"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
@@ -137,11 +169,11 @@ msgstr ""
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr ""
+msgstr "Присъединил се в"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr ""
+msgstr "синхронизиране"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
@@ -166,108 +198,112 @@ msgstr ""
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
-msgstr ""
+msgstr "%i минути"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
-msgstr ""
+msgstr "Китайски (опростен)"
 
 #: mmm_modules/i18n.py:37
 msgid "Chinese (traditional)"
-msgstr ""
+msgstr "Китайски (традиционен)"
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr ""
+msgstr "Чешки"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr ""
+msgstr "Датски"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
-msgstr ""
+msgstr "Холандски"
 
 #: mmm_modules/i18n.py:41
 msgid "English"
-msgstr ""
+msgstr "Английски"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr ""
+msgstr "Английски - Великобритания"
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr ""
+msgstr "Английски - САЩ"
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
-msgstr ""
+msgstr "Финландски"
 
 #: mmm_modules/i18n.py:45
 msgid "French"
-msgstr ""
+msgstr "Френски"
 
 #: mmm_modules/i18n.py:46
 msgid "German"
-msgstr ""
+msgstr "Немски"
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
-msgstr ""
+msgstr "Унгарски"
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
-msgstr ""
+msgstr "Италиански"
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
-msgstr ""
+msgstr "Японски"
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"
-msgstr ""
+msgstr "Корейски"
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
-msgstr ""
+msgstr "Норвежки"
 
 #: mmm_modules/i18n.py:52
 msgid "Polish"
-msgstr ""
+msgstr "Полски"
 
 #: mmm_modules/i18n.py:53
 msgid "Portuguese"
-msgstr ""
+msgstr "Португалски"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr ""
+msgstr "Португалски - Бразилия"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
-msgstr ""
+msgstr "Руски"
 
 #: mmm_modules/i18n.py:56
 msgid "Slovak"
-msgstr ""
+msgstr "Словашки"
 
 #: mmm_modules/i18n.py:57
 msgid "Spanish"
-msgstr ""
+msgstr "Испански"
 
 #: mmm_modules/i18n.py:58
 msgid "Swedish"
-msgstr ""
+msgstr "Шведски"
 
 #: mmm_modules/i18n.py:59
 msgid "Turkish"
-msgstr ""
+msgstr "Турски"
 
-#: mmm_modules/image_category.py:215
+#: mmm_modules/image_category.py:219 mmm_modules/image_category.py:223
 msgid "Choose image"
-msgstr ""
+msgstr "Избор на изображение"
 
-#: mmm_modules/image_category.py:226
+#: mmm_modules/image_category.py:235
 msgid "Not a valid image file"
-msgstr ""
+msgstr "Невалиден файл с изображение"
+
+#, python-format
+#~ msgid "Buddy '%s' changed status: %s"
+#~ msgstr "Играч '%s' промени статуса си: %s"

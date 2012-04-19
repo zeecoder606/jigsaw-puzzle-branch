@@ -1,8 +1,12 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-04 13:31+0000\n"
+"POT-Creation-Date: 2012-02-15 00:31-0500\n"
 "PO-Revision-Date: 2011-11-26 08:59+0200\n"
 "Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,60 +17,53 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;\n"
 "X-Generator: Pootle 2.0.5\n"
 
-#  "El compañero '%s' cambió de estado: %s"
-#: JigsawPuzzleActivity.py:187
-#, python-format
-msgid "Buddy '%s' changed status: %s"
+#: activity/activity.info:2
+msgid "Jigsaw Puzzle"
 msgstr ""
 
-#  "¡El amigo '%s' se ha unido al juego!"
-#: JigsawPuzzleActivity.py:258
+#: JigsawPuzzleActivity.py:188
+#, python-format
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr ""
+
+#: JigsawPuzzleActivity.py:261
 #, python-format
 msgid "Buddy '%s' joined the game!"
 msgstr ""
 
-#  "¡El amigo '%s' ha dejado el juego!"
-#: JigsawPuzzleActivity.py:262
+#: JigsawPuzzleActivity.py:265
 #, python-format
 msgid "Buddy '%s' left the game!"
 msgstr ""
 
-#  "Solucionar"
 #: JigsawPuzzleUI.py:215
 msgid "Solve"
 msgstr ""
 
-#  "Revoltijo"
 #: JigsawPuzzleUI.py:219
 msgid "Shuffle"
 msgstr ""
 
-#  "Mi imagen"
 #: JigsawPuzzleUI.py:223
 msgid "My Picture"
 msgstr ""
 
-#  "Pista"
 #: JigsawPuzzleUI.py:227
 msgid "Board Hint"
 msgstr ""
 
-#  "Tiempo: "
 #: JigsawPuzzleUI.py:271
 msgid "Time: "
 msgstr ""
 
-#  "Planes de Lección"
 #: JigsawPuzzleUI.py:280 JigsawPuzzleUI.py:510
 msgid "Lesson Plans"
 msgstr ""
 
-#  "Seleccionar la imagen y presiona Comenzar Juego..."
 #: JigsawPuzzleUI.py:316
 msgid "Select image and press Start Game..."
 msgstr ""
 
-#  "Esperando a que la imagen del Rompecabezas sea elejida..."
 #: JigsawPuzzleUI.py:320
 msgid "Waiting for Puzzle image to be chosen..."
 msgstr ""
@@ -76,77 +73,58 @@ msgstr ""
 msgid "Buddies"
 msgstr "Masikuna"
 
-#  "Juego en proceso"
 #: JigsawPuzzleUI.py:328
 msgid "Game Running"
 msgstr ""
 
-#  "Comenzar Juego"
 #: JigsawPuzzleUI.py:358
 msgid "Start Game"
 msgstr ""
 
-#  "Seleccione un Tema"
 #: JigsawPuzzleUI.py:388
 msgid "Choose a Subject"
 msgstr ""
 
-#  "¡Rompecabeza Resuelto!"
 #: JigsawPuzzleUI.py:441
 msgid "Puzzle Solved!"
 msgstr ""
 
-#  "¡Presione Parar en la barra de herramientas para Salir de la Actividad!"
 #: JigsawPuzzleUI.py:443
 msgid "Press Stop on the Toolbar to Exit Activity!"
 msgstr ""
 
-#  "Actividad de Rompecabeza"
 #: JigsawPuzzleUI.py:478
 msgid "Jigsaw Puzzle Activity"
 msgstr ""
 
-#  "Cerrar Lección"
 #: JigsawPuzzleUI.py:513
 msgid "Close Lesson"
 msgstr ""
 
-#  "¡Juego Comenzado!"
 #: JigsawPuzzleUI.py:583
 msgid "Game Started!"
 msgstr ""
 
-#  "Esperando a que la imagen del Rompecabezas sea transferida..."
 #: JigsawPuzzleUI.py:585
 msgid "Waiting for Puzzle image to be transferred..."
 msgstr ""
 
-#  "Rompecabezas"
-#: activity/activity.info:2
-msgid "Jigsaw Puzzle"
-msgstr ""
-
-#  "Descripción"
 #: i18n_misc_strings.py:1
 msgid "Overview"
 msgstr ""
 
-#  "Lección 3"
 #: i18n_misc_strings.py:2
 msgid "Lesson 3"
 msgstr ""
 
-#  "Lección 1"
 #: i18n_misc_strings.py:3
 msgid "Lesson 1"
 msgstr ""
 
-#  "Lección 2"
 #: i18n_misc_strings.py:4
 msgid "Lesson 2"
 msgstr ""
 
-#  "Compañero"
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
 msgstr ""
@@ -156,19 +134,20 @@ msgstr ""
 msgid "Status"
 msgstr "Imayna kaynin"
 
-#  "Tiempo de Juego"
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
 msgstr ""
 
-#  "Se unió a"
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
 msgstr ""
 
-#  "sincronizando"
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
+msgstr ""
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Playing"
 msgstr ""
 
 #  "Pausado"
@@ -176,17 +155,11 @@ msgstr ""
 msgid "Paused"
 msgstr "Sayarichisqa"
 
-#  "Jugando"
-#: mmm_modules/buddy_panel.py:115
-msgid "Playing"
-msgstr ""
-
 #  "Termindado"
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
 msgstr "Tukukusqa"
 
-#  "Se Rindió"
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
 msgstr ""
@@ -196,18 +169,15 @@ msgstr ""
 msgid "Unknown"
 msgstr "mana riqsisqachu"
 
-#  "%i minutos"
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
 msgstr ""
 
-#  "Chino (simplificado)"
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
 msgstr ""
 
-#  "Chino (tradicional)"
 #: mmm_modules/i18n.py:37
 msgid "Chinese (traditional)"
 msgstr ""
@@ -217,7 +187,6 @@ msgstr ""
 msgid "Czech"
 msgstr "Cueco simi"
 
-#  "Danés"
 #: mmm_modules/i18n.py:39
 msgid "Danish"
 msgstr ""
@@ -270,12 +239,10 @@ msgstr "Hüngaro simi"
 msgid "Italian"
 msgstr "Itslisno simi"
 
-#  "Japonés"
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
 msgstr ""
 
-#  "Coreano"
 #: mmm_modules/i18n.py:50
 msgid "Korean"
 msgstr ""
@@ -332,7 +299,6 @@ msgstr "Turco simi"
 msgid "Choose image"
 msgstr "Wankita akllay"
 
-#  "No es una imagen válida"
 #: mmm_modules/image_category.py:235
 msgid "Not a valid image file"
 msgstr ""

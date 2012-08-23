@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-15 00:31-0500\n"
-"PO-Revision-Date: 2011-11-26 08:59+0200\n"
+"PO-Revision-Date: 2012-07-23 07:25+0200\n"
 "Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: quz\n"
@@ -53,8 +53,9 @@ msgid "Board Hint"
 msgstr ""
 
 #: JigsawPuzzleUI.py:271
+#, fuzzy
 msgid "Time: "
-msgstr ""
+msgstr "Pacha: "
 
 #: JigsawPuzzleUI.py:280 JigsawPuzzleUI.py:510
 msgid "Lesson Plans"
@@ -127,7 +128,7 @@ msgstr ""
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr ""
+msgstr "Masi"
 
 #  "Estatus"
 #: mmm_modules/buddy_panel.py:55
@@ -240,12 +241,14 @@ msgid "Italian"
 msgstr "Itslisno simi"
 
 #: mmm_modules/i18n.py:49
+#, fuzzy
 msgid "Japanese"
-msgstr ""
+msgstr "Japonés simi"
 
 #: mmm_modules/i18n.py:50
+#, fuzzy
 msgid "Korean"
-msgstr ""
+msgstr "Coreano simi"
 
 #  "Noruego"
 #: mmm_modules/i18n.py:51

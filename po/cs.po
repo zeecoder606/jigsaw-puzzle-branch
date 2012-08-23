@@ -39,50 +39,50 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-15 00:31-0500\n"
-"PO-Revision-Date: 2011-03-18 05:45+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"PO-Revision-Date: 2012-07-04 13:09+0200\n"
+"Last-Translator: jui <appukonrad@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
-msgstr ""
+msgstr "Skládačka"
 
 #: JigsawPuzzleActivity.py:188
 #, python-format
 msgid "Buddy '%(buddy)s' changed status: %(status)s"
-msgstr ""
+msgstr "Kamarád '%(buddy)s' změnil stav: %(status)s"
 
 #: JigsawPuzzleActivity.py:261
 #, python-format
 msgid "Buddy '%s' joined the game!"
-msgstr ""
+msgstr "Kamarád '%s' vstoupil do hry!"
 
 #: JigsawPuzzleActivity.py:265
 #, python-format
 msgid "Buddy '%s' left the game!"
-msgstr ""
+msgstr "Kamarád '%s' opustil hru!"
 
 #: JigsawPuzzleUI.py:215
 msgid "Solve"
-msgstr ""
+msgstr "Vyřešit"
 
 #: JigsawPuzzleUI.py:219
 msgid "Shuffle"
-msgstr ""
+msgstr "Zamíchat"
 
 #: JigsawPuzzleUI.py:223
 msgid "My Picture"
-msgstr ""
+msgstr "Můj obrázek"
 
 #: JigsawPuzzleUI.py:227
 msgid "Board Hint"
-msgstr ""
+msgstr "Dnešní tip"
 
 #: JigsawPuzzleUI.py:271
 msgid "Time: "
@@ -90,99 +90,99 @@ msgstr "Čas: "
 
 #: JigsawPuzzleUI.py:280 JigsawPuzzleUI.py:510
 msgid "Lesson Plans"
-msgstr ""
+msgstr "Výukový plán"
 
 #: JigsawPuzzleUI.py:316
 msgid "Select image and press Start Game..."
-msgstr ""
+msgstr "Vyberte obrázek a stiskněte tlačítko Spustit hru ..."
 
 #: JigsawPuzzleUI.py:320
 msgid "Waiting for Puzzle image to be chosen..."
-msgstr ""
+msgstr "Čekání na zvolený obraz skládačky ..."
 
 #: JigsawPuzzleUI.py:322 JigsawPuzzleUI.py:368
 msgid "Buddies"
-msgstr ""
+msgstr "Kamarádi"
 
 #: JigsawPuzzleUI.py:328
 msgid "Game Running"
-msgstr ""
+msgstr "Hra probíhá"
 
 #: JigsawPuzzleUI.py:358
 msgid "Start Game"
-msgstr ""
+msgstr "Spustit hru"
 
 #: JigsawPuzzleUI.py:388
 msgid "Choose a Subject"
-msgstr ""
+msgstr "Výběr předmětu"
 
 #: JigsawPuzzleUI.py:441
 msgid "Puzzle Solved!"
-msgstr ""
+msgstr "Skládačky vyřešena!"
 
 #: JigsawPuzzleUI.py:443
 msgid "Press Stop on the Toolbar to Exit Activity!"
-msgstr ""
+msgstr "Stiskněte tlačítko Stop na panelu nástrojů, pro vystoupení z činnosti!"
 
 #: JigsawPuzzleUI.py:478
 msgid "Jigsaw Puzzle Activity"
-msgstr ""
+msgstr "Aktivita skládačka"
 
 #: JigsawPuzzleUI.py:513
 msgid "Close Lesson"
-msgstr ""
+msgstr "Zavřít lekci"
 
 #: JigsawPuzzleUI.py:583
 msgid "Game Started!"
-msgstr ""
+msgstr "Hra začala!"
 
 #: JigsawPuzzleUI.py:585
 msgid "Waiting for Puzzle image to be transferred..."
-msgstr ""
+msgstr "Čekání na obraz skládačky který ma být převeden..."
 
 #: i18n_misc_strings.py:1
 msgid "Overview"
-msgstr ""
+msgstr "Přehled"
 
 #: i18n_misc_strings.py:2
 msgid "Lesson 3"
-msgstr ""
+msgstr "Lekce 3"
 
 #: i18n_misc_strings.py:3
 msgid "Lesson 1"
-msgstr ""
+msgstr "Lekce 1"
 
 #: i18n_misc_strings.py:4
 msgid "Lesson 2"
-msgstr ""
+msgstr "Lekce 2"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr ""
+msgstr "Kamarád"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
-msgstr ""
+msgstr "Stav"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
-msgstr ""
+msgstr "Čas hry"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr ""
+msgstr "Vstoupil"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr ""
+msgstr "synchronizace"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr ""
+msgstr "Hraní"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr ""
+msgstr "Pozastaveno"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"
@@ -190,7 +190,7 @@ msgstr "Ukončeno"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
-msgstr ""
+msgstr "Vzdáno"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
@@ -199,19 +199,19 @@ msgstr "Neznámý"
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
-msgstr ""
+msgstr "%i minut"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
-msgstr ""
+msgstr "Čínština (zjednodušená)"
 
 #: mmm_modules/i18n.py:37
 msgid "Chinese (traditional)"
-msgstr ""
+msgstr "Čínština (tradiční)"
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr "Ceština"
+msgstr "Čeština"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
@@ -223,15 +223,15 @@ msgstr "Holandština"
 
 #: mmm_modules/i18n.py:41
 msgid "English"
-msgstr "Anglictina"
+msgstr "Angličtina"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr ""
+msgstr "Angličtina - Velká Británie"
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr ""
+msgstr "Angličtina - U.S."
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
@@ -243,7 +243,7 @@ msgstr "Francouzština"
 
 #: mmm_modules/i18n.py:46
 msgid "German"
-msgstr "Nemcina"
+msgstr "Němčina"
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
@@ -275,7 +275,7 @@ msgstr "Portugalština"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr ""
+msgstr "Portugalština - Brazílie"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
@@ -283,7 +283,7 @@ msgstr "Ruština"
 
 #: mmm_modules/i18n.py:56
 msgid "Slovak"
-msgstr ""
+msgstr "Slovenština"
 
 #: mmm_modules/i18n.py:57
 msgid "Spanish"
@@ -299,8 +299,8 @@ msgstr "Turecká"
 
 #: mmm_modules/image_category.py:219 mmm_modules/image_category.py:223
 msgid "Choose image"
-msgstr ""
+msgstr "Vybrat obrázek"
 
 #: mmm_modules/image_category.py:235
 msgid "Not a valid image file"
-msgstr ""
+msgstr "Není platný soubor obrázku"

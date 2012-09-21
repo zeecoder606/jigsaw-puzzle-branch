@@ -1,0 +1,273 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-02-15 00:31-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 1.7.0\n"
+
+#: activity/activity.info:2
+msgid "Jigsaw Puzzle"
+msgstr "Panga"
+
+#: JigsawPuzzleActivity.py:188
+#, python-format
+msgid "Buddy '%(buddy)s' changed status: %(status)s"
+msgstr "Tūnga kua huri o tō hoa '%(buddy)s': %(status)s"
+
+#: JigsawPuzzleActivity.py:261
+#, python-format
+msgid "Buddy '%s' joined the game!"
+msgstr "I hono mai a '%s' ki te tākaro!"
+
+#: JigsawPuzzleActivity.py:265
+#, python-format
+msgid "Buddy '%s' left the game!"
+msgstr "I mahue i a '%s' te tākaro!"
+
+#: JigsawPuzzleUI.py:215
+msgid "Solve"
+msgstr "Whakatika"
+
+#: JigsawPuzzleUI.py:219
+msgid "Shuffle"
+msgstr "Riwhi"
+
+#: JigsawPuzzleUI.py:223
+msgid "My Picture"
+msgstr "Taku Pikitia"
+
+#: JigsawPuzzleUI.py:227
+msgid "Board Hint"
+msgstr "Tīwhiri Papa"
+
+#: JigsawPuzzleUI.py:271
+msgid "Time: "
+msgstr "Wā: "
+
+#: JigsawPuzzleUI.py:280 JigsawPuzzleUI.py:510
+msgid "Lesson Plans"
+msgstr "Ngā Mahere Ako"
+
+#: JigsawPuzzleUI.py:316
+msgid "Select image and press Start Game..."
+msgstr "Tīpako i te atahanga ka pēhi i te Tīmata Tākaro..."
+
+#: JigsawPuzzleUI.py:320
+msgid "Waiting for Puzzle image to be chosen..."
+msgstr "E tatari ana kia kōwhiritia te atahanga Panga..."
+
+#: JigsawPuzzleUI.py:322 JigsawPuzzleUI.py:368
+msgid "Buddies"
+msgstr "Ngā Hoa"
+
+#: JigsawPuzzleUI.py:328
+msgid "Game Running"
+msgstr "Whakahaere Tākaro"
+
+#: JigsawPuzzleUI.py:358
+msgid "Start Game"
+msgstr "Tīmata Tākaro"
+
+#: JigsawPuzzleUI.py:388
+msgid "Choose a Subject"
+msgstr "Kōwhiri Kaupapa"
+
+#: JigsawPuzzleUI.py:441
+msgid "Puzzle Solved!"
+msgstr "Kua Whakamatara te Panga!"
+
+#: JigsawPuzzleUI.py:443
+msgid "Press Stop on the Toolbar to Exit Activity!"
+msgstr "Pēhia te Whakatū kei te Paeutauta hei Puta i tēnei Hohe!"
+
+#: JigsawPuzzleUI.py:478
+msgid "Jigsaw Puzzle Activity"
+msgstr "Hohe Panga"
+
+#: JigsawPuzzleUI.py:513
+msgid "Close Lesson"
+msgstr "Katia te Akoranga"
+
+#: JigsawPuzzleUI.py:583
+msgid "Game Started!"
+msgstr "Kua Tīmata te Tākaro!"
+
+#: JigsawPuzzleUI.py:585
+msgid "Waiting for Puzzle image to be transferred..."
+msgstr "E tatari ana kia whakawhiti te atahanga Panga..."
+
+#: i18n_misc_strings.py:1
+msgid "Overview"
+msgstr "Tirohanga Whānui"
+
+#: i18n_misc_strings.py:2
+msgid "Lesson 3"
+msgstr "Akoranga 3"
+
+#: i18n_misc_strings.py:3
+msgid "Lesson 1"
+msgstr "Akoranga 1"
+
+#: i18n_misc_strings.py:4
+msgid "Lesson 2"
+msgstr "Akoranga 2"
+
+#: mmm_modules/buddy_panel.py:49
+msgid "Buddy"
+msgstr "Hoa"
+
+#: mmm_modules/buddy_panel.py:55
+msgid "Status"
+msgstr "Tūnga"
+
+#: mmm_modules/buddy_panel.py:62
+msgid "Play Time"
+msgstr "Wā Tākaro"
+
+#: mmm_modules/buddy_panel.py:69
+msgid "Joined at"
+msgstr "Kua hono ki"
+
+#: mmm_modules/buddy_panel.py:101
+msgid "synchronizing"
+msgstr "tukutahi ana"
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Playing"
+msgstr "Pūrei Ana"
+
+#: mmm_modules/buddy_panel.py:115
+msgid "Paused"
+msgstr "Kua Tāria"
+
+#: mmm_modules/buddy_panel.py:117
+msgid "Finished"
+msgstr "Kua Oti"
+
+#: mmm_modules/buddy_panel.py:119
+msgid "Gave up"
+msgstr "Kua waiho"
+
+#: mmm_modules/buddy_panel.py:121
+msgid "Unknown"
+msgstr "Tē Mōhiotia"
+
+#: mmm_modules/buddy_panel.py:123
+#, python-format
+msgid "%i minutes"
+msgstr "%i ngā meneti"
+
+#: mmm_modules/i18n.py:36
+msgid "Chinese (simplified)"
+msgstr "Haina (ngāwari)"
+
+#: mmm_modules/i18n.py:37
+msgid "Chinese (traditional)"
+msgstr "Haina (tawhito)"
+
+#: mmm_modules/i18n.py:38
+msgid "Czech"
+msgstr "Tiekerowākia"
+
+#: mmm_modules/i18n.py:39
+msgid "Danish"
+msgstr "Tenemāka"
+
+#: mmm_modules/i18n.py:40
+msgid "Dutch"
+msgstr ""
+
+#: mmm_modules/i18n.py:41
+msgid "English"
+msgstr "Ingarihi"
+
+#: mmm_modules/i18n.py:42
+msgid "English - Great Britain"
+msgstr "Ingarihi - Piritana Nui"
+
+#: mmm_modules/i18n.py:43
+msgid "English - U.S."
+msgstr "Ingarihi - Amerika"
+
+#: mmm_modules/i18n.py:44
+msgid "Finnish"
+msgstr "Whinihi"
+
+#: mmm_modules/i18n.py:45
+msgid "French"
+msgstr "Wīwī"
+
+#: mmm_modules/i18n.py:46
+msgid "German"
+msgstr "Tiamana"
+
+#: mmm_modules/i18n.py:47
+msgid "Hungarian"
+msgstr "Hanekariana"
+
+#: mmm_modules/i18n.py:48
+msgid "Italian"
+msgstr "Ītariana"
+
+#: mmm_modules/i18n.py:49
+msgid "Japanese"
+msgstr "Tiapanī"
+
+#: mmm_modules/i18n.py:50
+msgid "Korean"
+msgstr "Koreana"
+
+#: mmm_modules/i18n.py:51
+msgid "Norwegian"
+msgstr "NowīhianaNowīhiana"
+
+#: mmm_modules/i18n.py:52
+msgid "Polish"
+msgstr "Pourihi"
+
+#: mmm_modules/i18n.py:53
+msgid "Portuguese"
+msgstr "Pōtukara"
+
+#: mmm_modules/i18n.py:54
+msgid "Portuguese - Brazilian"
+msgstr "Potukariana - Parihiana"
+
+#: mmm_modules/i18n.py:55
+msgid "Russian"
+msgstr "Ruhiana"
+
+#: mmm_modules/i18n.py:56
+msgid "Slovak"
+msgstr "Horowāka"
+
+#: mmm_modules/i18n.py:57
+msgid "Spanish"
+msgstr "Pāniora"
+
+#: mmm_modules/i18n.py:58
+msgid "Swedish"
+msgstr "Huitihi"
+
+#: mmm_modules/i18n.py:59
+msgid "Turkish"
+msgstr "Tākoru"
+
+#: mmm_modules/image_category.py:219 mmm_modules/image_category.py:223
+msgid "Choose image"
+msgstr "Kōwhiri atahanga"
+
+#: mmm_modules/image_category.py:235
+msgid "Not a valid image file"
+msgstr "Ehara i te kōnae atahanga whaimana"

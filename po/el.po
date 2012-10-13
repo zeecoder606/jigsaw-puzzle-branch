@@ -57,7 +57,7 @@ msgstr "Παζλ Κομματιών"
 # printf error
 #: JigsawPuzzleActivity.py:188
 #, python-format
-#, python-format, , 
+#, python-format, ,
 msgid "Buddy '%(buddy)s' changed status: %(status)s"
 msgstr "Ο φίλος '%(buddy)s' έχει αλλάξει την κατάστασή του: %(status)s"
 

@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-15 00:31-0500\n"
-"PO-Revision-Date: 2011-11-26 04:49+0200\n"
-"Last-Translator: Chris <cjl@laptop.org>\n"
+"PO-Revision-Date: 2013-02-23 20:45+0200\n"
+"Last-Translator: EdgarQuispeChambi <quispedgar@yahoo.es>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: aym\n"
+"Language: ayc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,38 +19,38 @@ msgstr ""
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
-msgstr ""
+msgstr "Jarjata saythapiyaña"
 
 #: JigsawPuzzleActivity.py:188
 #, python-format
 msgid "Buddy '%(buddy)s' changed status: %(status)s"
-msgstr ""
+msgstr "Jilata '%(buddy)s' masisaxa mayjt'atawa: %(status)s"
 
 #: JigsawPuzzleActivity.py:261
 #, python-format
 msgid "Buddy '%s' joined the game!"
-msgstr ""
+msgstr "¡Jilata masisaxa '%s' anatañataki mantaniwa!"
 
 #: JigsawPuzzleActivity.py:265
 #, python-format
 msgid "Buddy '%s' left the game!"
-msgstr ""
+msgstr "¡Jilata masisaxa '%s' anatañata mistusiwa!"
 
 #: JigsawPuzzleUI.py:215
 msgid "Solve"
-msgstr ""
+msgstr "Apsuña"
 
 #: JigsawPuzzleUI.py:219
 msgid "Shuffle"
-msgstr ""
+msgstr "Jirtata"
 
 #: JigsawPuzzleUI.py:223
 msgid "My Picture"
-msgstr ""
+msgstr "Rixitaja"
 
 #: JigsawPuzzleUI.py:227
 msgid "Board Hint"
-msgstr ""
+msgstr "Saräwi"
 
 #  "Tiempo: "
 #: JigsawPuzzleUI.py:271
@@ -59,95 +59,95 @@ msgstr "Pacha: "
 
 #: JigsawPuzzleUI.py:280 JigsawPuzzleUI.py:510
 msgid "Lesson Plans"
-msgstr ""
+msgstr "Yatiña wakichäwinaka"
 
 #: JigsawPuzzleUI.py:316
 msgid "Select image and press Start Game..."
-msgstr ""
+msgstr "Rixita chhijllasina anataña mayampi qalltañataki limt'ma..."
 
 #: JigsawPuzzleUI.py:320
 msgid "Waiting for Puzzle image to be chosen..."
-msgstr ""
+msgstr "Jarjata saythapiyaña rixitapa chhijllaña suyasa..."
 
 #: JigsawPuzzleUI.py:322 JigsawPuzzleUI.py:368
 msgid "Buddies"
-msgstr ""
+msgstr "Masinaka"
 
 #: JigsawPuzzleUI.py:328
 msgid "Game Running"
-msgstr ""
+msgstr "Anataña apasïwi"
 
 #: JigsawPuzzleUI.py:358
 msgid "Start Game"
-msgstr ""
+msgstr "Anataña qalltaña"
 
 #: JigsawPuzzleUI.py:388
 msgid "Choose a Subject"
-msgstr ""
+msgstr "Maya amtäwi thaqma"
 
 #: JigsawPuzzleUI.py:441
 msgid "Puzzle Solved!"
-msgstr ""
+msgstr "¡Jarjata saythapiyata!"
 
 #: JigsawPuzzleUI.py:443
 msgid "Press Stop on the Toolbar to Exit Activity!"
-msgstr ""
+msgstr "¡Wakichäwita mistuñataki wakichäwinaka apnaqaña limt'añanaka limt'ma!"
 
 #: JigsawPuzzleUI.py:478
 msgid "Jigsaw Puzzle Activity"
-msgstr ""
+msgstr "Jarjata saythapiyaña wakichata"
 
 #: JigsawPuzzleUI.py:513
 msgid "Close Lesson"
-msgstr ""
+msgstr "Yatiña wakichatata mistuña"
 
 #: JigsawPuzzleUI.py:583
 msgid "Game Started!"
-msgstr ""
+msgstr "¡Anataña qalltata!"
 
 #: JigsawPuzzleUI.py:585
 msgid "Waiting for Puzzle image to be transferred..."
-msgstr ""
+msgstr "Jarjata saythapiyaña rixitapa apayaña suyt'äwi..."
 
 #: i18n_misc_strings.py:1
 msgid "Overview"
-msgstr ""
+msgstr "Qhananchäwi"
 
 #: i18n_misc_strings.py:2
 msgid "Lesson 3"
-msgstr ""
+msgstr "3 Yatiña"
 
 #: i18n_misc_strings.py:3
 msgid "Lesson 1"
-msgstr ""
+msgstr "1 Yatiña"
 
 #: i18n_misc_strings.py:4
 msgid "Lesson 2"
-msgstr ""
+msgstr "2 Yatiña"
 
 #: mmm_modules/buddy_panel.py:49
 msgid "Buddy"
-msgstr ""
+msgstr "Masi"
 
 #: mmm_modules/buddy_panel.py:55
 msgid "Status"
-msgstr ""
+msgstr "Kankaña"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
-msgstr ""
+msgstr "Anataña pacha chimpu"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr ""
+msgstr "Ukaru lip´katiwa"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr ""
+msgstr "mayachata"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr ""
+msgstr "Anatkasa"
 
 #  "Pausado"
 #: mmm_modules/buddy_panel.py:115
@@ -161,7 +161,7 @@ msgstr "Tukuta"
 
 #: mmm_modules/buddy_panel.py:119
 msgid "Gave up"
-msgstr ""
+msgstr "Atipjatawa"
 
 #  "Desconocido"
 #: mmm_modules/buddy_panel.py:121
@@ -171,103 +171,103 @@ msgstr "Jani uñt'ata"
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
-msgstr ""
+msgstr "%i pacha t'ijtäwinaka"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
-msgstr ""
+msgstr "Chino (simplificado)"
 
 #: mmm_modules/i18n.py:37
 msgid "Chinese (traditional)"
-msgstr ""
+msgstr "Chino (tradicional)"
 
 #: mmm_modules/i18n.py:38
 msgid "Czech"
-msgstr ""
+msgstr "Checo"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr ""
+msgstr "Danés"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
-msgstr ""
+msgstr "Holandés"
 
 #: mmm_modules/i18n.py:41
 msgid "English"
-msgstr ""
+msgstr "Inglés"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr ""
+msgstr "Inglés - Gran Bretaña"
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."
-msgstr ""
+msgstr "Inglés - Estados Unidos"
 
 #: mmm_modules/i18n.py:44
 msgid "Finnish"
-msgstr ""
+msgstr "Finlandés"
 
 #: mmm_modules/i18n.py:45
 msgid "French"
-msgstr ""
+msgstr "Francés"
 
 #: mmm_modules/i18n.py:46
 msgid "German"
-msgstr ""
+msgstr "Alemán"
 
 #: mmm_modules/i18n.py:47
 msgid "Hungarian"
-msgstr ""
+msgstr "Húngaro"
 
 #: mmm_modules/i18n.py:48
 msgid "Italian"
-msgstr ""
+msgstr "Italiano"
 
 #: mmm_modules/i18n.py:49
 msgid "Japanese"
-msgstr ""
+msgstr "Japonés"
 
 #: mmm_modules/i18n.py:50
 msgid "Korean"
-msgstr ""
+msgstr "Coreano"
 
 #: mmm_modules/i18n.py:51
 msgid "Norwegian"
-msgstr ""
+msgstr "Noruego"
 
 #: mmm_modules/i18n.py:52
 msgid "Polish"
-msgstr ""
+msgstr "Polaco"
 
 #: mmm_modules/i18n.py:53
 msgid "Portuguese"
-msgstr ""
+msgstr "Portugués"
 
 #: mmm_modules/i18n.py:54
 msgid "Portuguese - Brazilian"
-msgstr ""
+msgstr "Portugués - Brasileño"
 
 #: mmm_modules/i18n.py:55
 msgid "Russian"
-msgstr ""
+msgstr "Ruso"
 
 #: mmm_modules/i18n.py:56
 msgid "Slovak"
-msgstr ""
+msgstr "Eslovaco"
 
 #: mmm_modules/i18n.py:57
 msgid "Spanish"
-msgstr ""
+msgstr "Español jaqi aru"
 
 #: mmm_modules/i18n.py:58
 msgid "Swedish"
-msgstr ""
+msgstr "Sueco"
 
 #: mmm_modules/i18n.py:59
 msgid "Turkish"
-msgstr ""
+msgstr "Turco"
 
 #  "Elegir imagen"
 #: mmm_modules/image_category.py:219 mmm_modules/image_category.py:223
@@ -276,4 +276,4 @@ msgstr "Uñjasiwi ajlliña"
 
 #: mmm_modules/image_category.py:235
 msgid "Not a valid image file"
-msgstr ""
+msgstr "Jani wakisiri rixitawa"

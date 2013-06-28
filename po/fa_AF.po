@@ -35,15 +35,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-15 00:31-0500\n"
-"PO-Revision-Date: 2011-08-08 03:59+0200\n"
+"PO-Revision-Date: 2012-11-26 10:29+0200\n"
 "Last-Translator: Chris <cjl@laptop.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: fa_AF\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
@@ -57,12 +57,12 @@ msgstr ""
 #: JigsawPuzzleActivity.py:261
 #, python-format
 msgid "Buddy '%s' joined the game!"
-msgstr "دوست دربازی شامل شد '%s' "
+msgstr "دوست دربازی شامل شد '%s'"
 
 #: JigsawPuzzleActivity.py:265
 #, python-format
 msgid "Buddy '%s' left the game!"
-msgstr "دوست بازی را ترک کرد '%s' "
+msgstr "دوست بازی را ترک کرد '%s'"
 
 #: JigsawPuzzleUI.py:215
 msgid "Solve"
@@ -90,7 +90,7 @@ msgstr "برنامه های درس"
 
 #: JigsawPuzzleUI.py:316
 msgid "Select image and press Start Game..."
-msgstr "عکس راانتخاب کن ودکمه شروع بازی را فشاربده "
+msgstr "عکس راانتخاب کن ودکمه شروع بازی را فشاربده"
 
 #: JigsawPuzzleUI.py:320
 msgid "Waiting for Puzzle image to be chosen..."
@@ -195,7 +195,7 @@ msgstr "نا معلوم"
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
-msgstr " دقایق%i "
+msgstr "دقایق%i "
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"

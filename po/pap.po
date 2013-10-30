@@ -35,19 +35,19 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-15 00:31-0500\n"
-"PO-Revision-Date: 2010-11-13 20:50+0200\n"
-"Last-Translator: Jiehua <jiehuahe@hotmail.com>\n"
+"PO-Revision-Date: 2013-10-30 23:28+0200\n"
+"Last-Translator: June <juneleonora@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: pap\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.3\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: activity/activity.info:2
 msgid "Jigsaw Puzzle"
-msgstr "Jigsaw Púzel"
+msgstr "Jigsaw Pùzel"
 
 #: JigsawPuzzleActivity.py:188
 #, python-format
@@ -94,7 +94,7 @@ msgstr "Selekta imagen y primi tekla pa kuminsa e Wega..."
 
 #: JigsawPuzzleUI.py:320
 msgid "Waiting for Puzzle image to be chosen..."
-msgstr "Wardando riba imagen di Pùzelpa skohe..."
+msgstr "Wardando riba imágen di Pùzel pa skohe..."
 
 #: JigsawPuzzleUI.py:322 JigsawPuzzleUI.py:368
 msgid "Buddies"
@@ -106,19 +106,19 @@ msgstr "Wega ta koriendo"
 
 #: JigsawPuzzleUI.py:358
 msgid "Start Game"
-msgstr "Kuminsa Wega"
+msgstr "Kuminsá wega"
 
 #: JigsawPuzzleUI.py:388
 msgid "Choose a Subject"
-msgstr "Skohe un Suheto"
+msgstr "Skohe un tópiko"
 
 #: JigsawPuzzleUI.py:441
 msgid "Puzzle Solved!"
-msgstr "Púzel Resolbé!"
+msgstr "Púzel resolvé!"
 
 #: JigsawPuzzleUI.py:443
 msgid "Press Stop on the Toolbar to Exit Activity!"
-msgstr "Primi Stòp rina riba e Toolbar pa sali for di e aktividat!"
+msgstr "Primi stòp riba e Toolbar pa sali for di e aktividat!"
 
 #: JigsawPuzzleUI.py:478
 msgid "Jigsaw Puzzle Activity"
@@ -126,15 +126,15 @@ msgstr "Aktividat Jigsaw Pùzel"
 
 #: JigsawPuzzleUI.py:513
 msgid "Close Lesson"
-msgstr "Sera Lès"
+msgstr "Sera lès"
 
 #: JigsawPuzzleUI.py:583
 msgid "Game Started!"
-msgstr "Wega a kuminsa!"
+msgstr "Wega a kuminsá!"
 
 #: JigsawPuzzleUI.py:585
 msgid "Waiting for Puzzle image to be transferred..."
-msgstr "Wardando riba imagen di Púzel pa traspasá..."
+msgstr "Wardando riba imágen di Púzel pa traspasá..."
 
 #: i18n_misc_strings.py:1
 msgid "Overview"
@@ -162,23 +162,23 @@ msgstr "Státús"
 
 #: mmm_modules/buddy_panel.py:62
 msgid "Play Time"
-msgstr "Tempy di wega"
+msgstr "Tempu di wega"
 
 #: mmm_modules/buddy_panel.py:69
 msgid "Joined at"
-msgstr "Djòin na"
+msgstr "A djòin na"
 
 #: mmm_modules/buddy_panel.py:101
 msgid "synchronizing"
-msgstr "sinkronisándo"
+msgstr "sinkronisando"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Playing"
-msgstr "Tokando"
+msgstr "Hungando"
 
 #: mmm_modules/buddy_panel.py:115
 msgid "Paused"
-msgstr "Pousa"
+msgstr "A pousa"
 
 #: mmm_modules/buddy_panel.py:117
 msgid "Finished"

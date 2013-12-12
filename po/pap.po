@@ -35,7 +35,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-15 00:31-0500\n"
-"PO-Revision-Date: 2013-10-30 23:28+0200\n"
+"PO-Revision-Date: 2013-10-31 02:04+0200\n"
 "Last-Translator: June <juneleonora@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pap\n"
@@ -190,12 +190,12 @@ msgstr "A duna"
 
 #: mmm_modules/buddy_panel.py:121
 msgid "Unknown"
-msgstr "Dèskònòsido"
+msgstr "Deskonosí"
 
 #: mmm_modules/buddy_panel.py:123
 #, python-format
 msgid "%i minutes"
-msgstr "%i minütnan"
+msgstr "%i minüt"
 
 #: mmm_modules/i18n.py:36
 msgid "Chinese (simplified)"
@@ -211,7 +211,7 @@ msgstr "Cheko"
 
 #: mmm_modules/i18n.py:39
 msgid "Danish"
-msgstr "Danés"
+msgstr "Danes"
 
 #: mmm_modules/i18n.py:40
 msgid "Dutch"
@@ -223,7 +223,7 @@ msgstr "Ingles"
 
 #: mmm_modules/i18n.py:42
 msgid "English - Great Britain"
-msgstr "Ingles - Gran Bretaña"
+msgstr "Ingles - Gran Bretania"
 
 #: mmm_modules/i18n.py:43
 msgid "English - U.S."

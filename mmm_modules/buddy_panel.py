@@ -18,9 +18,9 @@
 # own creations we would love to hear from you at info@WorldWideWorkshop.org !
 #
 
-import pygtk
-pygtk.require('2.0')
-import gtk
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk
 
 import logging
 
@@ -31,48 +31,43 @@ from tube_helper import GAME_IDLE, GAME_STARTED, GAME_FINISHED, GAME_QUIT
 BUDDYMODE_CONTEST = 0
 BUDDYMODE_COLLABORATION = 1
 
-class BuddyPanel (gtk.ScrolledWindow):
-    def __init__ (self, mode=BUDDYMODE_CONTEST):
+
+class BuddyPanel (Gtk.ScrolledWindow):
+    def __init__(self, mode=BUDDYMODE_CONTEST):
         super(BuddyPanel, self).__init__()
-        self.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        self.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
 
-        self.model = gtk.ListStore(str, str, str, str)
-        self.model.set_sort_column_id(0, gtk.SORT_ASCENDING)
-        self.treeview = gtk.TreeView()
+        self.model = Gtk.ListStore(str, str, str, str)
+        self.model.set_sort_column_id(0, Gtk.SortType.ASCENDING)
+        self.treeview = Gtk.TreeView()
 
-        #col = gtk.TreeViewColumn(_("Icon"))
-        #r = gtk.CellRendererText()
-        #col.pack_start(r, True)
-        #col.set_attributes(r, stock_id=0)
-        #self.treeview.append_column(col)
-
-        col = gtk.TreeViewColumn(_("Buddy"))
-        r = gtk.CellRendererText()
+        col = Gtk.TreeViewColumn("Buddy")
+        r = Gtk.CellRendererText()
         col.pack_start(r, True)
         col.set_attributes(r, text=0)
         self.treeview.append_column(col)
 
-        col = gtk.TreeViewColumn(_("Status"))
-        r = gtk.CellRendererText()
+        col = Gtk.TreeViewColumn("Status")
+        r = Gtk.CellRendererText()
         col.pack_start(r, True)
         col.set_attributes(r, text=1)
         self.treeview.append_column(col)
         col.set_visible(mode == BUDDYMODE_CONTEST)
 
-        col = gtk.TreeViewColumn(_("Play Time"))
-        r = gtk.CellRendererText()
+        col = Gtk.TreeViewColumn("Play Time")
+        r = Gtk.CellRendererText()
         col.pack_start(r, True)
         col.set_attributes(r, text=2)
         self.treeview.append_column(col)
         col.set_visible(mode == BUDDYMODE_CONTEST)
 
-        col = gtk.TreeViewColumn(_("Joined at"))
-        r = gtk.CellRendererText()
+        col = Gtk.TreeViewColumn("Joined at")
+        r = Gtk.CellRendererText()
         col.pack_start(r, True)
         col.set_attributes(r, text=3)
         self.treeview.append_column(col)
         col.set_visible(mode == BUDDYMODE_COLLABORATION)
-        
+
         self.treeview.set_model(self.model)
 
         self.add(self.treeview)
@@ -80,20 +75,11 @@ class BuddyPanel (gtk.ScrolledWindow):
 
         self.players = {}
 
-    def add_player (self, buddy, current_clock=0):
+    def add_player(self, buddy, current_clock=0):
         """ Adds a player to the panel """
         op = buddy.object_path()
         if self.players.get(op) is not None:
             return
-
-#        buddy_color = buddy.props.color
-#        if not buddy_color:
-#            buddy_color = "#000000,#ffffff"
-#
-#        icon = CanvasIcon(
-#            icon_name='computer-xo',
-#            xo_color=XoColor(buddy_color))
-#
         nick = buddy.props.nick
         if not nick:
             nick = ""
@@ -103,9 +89,9 @@ class BuddyPanel (gtk.ScrolledWindow):
                                                       '']))
         return nick
 
-    def update_player (self, buddy, status, clock_running, time_ellapsed):
+    def update_player(self, buddy, status, clock_running, time_ellapsed):
         """Since the current target build (432) does not fully support the contest mode, we are removing this for now. """
-        #return
+        # return
         op = buddy.object_path()
         if self.players.get(op, None) is None:
             logging.debug("Player %s not found" % op)
@@ -120,16 +106,18 @@ class BuddyPanel (gtk.ScrolledWindow):
         else:
             stat = _("Unknown")
         self.model.set_value(self.players[op][1], 1, stat)
-        self.model.set_value(self.players[op][1], 2, _("%i minutes") % (time_ellapsed/60))
-        self.model.set_value(self.players[op][1], 3, '%i:%0.2i' % (int(time_ellapsed / 60), int(time_ellapsed % 60)))
+        self.model.set_value(self.players[op][1], 2, _(
+            "%i minutes") % (time_ellapsed / 60))
+        self.model.set_value(self.players[op][1], 3, '%i:%0.2i' % (
+            int(time_ellapsed / 60), int(time_ellapsed % 60)))
         return (self.model.get_value(self.players[op][1], 0), self.model.get_value(self.players[op][1], 1))
-        
-    def get_buddy_from_path (self, object_path):
+
+    def get_buddy_from_path(self, object_path):
         logging.debug("op = " + object_path)
         logging.debug(self.players)
         return self.players.get(object_path, None)
-        
-    def remove_player (self, buddy):
+
+    def remove_player(self, buddy):
         op = buddy.object_path()
         if self.players.get(op) is None:
             return

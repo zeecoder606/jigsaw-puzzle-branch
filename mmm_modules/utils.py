@@ -18,10 +18,13 @@
 # own creations we would love to hear from you at info@WorldWideWorkshop.org !
 #
 
-import pygtk
-pygtk.require('2.0')
-import gtk
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk
+from gi.repository import GdkPixbuf
+from gi.repository import Gdk
 import logging
+logger = logging.getLogger('sliderpuzzle-activity-1')
 
 RESIZE_STRETCH = 1
 RESIZE_CUT = 2
@@ -29,10 +32,12 @@ RESIZE_PAD = 3
 
 TYPE_REG = []
 
-def register_image_type (handler):
+
+def register_image_type(handler):
     TYPE_REG.append(handler)
 
-def calculate_relative_size (orig_width, orig_height, width, height):
+
+def calculate_relative_size(orig_width, orig_height, width, height):
     """ If any of width or height is -1, the returned width or height will be in the same relative scale as the
     given part.
     >>> calculate_relative_size(100, 100, 50, -1)
@@ -48,7 +53,7 @@ def calculate_relative_size (orig_width, orig_height, width, height):
     """
     if width < 0:
         if height >= 0:
-            out_w = int(orig_width * (float(height)/orig_height))
+            out_w = int(orig_width * (float(height) / orig_height))
             out_h = height
         else:
             out_w = orig_width
@@ -56,13 +61,14 @@ def calculate_relative_size (orig_width, orig_height, width, height):
     else:
         out_w = width
         if height < 0:
-            out_h = int(orig_height * (float(width)/orig_width))
+            out_h = int(orig_height * (float(width) / orig_width))
         else:
             out_h = height
     return out_w, out_h
 
-def load_image (filename, width=-1, height=-1, method=RESIZE_CUT):
-    """ load an image from filename, returning it's gtk.gdk.PixBuf().
+
+def load_image(filename, width=-1, height=-1, method=RESIZE_CUT):
+    """ load an image from filename, returning it's Gdk.PixBuf().
     If any or all of width and height are given, scale the loaded image to fit the given size(s).
     If both width and height and requested scaling can be achieved in two flavours, as defined by
     the method argument:
@@ -76,53 +82,47 @@ def load_image (filename, width=-1, height=-1, method=RESIZE_CUT):
       - RESIZE STRETCH : scale to 200x100, by changing the image WxH ratio from 1:1 to 2:1, thus distorting it.
       - RESIZE_PAD: scale to 100x100, add 50 pixel padding for top and bottom to fit 200x100
     """
+
     for ht in TYPE_REG:
         if ht.can_handle(filename):
             return ht(width, height, filename)
-#    if filename.lower().endswith('.sequence'):
-#        slider = None
-#        cmds = file(filename).readlines()
-#        if len(cmds) > 1:
-#            _x_ = eval(cmds[0])
-#            items = []
-#            for i in range(16):
-#                items.append(_x_)
-#                _x_ = eval(cmds[1])
-#            slider = SliderCreator(width, height, items)
-#            slider.prepare_stringed(2,2)
-#        return slider
-#
-    img = gtk.Image()
+
+    logger.debug('be that')
+    img = Gtk.Image()
     try:
         img.set_from_file(filename)
         pb = img.get_pixbuf()
+
     except:
         return None
     return resize_image(pb, width, height, method)
 
-def resize_image (pb, width=-1, height=-1, method=RESIZE_CUT):
+
+def resize_image(pb, width=-1, height=-1, method=RESIZE_CUT):
     if pb is None:
         return None
     logging.debug("utils: method=%i" % method)
     if method == RESIZE_STRETCH or width == -1 or height == -1:
-        w,h = calculate_relative_size(pb.get_width(), pb.get_height(), width, height)
-        scaled_pb = pb.scale_simple(w,h, gtk.gdk.INTERP_BILINEAR)
+        w, h = calculate_relative_size(
+            pb.get_width(), pb.get_height(), width, height)
+        scaled_pb = pb.scale_simple(w, h, GdkPixbuf.InterpType.BILINEAR)
     elif method == RESIZE_PAD:
-        w,h = pb.get_width(), pb.get_height()
-        hr = float(height)/h
-        wr = float(width)/w
+        w, h = pb.get_width(), pb.get_height()
+        hr = float(height) / h
+        wr = float(width) / w
         factor = min(hr, wr)
         w = w * factor
         h = h * factor
-        logging.debug("RESIZE_PAD: %i,%i,%f" % (w,h,factor))
-        scaled_pb = pb.scale_simple(int(w), int(h), gtk.gdk.INTERP_BILINEAR)
-    else: # RESIZE_CUT / default
-        w,h = pb.get_width(), pb.get_height()
+        logging.debug("RESIZE_PAD: %i,%i,%f" % (w, h, factor))
+        scaled_pb = pb.scale_simple(
+            int(w), int(h), GdkPixbuf.InterpType.BILINEAR)
+    else:  # RESIZE_CUT / default
+        w, h = pb.get_width(), pb.get_height()
         if width > w:
             if height > h:
-                #calc which side needs more scaling up as both are smaller
-                hr = float(height)/h
-                wr = float(width)/w
+                # calc which side needs more scaling up as both are smaller
+                hr = float(height) / h
+                wr = float(width) / w
                 if hr < wr:
                     w = width
                     h = -1
@@ -135,13 +135,13 @@ def resize_image (pb, width=-1, height=-1, method=RESIZE_CUT):
                 w = width
         else:
             if height > h:
-                #requested width smaller than image, scale height up and cut on width
+                # requested width smaller than image, scale height up and cut on width
                 h = height
                 w = -1
             else:
                 # calc which side needs less scaling down as both are bigger
-                hr = float(height)/h
-                wr = float(width)/w
+                hr = float(height) / h
+                wr = float(width) / w
                 if hr < wr:
                     w = width
                     h = -1
@@ -150,17 +150,18 @@ def resize_image (pb, width=-1, height=-1, method=RESIZE_CUT):
                     w = -1
         # w, h now have -1 for the side that should be relatively scaled, to keep the aspect ratio and
         # assuring that the image is at least as big as the request.
-        w,h = calculate_relative_size(pb.get_width(), pb.get_height(), w,h)
-        scaled_pb = pb.scale_simple(w,h, gtk.gdk.INTERP_BILINEAR)
+        w, h = calculate_relative_size(pb.get_width(), pb.get_height(), w, h)
+        scaled_pb = pb.scale_simple(w, h, GdkPixbuf.InterpType.BILINEAR)
         # now we cut whatever is left to make the requested size
-        scaled_pb = scaled_pb.subpixbuf(abs((width-w)/2),abs((height-h)/2), width, height)
+        scaled_pb = scaled_pb.new_subpixbuf(
+            abs((width - w) / 2), abs((height - h) / 2), width, height)
     return scaled_pb
 
-### Helper decorators
+# Helper decorators
 
-def trace (func):
-    def wrapped (*args, **kwargs):
+
+def trace(func):
+    def wrapped(*args, **kwargs):
         logging.debug("TRACE %s %s %s" % (func.func_name, args, kwargs))
         return func(*args, **kwargs)
     return wrapped
-

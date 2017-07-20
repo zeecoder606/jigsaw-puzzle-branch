@@ -19,17 +19,10 @@
 #
 
 # init gthreads before using abiword
-import gi
-from gi.repository import GObject
-GObject.threads_init()
-gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk, Gdk, GdkPixbuf
-from sugar3.activity.activity import Activity, get_bundle_path
-from sugar3.graphics.toolbarbox import ToolbarBox
-from sugar3.activity.widgets import ActivityToolbarButton
-from sugar3.graphics.toolbarbox import ToolbarButton
-from sugar3.graphics.toolbutton import ToolButton
-from sugar3.graphics.toggletoolbutton import ToggleToolButton
+import gobject
+gobject.threads_init()
+
+from sugar.activity.activity import Activity, ActivityToolbox, get_bundle_path
 from gettext import gettext as _
 import logging, os, sys
 import time
@@ -236,115 +229,15 @@ class JigsawPuzzleActivity(Activity, TubeHelper):
 
         self.connect('destroy', self._destroy_cb)
         
-        self._sample_window = None
-        self.fixed = Gtk.Fixed()
-        self.ui = JigsawPuzzleUI(self)
-        toolbar_box = ToolbarBox()
-        self.set_toolbar_box(toolbar_box)
-        toolbar_box.show()
-        activity_button = ActivityToolbarButton(self)
-        toolbar_box.toolbar.insert(activity_button, -1)
-        activity_button.show()
+        toolbox = ActivityToolbox(self)
+        self.set_toolbox(toolbox)
+        toolbox.show()
 
-        self.btn_basic_cut = ToolButton('cut_basic')
-        self.btn_basic_cut.set_tooltip(_('Basic style'))
-        toolbar_box.toolbar.insert(self.btn_basic_cut, -1)
-        #btn_9.set_active(True)
-        #btn_9.connect('clicked', self.ui.set_nr_pieces, 9)
-        self.btn_basic_cut.show()
-
-        self.btn_simple_cut = ToolButton('cut_simple')
-        self.btn_simple_cut.set_tooltip(_('Simple style'))
-        toolbar_box.toolbar.insert(self.btn_simple_cut, -1)
-        #btn_9.set_active(True)
-        #btn_12.connect('clicked', self.ui.set_nr_pieces, 12)
-        self.btn_simple_cut.show()
-
-        self.btn_classic_cut = ToolButton('cut_classic')
-        self.btn_classic_cut.set_tooltip(_('Classic style'))
-        toolbar_box.toolbar.insert(self.btn_classic_cut, -1)
-        #btn_9.set_active(True)
-        #btn_16.connect('clicked', self.ui.set_nr_pieces, 16)
-        self.btn_classic_cut.show()
-
-        self.btn_cut_mapping = {
-            'basic': self.btn_basic_cut,
-            'simple': self.btn_simple_cut,
-            'classic': self.btn_classic_cut,
-            }
-        for k,v in self.btn_cut_mapping.items():
-            v.connect('clicked', self.ui.set_piece_cut, k)
-
-        self.btn_easy_level = ToolButton('level_easy')
-        self.btn_easy_level.set_tooltip(_('Easy'))
-        toolbar_box.toolbar.insert(self.btn_easy_level, -1)
-        #btn_9.set_active(True)
-        #btn_solve.connect('clicked', self.ui.do_solve)
-        self.btn_easy_level.show()
-
-        self.btn_normal_level = ToolButton('level_normal')
-        self.btn_normal_level.set_tooltip(_('Normal'))
-        toolbar_box.toolbar.insert(self.btn_normal_level, -1)
-        #btn_9.set_active(True)
-        #btn_solve.connect('clicked', self.ui.do_solve)
-        self.btn_normal_level.show()
-
-        self.btn_hard_level = ToolButton('level_hard')
-        self.btn_hard_level.set_tooltip(_('Hard'))
-        toolbar_box.toolbar.insert(self.btn_hard_level, -1)
-        #btn_9.set_active(True)
-        #btn_solve.connect('clicked', self.ui.do_solve)
-        self.btn_hard_level.show()
-
-        self.btn_level_mapping = {
-            3: self.btn_easy_level,
-            5: self.btn_normal_level,
-            8: self.btn_hard_level,
-            }
-        for k,v in self.btn_level_mapping.items():
-            v.connect('clicked', self.ui.set_level, k)
-
-        self.btn_solve = ToolButton('dialog-ok')
-        self.btn_solve.set_tooltip(_('Solve'))
-        toolbar_box.toolbar.insert(self.btn_solve, -1)
-        self.btn_solve.connect('clicked', self.ui.do_solve)
-        self.btn_solve.show()
-
-        self.btn_shuffle = ToolButton('edit-redo')
-        self.btn_shuffle.set_tooltip(_('Shuffle'))
-        toolbar_box.toolbar.insert(self.btn_shuffle, -1)
-        self.btn_shuffle.connect("clicked", self.ui.do_shuffle)
-        self.btn_shuffle.show()
-
-
-        self.btn_hint = ToggleToolButton('image-load')
-        self.btn_hint.set_tooltip(_('Import picture from Journal'))
-        toolbar_box.toolbar.insert(self.btn_hint, -1)
-        self.btn_hint.connect("clicked", self.ui.do_show_hint)
-        self.btn_hint.show()
-
-
-        self.btn_add = ToolButton('image-load')
-        self.btn_add.set_tooltip(_('Import picture from Journal'))
-        toolbar_box.toolbar.insert(self.btn_add, -1)
-        self.btn_add.connect("clicked", self.ui.do_add_image)
-        self.btn_add.show()
-
-
-        btn_select = ToolButton('imageviewer')
-        btn_select.set_tooltip(_('Add Picture'))
-        toolbar_box.toolbar.insert(btn_select, -1)
-        #btn_9.set_active(True)
-        btn_select.connect('clicked', self.do_samples_cb)
-        btn_select.show()
-
-  
-
- 
-  
     # Toolbar title size hack
+        title_widget = toolbox._activity_toolbar.title
+        title_widget.set_size_request(title_widget.get_layout().get_pixel_size()[0] + 30, -1)
         
-        
+        self.ui = JigsawPuzzleUI(self)
         self.set_canvas(self.ui)
 
         self.show_all()
@@ -390,105 +283,5 @@ class JigsawPuzzleActivity(Activity, TubeHelper):
             f.write(session_data)
         finally:
             f.close()
-       
-    def do_samples_cb(self, button):
-        self._create_store()
-
-    def _create_store(self, widget=None):
-            #if self._sample_window is None:
-            
-            self.set_canvas(self.fixed)
-            self.fixed.show()
-            
-            self._sample_box = Gtk.EventBox()
-            self._sample_window = Gtk.ScrolledWindow()
-            self._sample_window.set_policy(Gtk.PolicyType.NEVER,
-                                           Gtk.PolicyType.AUTOMATIC)
-            width = Gdk.Screen.width() / 2
-            height = Gdk.Screen.height() / 2
-            self._sample_window.set_size_request(width, height)
-            self._sample_window.show()
-
-            store = Gtk.ListStore(GdkPixbuf.Pixbuf, str)
-
-            icon_view = Gtk.IconView()
-            icon_view.set_model(store)
-            icon_view.set_selection_mode(Gtk.SelectionMode.SINGLE)
-            icon_view.connect('selection-changed', self._sample_selected,
-                             store)
-            icon_view.set_pixbuf_column(0)
-            icon_view.grab_focus()
-            self._sample_window.add_with_viewport(icon_view)
-            icon_view.show()
-            self._fill_samples_list(store)
-
-            width = Gdk.Screen.width() / 4
-            height = Gdk.Screen.height() / 4
-
-            self._sample_box.add(self._sample_window)
-            #_logger.debug('check fixed')
-            self.fixed.put(self._sample_box, width, height)
-            #self.ui.game_wrapper.add(self._sample_box)
-            #self.fixed.show()
-            #_logger.debug('fixed comp')
-            self._sample_window.show()
-            #_logger.debug('window comp')
-            self._sample_box.show()
-            #_logger.debug('box comp')
-            #self.fixed.show_all()
-    def _get_selected_path(self, widget, store):
-        try:
-            iter_ = store.get_iter(widget.get_selected_items()[0])
-            image_path = store.get(iter_, 1)[0]
-
-            return image_path, iter_
-        except:
-            return None
-
-    def _sample_selected(self, widget, store):
-        self.set_canvas(self.ui)
-        self.show_all()
-        selected = self._get_selected_path(widget, store)
-
-
-        if selected is None:
-            self._selected_sample = None
-            self._sample_window.hide()
-            return
-        
-        image_path, _iter = selected
-        iter_ = store.get_iter(widget.get_selected_items()[0])
-        image_path = store.get(iter_, 1)[0]
-
-        self._selected_sample = image_path
-        self._sample_window.hide()
-        logger.debug(self._selected_sample + 'hello')
-        self.get_window().set_cursor(Gdk.Cursor.new(Gdk.CursorType.WATCH))
-        GObject.idle_add(self._sample_loader)
-
-    def _sample_loader(self):
-        # Convert from thumbnail path to sample path
-        logger.debug('sample here')
-        self.ui.show_image(path = self._selected_sample)
-        logger.debug('sample there')
-        self.get_window().set_cursor(Gdk.Cursor.new(Gdk.CursorType.LEFT_PTR)) 
-
-    def _fill_samples_list(self, store):
-        '''
-        Append images from the artwork_paths to the store.
-        '''
-        for filepath in self._scan_for_samples():
-            pixbuf = None
-            pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(
-                filepath, 100, 100)
-            store.append([pixbuf, filepath])
-            #_logger.debug('fill comp')
-    def _scan_for_samples(self):
-        path = os.path.join(get_bundle_path(), 'images')
-        samples = []
-        for name in os.listdir(path):
-            if name.endswith(".gif"):
-                samples.append(os.path.join(path, name))
-        samples.sort()
-        #_logger.debug('scan comp')
-        return samples
+        #import urllib
+        #logging.debug('Write session data: %s.' % urllib.quote(session_data))

@@ -18,14 +18,13 @@
 # own creations we would love to hear from you at info@WorldWideWorkshop.org !
 #
 
-import gi
-gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk, Gdk, GObject, GdkPixbuf, Pango
-import tempfile
+import pygtk
+pygtk.require('2.0')
+import gtk, gobject, pango, cairo
 import random
-import cairo
 import os
 import logging
+logger = logging.getLogger('sliderpuzzle-activity')
 import md5
 from cStringIO import StringIO
 from mmm_modules import BorderFrame, utils
@@ -34,19 +33,26 @@ MAGNET_POWER_PERCENT = 20
 CUTTERS = {}
 
 def create_pixmap (w, h):
-    cm = Gdk.colormap_get_system()
-    pm = Gdk.Pixmap(None, w, h, cm.get_visual().depth)
-    gc = pm.new_gc()
-    gc.set_colormap(Gdk.colormap_get_system())
-    color = cm.alloc_color('white')
-    gc.set_foreground(color)
-    pm.draw_rectangle(gc, True, 0, 0, w, h)
-    return pm
+    #cm = gtk.gdk.colormap_get_system()
+    cairosurf = cairo.ImageSurface(cairo.FORMAT_ARGB32, w, h)
+    drctx = cairo.Context(cairosurf)
+    logger.debug('colormap1')
+    #pm = gtk.gdk.Pixmap(None, w, h, cm.get_visual().depth)
+    logger.debug('pixmap1')
+    drctx.rectangle(0, 0, w, h)
+    drctx.set_source_rgb(1.0, 1.0, 1.0)
+    #gc = pm.new_gc()
+    #gc.set_colormap(gtk.gdk.colormap_get_system())
+    #color = cm.alloc_color('white')
+    #gc.set_foreground(color)
+    #pm.draw_rectangle(gc, True, 0, 0, w, h)
+    drctx.fill()
+    return drctx
 
-class JigsawPiece (Gtk.EventBox):
-    __gsignals__ = {'picked' : (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, ()),
-                    'moved' : (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (int, int)),
-                    'dropped' : (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, ()),}
+class JigsawPiece (gtk.EventBox):
+    __gsignals__ = {'picked' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),
+                    'moved' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (int, int)),
+                    'dropped' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),}
     
     def __init__ (self):
         super(JigsawPiece, self).__init__()
@@ -55,14 +61,14 @@ class JigsawPiece (Gtk.EventBox):
         self.root_coords = (0,0)
         self.last_coords = (0,0)
         self.shape = None
-        self.image = Gtk.Image()
-        self.pb_wf = Gtk.Image()
+        self.image = gtk.Image()
+        self.pb_wf = gtk.Image()
         self.placed = False
         self._prepare_ui()
         self._prepare_event_callbacks()
 
     def _prepare_ui (self):
-        self._c = Gtk.Fixed()
+        self._c = gtk.Fixed()
         self._c.show()
         self.add(self._c)
         self._c.put(self.image, 0, 0)
@@ -223,11 +229,6 @@ class CutBoard (object):
             self._prepare(*args, **kwargs)
         self.cutter = CutterClassic()
         self.pb = None
-        self.cols = None
-        self.rows = None
-        self.h_connector_hints = None
-        self.v_connector_hints = None
-        self.image = None
 
     def _prepare (self, cols, rows, cutter=None, hch=None, vch=None):
         if self.pb is None:
@@ -235,8 +236,7 @@ class CutBoard (object):
             return
         if cutter is not None:
             self.cutter = CUTTERS.get(cutter, CutterClassic)()
-        self.rows = rows
-        self.cols = cols
+        self.rows, self.cols = rows, cols
         if hch is not None:
             self.h_connector_hints = hch
         else:
@@ -247,7 +247,8 @@ class CutBoard (object):
             self.v_connector_hints = [random.random()*2-1 for x in range((self.rows+1)*(self.cols+1))]
         self.width, self.height = self.pb.get_width(), self.pb.get_height()
         self.pm = create_pixmap(self.width, self.height)
-        self.cr = self.pm.cairo_create()
+        self.cr = self.pm
+        self.cr = gtk.gdk.CairoContext(self.cr)
         self.pieces = []
         self.prepare_hint()
         for c in range(self.cols):
@@ -267,7 +268,8 @@ class CutBoard (object):
 
     def prepare_hint (self):
         self.hint_pm = create_pixmap(self.width, self.height)
-        self.hint_cr = self.hint_pm.cairo_create()
+        #self.hint_cr = self.hint_pm.cairo_create()
+        self.hint_cr = self.hint_pm
         self.hint_cr.set_source_rgb (0,0,0)
         self.hint_cr.set_line_width(0.5)
 
@@ -278,7 +280,7 @@ class CutBoard (object):
         self.cr.set_source_rgb(0,0,0)
 
     def get_hint (self):
-        pb = GdkPixbuf.Pixbuf(GdkPixbuf.Colorspace.RGB, True, 8, self.width, self.height)
+        pb = gtk.gdk.Pixbuf(gtk.gdk.COLORSPACE_RGB, True, 8, self.width, self.height)
         pb.get_from_drawable(self.hint_pm, self.pm.get_colormap(), 0, 0, 0, 0, self.width, self.height)
         return pb
 
@@ -366,7 +368,7 @@ class CutBoard (object):
         width = int(width)
         height = int(height)
         # Prepare the piece mask
-        mask = Gdk.Pixmap(None, width+width_offset, height+height_offset, 1)
+        mask = gtk.gdk.Pixmap(None, width+width_offset, height+height_offset, 1)
         mask_cr = mask.cairo_create()
         mask_cr.save()
         mask_cr.set_operator(cairo.OPERATOR_SOURCE)
@@ -387,34 +389,28 @@ class CutBoard (object):
 
         # The piece image
         self.refresh()
-        pb = GdkPixbuf.Pixbuf(GdkPixbuf.Colorspace.RGB, True, 8, width, height)
+        pb = gtk.gdk.Pixbuf(gtk.gdk.COLORSPACE_RGB, True, 8, width, height)
         pb.get_from_drawable(self.pm, self.pm.get_colormap(), px, py, 0, 0, width, height)
 
         # The outlined image
         self.cr.move_to(px+offsets['left'], py+offsets['top'])
         self.path_for_piece(self.cr, x, y, width-width_offset, height-height_offset)
         self.cr.stroke()
-        pb_wf = GdkPixbuf.Pixbuf(GdkPixbuf.Colorspace.RGB, True, 8, width, height)
+        pb_wf = gtk.gdk.Pixbuf(gtk.gdk.COLORSPACE_RGB, True, 8, width, height)
         pb_wf.get_from_drawable(self.pm, self.pm.get_colormap(), px, py, 0, 0, width, height)
 
         return (pb, pb_wf, mask, px, py, width-width_offset, height-height_offset)
 
-
-    def get_image_as_png(self, cb=None):
-        if self.image is None:
-            return None
-        # save_to_streamv is missing entirely,
-        # save_to_bufferv appears to be unusable,
-        # and it looks like save_to_callback's data is being truncated on NULL.
-        # Check http://ubuntuforums.org/showthread.php?t=1877793
-        # XXX: Hack
-        tmp_file = tempfile.NamedTemporaryFile()
-        tmp_file_name = tmp_file.name
-        self.image.savev(tmp_file_name, "png", [], [])
-        pb_s = GdkPixbuf.Pixbuf.new_from_file(tmp_file_name).to_string()
-        tmp_file.close()
-        return pb_s
-    
+    def get_image_as_png (self, cb=None):
+        rv = None
+        if cb is None:
+            rv = StringIO()
+            cb = rv.write
+        self.pb.save_to_callback(cb, "png")
+        if rv is not None:
+            return rv.getvalue()
+        else:
+            return True
 
     def _freeze (self, img_cksum_only=False):
         if self.pb is not None:
@@ -442,7 +438,7 @@ class CutBoard (object):
             f = file(fn, 'w+b')
             f.write(data['pb'])
             f.close()
-            i = Gtk.Image()
+            i = gtk.Image()
             i.set_from_file(fn)
             os.remove(fn)
             self.pb = i.get_pixbuf()
@@ -457,17 +453,17 @@ class CutBoard (object):
 class JigsawBoard (BorderFrame):
     """ Drop area for jigsaw pieces to be tested against.
     Maybe use this to do the piece cutting / hint ? """
-    __gsignals__ = {'solved' : (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, ()),
+    __gsignals__ = {'solved' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),
                     }
     def __init__ (self):
         super(JigsawBoard, self).__init__(border_color="#0000FF")
         #self.image = None
-        self.board = Gtk.Fixed()
+        self.board = gtk.Fixed()
         self.board.show()
         self.add(self.board)
         self.board_distribution = None
         self.target_pieces_per_line = 3
-        self.hint_board_image = Gtk.Image()
+        self.hint_board_image = gtk.Image()
         self.cutboard = CutBoard()
 
     def get_cutter (self):
@@ -480,7 +476,7 @@ class JigsawBoard (BorderFrame):
         self.hint_board_image.set_from_pixmap(self.hint_board, None)
 
     def set_image (self, pixbuf):
-        self.board.foreach(self.board.remove, None)
+        self.board.foreach(self.board.remove)
         self.board_distribution = None
         self.board.put(self.hint_board_image, 0,0)
         self.img_width = pixbuf.get_width()
@@ -571,16 +567,16 @@ class JigsawBoard (BorderFrame):
         self.cutboard._thaw(data['cutboard'])
             
 
-class JigsawPuzzleWidget (Gtk.EventBox):
+class JigsawPuzzleWidget (gtk.EventBox):
     __gsignals__ = {
-        'picked' : (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (JigsawPiece,)),
-        'dropped' : (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (JigsawPiece,bool)),
-        'solved' : (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, ()),
-        'cutter-changed' : (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (str, int)),
+        'picked' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (JigsawPiece,)),
+        'dropped' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (JigsawPiece,bool)),
+        'solved' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),
+        'cutter-changed' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (str, int)),
         }
     def __init__ (self):
         super(JigsawPuzzleWidget, self).__init__()
-        self._container = Gtk.Fixed()
+        self._container = gtk.Fixed()
         self.add(self._container)
         self.board = JigsawBoard()
         self.board.connect('solved', self._solved_cb)
@@ -624,16 +620,12 @@ class JigsawPuzzleWidget (Gtk.EventBox):
         return self.board.target_pieces_per_line
 
     def prepare_image (self, pixbuf=None, reshuffle=True):
-        allocation = self.get_allocation()
-        x = allocation.x
-        y = allocation.y
-        w = allocation.width
-        h = allocation.height
+        x,y,w,h = self.get_allocation()
         if pixbuf is not None:
             factor = min((float(w)*0.6)/pixbuf.get_width(), (float(h)*0.6)/pixbuf.get_height())
             pixbuf = pixbuf.scale_simple(int(pixbuf.get_width() * factor),
                                          int(pixbuf.get_height()*factor),
-                                         GdkPixbuf.InterpType.BILINEAR)
+                                         gtk.gdk.INTERP_BILINEAR)
         if pixbuf is None:
             pixbuf = self.board.cutboard.pb
         if pixbuf is None:
@@ -645,7 +637,7 @@ class JigsawPuzzleWidget (Gtk.EventBox):
                 self._container.remove(child)
         bx, by = self._container.child_get(self.board, 'x', 'y')
         bw, bh = self.board.inner.get_size_request()
-        br = (bx,by,bw,bh)
+        br = gtk.gdk.Rectangle(bx,by,bw,bh)
         for n, piece in enumerate(self.board.get_pieces(reshuffle)):
             if self.forced_location and len(self.forced_location)>n:
                 if self.forced_location[n] is None:
@@ -655,7 +647,7 @@ class JigsawPuzzleWidget (Gtk.EventBox):
                     self._container.put(piece, *self.forced_location[n])
             else:
                 pw,ph = piece.get_size_request()
-                r = (bx,by,pw,ph)
+                r = gtk.gdk.Rectangle(bx,by,pw,ph)
                 r.x = int(random.random()*(w-pw))
                 r.y = int(random.random()*(h-ph))
                 if br.intersect(r).width > 0:
@@ -667,8 +659,8 @@ class JigsawPuzzleWidget (Gtk.EventBox):
             piece.connect('dropped', self._drop_cb)
             if self.forced_location and len(self.forced_location)>n and self.forced_location[n] is None:
                 self.board.place_piece(piece)
-            while Gtk.events_pending():
-                Gtk.main_iteration(False)
+            while gtk.events_pending():
+                gtk.main_iteration(False)
             piece.get_position()
         self.forced_location = None
         self.running = True
@@ -696,20 +688,10 @@ class JigsawPuzzleWidget (Gtk.EventBox):
             wx,wy = self._container.child_get(w, 'x', 'y')
 
         wa = w.get_allocation()
-        x1 = wa.x
-        y1 = wa.y
-        w1 = wa.width
-        z1 = wa.height
-
         ca = self._container.get_allocation()
-        x2 = ca.x
-        y2 = ca.y
-        w2 = ca.width
-        z2 = ca.height
 
-
-        if wx+x > 0 and wy+y > 0 and wx+w1+x <= w2 \
-                and wy+z1+y <= z2:
+        if wx+x > 0 and wy+y > 0 and wx+wa[2]+x <= ca[2] \
+                and wy+wa[3]+y <= ca[3]:
             #logging.debug("moving %i,%i : %i:%i : %i:%i" % (wx,wy, x, y,wx+x, wy+y))
             self._container.move(w, max(0,wx+x), max(0,wy+y))
 
@@ -717,27 +699,12 @@ class JigsawPuzzleWidget (Gtk.EventBox):
         if w.get_parent() != self._container:
             return
         self.bring_to_top(w)
-        allocation1 = w.get_allocation()
-        x = allocation1.x
-        y = allocation1.y
-        a = allocation1.width
-        b = allocation1.height
-        #x,y,a,b = w.get_allocation()
+        x,y,a,b = w.get_allocation()
         c,d = w.get_size_request()
         logging.debug("Dropped Widget allocation: %s %s %s %s %s %s" % (x,y,a,b,c,d))
         if w.intersect(self.board.get_allocation()):
-            allocation2 = w.get_allocation()
-            wx = allocation2.x
-            wy = allocation2.y
-            ww = allocation2.width
-            wh = allocation2.height
-
-            allocation3 = self.board.get_allocation()
-            bx = allocation2.x
-            by = allocation2.y
-            bw = allocation2.width
-            bh = allocation2.height
-
+            wx,wy,ww,wh = w.get_allocation()
+            bx,by,bw,bh = self.board.get_allocation()
             self.board.drop_piece(w, wx-bx, wy-by)
         self.emit('dropped', w, from_mesh)
         
@@ -762,7 +729,7 @@ class JigsawPuzzleWidget (Gtk.EventBox):
         self.forced_location = data.get('piece_pos', None)
         
 if __name__ == '__main__':
-    w = Gtk.Window()
+    w = gtk.Window()
     j = JigsawPuzzleWidget()
     img = utils.load_image('test_image.gif')
     
@@ -770,4 +737,4 @@ if __name__ == '__main__':
     
     w.add(j)
     w.show_all()
-    Gtk.main()
+    gtk.main()

@@ -1,6 +1,6 @@
 [Activity]
 name = Jigsaw Puzzle
-bundle_id = org.worldwideworkshop.olpc.JigsawPuZZLE
+bundle_id = org.worldwideworkshop.olpc.JigsawPuZZle
 exec = sugar-activity JigsawPuzzleActivity.JigsawPuzzleActivity -s
 icon = activity-jigsawpuzzle
 activity_version = 10

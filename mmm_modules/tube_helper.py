@@ -20,8 +20,8 @@
 
 import telepathy
 #import telepathy.client
-from sugar3.presence.tubeconn import TubeConnection
-from sugar3.presence import presenceservice
+from sugar.presence.tubeconn import TubeConnection
+from sugar.presence import presenceservice
 #import dbus
 import logging
 logger = logging.getLogger('tube_helper')
@@ -32,10 +32,8 @@ GAME_STARTED = (30, 'started')
 GAME_FINISHED = (40, 'finished')
 GAME_QUIT = (50, 'quit')
 
-
 class TubeHelper (object):
     """ Tube handling mixin for activities """
-
     def __init__(self, tube_class, service):
         """Set up the tubes for this activity."""
         self.tube_class = tube_class
@@ -44,12 +42,14 @@ class TubeHelper (object):
 
         #bus = dbus.Bus()
 
-        name, path = self.pservice.get_preferred_connection() or (None, None)
+
+        name, path = self.pservice.get_preferred_connection()
         self.tp_conn_name = name
         self.tp_conn_path = path
         #self.conn = telepathy.client.Connection(name, path)
         self.game_tube = False
         self.initiating = None
+        
 
         # Buddy object for you
         owner = self.pservice.get_owner()
@@ -58,7 +58,7 @@ class TubeHelper (object):
         self.connect('shared', self._shared_cb)
         self.connect('joined', self._joined_cb)
 
-        # if self._shared_activity:
+        #if self._shared_activity:
         #    # we are joining the activity
         #    self.conn = self._shared_activity.telepathy_conn
         #    self.tubes_chan = self._shared_activity.telepathy_tubes_chan
@@ -74,6 +74,7 @@ class TubeHelper (object):
         #        # we've already joined
         #        self._joined_cb()
 
+
     def _sharing_setup(self):
         if self._shared_activity is None:
             logger.error('Failed to share or join activity')
@@ -84,7 +85,7 @@ class TubeHelper (object):
         self.text_chan = self._shared_activity.telepathy_text_chan
 
         self.tubes_chan[telepathy.CHANNEL_TYPE_TUBES].connect_to_signal('NewTube',
-                                                                        self._new_tube_cb)
+            self._new_tube_cb)
 
         self._shared_activity.connect('buddy-joined', self._buddy_joined_cb)
         self._shared_activity.connect('buddy-left', self._buddy_left_cb)
@@ -99,7 +100,7 @@ class TubeHelper (object):
             self.service, {})
         self.shared_cb()
 
-    # def _shared_cb(self, activity):
+    #def _shared_cb(self, activity):
     #    logger.debug('My activity was shared')
     #    self.initiating = True
     #    #self._setup()
@@ -122,7 +123,7 @@ class TubeHelper (object):
     #
     #    self.shared_cb()
 
-    def shared_cb(self):
+    def shared_cb (self):
         """ override this """
         pass
 
@@ -197,7 +198,7 @@ class TubeHelper (object):
             reply_handler=self._list_tubes_reply_cb,
             error_handler=self._list_tubes_error_cb)
 
-    def joined_cb(self):
+    def joined_cb (self):
         """ override this """
         pass
 
@@ -207,25 +208,24 @@ class TubeHelper (object):
                      params, state)
 
         if (type == telepathy.TUBE_TYPE_DBUS and
-                service == self.service):
+            service == self.service):
             if state == telepathy.TUBE_STATE_LOCAL_PENDING:
-                self.tubes_chan[telepathy.CHANNEL_TYPE_TUBES].AcceptDBusTube(
-                    id)
+                self.tubes_chan[telepathy.CHANNEL_TYPE_TUBES].AcceptDBusTube(id)
 
             self.tube_conn = TubeConnection(self.conn,
-                                            self.tubes_chan[telepathy.CHANNEL_TYPE_TUBES],
-                                            id, group_iface=self.text_chan[telepathy.CHANNEL_INTERFACE_GROUP])
+                self.tubes_chan[telepathy.CHANNEL_TYPE_TUBES],
+                id, group_iface=self.text_chan[telepathy.CHANNEL_INTERFACE_GROUP])
 
+            
             logger.debug("creating game tube")
-            self.game_tube = self.tube_class(
-                self.tube_conn, self.initiating, self)
+            self.game_tube = self.tube_class(self.tube_conn, self.initiating, self)
 
         self.new_tube_cb()
 
-    def get_bus_name(self):
+    def get_bus_name (self):
         return self.tube_conn.participants.get(self.tubes_chan[telepathy.CHANNEL_INTERFACE_GROUP].GetSelfHandle(), None)
-
-    def new_tube_cb(self):
+        
+    def new_tube_cb (self):
         """ override this """
         pass
 
@@ -247,20 +247,21 @@ class TubeHelper (object):
             # XXX: deal with failure to get the handle owner
             assert handle != 0
         return self.pservice.get_buddy_by_telepathy_handle(self.tp_conn_name,
-                                                           self.tp_conn_path, handle)
+                self.tp_conn_path, handle)
 
-    def _buddy_joined_cb(self, activity, buddy):
+    def _buddy_joined_cb (self, activity, buddy):
         logger.debug('Buddy %s joined' % buddy.props.nick)
         self.buddy_joined_cb(buddy)
 
-    def buddy_joined_cb(self, buddy):
+    def buddy_joined_cb (self, buddy):
         """ override this """
         pass
 
-    def _buddy_left_cb(self, activity, buddy):
+    def _buddy_left_cb (self, activity, buddy):
         logger.debug('Buddy %s left' % buddy.props.nick)
         self.buddy_left_cb(buddy)
 
-    def buddy_left_cb(self, buddy):
+    def buddy_left_cb (self, buddy):
         """ override this """
         pass
+

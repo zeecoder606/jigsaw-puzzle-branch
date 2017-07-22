@@ -638,6 +638,7 @@ class JigsawPuzzleWidget (Gtk.EventBox):
             pixbuf = self.board.cutboard.pb
         if pixbuf is None:
             return False
+        self.board = None
         self.board.set_image(pixbuf)
 
         for child in self._container.get_children():

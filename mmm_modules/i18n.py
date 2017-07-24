@@ -25,65 +25,70 @@ import os
 import gettext
 import locale
 
-import gtk, gobject
+from gi.repository import Gtk
+from gi.repository import GObject
 
-_ = lambda x: x
 
-# Images were taken from http://www.sodipodi.com/ 
+def _(x): return x
+
+# Images were taken from http://www.sodipodi.com/
 # except for korea taken from http://zh.wikipedia.org/wiki/Image:Unification_flag_of_Korea.svg
 
+
 lang_name_mapping = {
-    'zh_cn':(None, _('Chinese (simplified)'), 'china'),
-    'zh_tw':(None, _('Chinese (traditional)'), 'china'),
-    'cs':(None, _('Czech'),'czech_republic'),
-    'da':(None, _('Danish'),'denmark'),
-    'nl':(None, _('Dutch'), 'netherlands'),
-    'en':('English', _('English'),'united_states'),
-    'en_gb':('English', _('English - Great Britain'),'united_kingdom'),
-    'en_us':('English', _('English - U.S.'),'united_states'),
-    'fi':(None, _('Finnish'),'finland'),
-    'fr':('Français', _('French'),'france'),
-    'de':(None, _('German'),'germany'),
-    'hu':(None, _('Hungarian'),'hungary'),
-    'it':(None, _('Italian'),'italy'),
-    'ja':(None, _('Japanese'),'japan'),
-    'ko':(None, _('Korean'),'korea'),
-    'no':(None, _('Norwegian'),'norway'),
-    'pl':(None, _('Polish'),'poland'),
-    'pt':('Português', _('Portuguese'),'portugal'),
-    'pt_br':('Português do Brasil', _('Portuguese - Brazilian'),'brazil'),
-    'ru':(None, _('Russian'),'russian_federation'),
-    'sk':(None, _('Slovak'),'slovenia'),
-    'es':('Español', _('Spanish'),'spain'),
-    'sv':(None, _('Swedish'),'sweden'),
-    'tr':(None, _('Turkish'),'turkey'),
-    }
+    'zh_cn': (None, _('Chinese (simplified)'), 'china'),
+    'zh_tw': (None, _('Chinese (traditional)'), 'china'),
+    'cs': (None, _('Czech'), 'czech_republic'),
+    'da': (None, _('Danish'), 'denmark'),
+    'nl': (None, _('Dutch'), 'netherlands'),
+    'en': ('English', _('English'), 'united_states'),
+    'en_gb': ('English', _('English - Great Britain'), 'united_kingdom'),
+    'en_us': ('English', _('English - U.S.'), 'united_states'),
+    'fi': (None, _('Finnish'), 'finland'),
+    'fr': ('Français', _('French'), 'france'),
+    'de': (None, _('German'), 'germany'),
+    'hu': (None, _('Hungarian'), 'hungary'),
+    'it': (None, _('Italian'), 'italy'),
+    'ja': (None, _('Japanese'), 'japan'),
+    'ko': (None, _('Korean'), 'korea'),
+    'no': (None, _('Norwegian'), 'norway'),
+    'pl': (None, _('Polish'), 'poland'),
+    'pt': ('Português', _('Portuguese'), 'portugal'),
+    'pt_br': ('Português do Brasil', _('Portuguese - Brazilian'), 'brazil'),
+    'ru': (None, _('Russian'), 'russian_federation'),
+    'sk': (None, _('Slovak'), 'slovenia'),
+    'es': ('Español', _('Spanish'), 'spain'),
+    'sv': (None, _('Swedish'), 'sweden'),
+    'tr': (None, _('Turkish'), 'turkey'),
+}
+
 
 class LangDetails (object):
-    def __init__ (self, code, name, image, domain):
+    def __init__(self, code, name, image, domain):
         self.code = code
         self.country_code = self.code.split('_')[0]
         self.name = name
         self.image = image
         self.domain = domain
 
-    def guess_translation (self, fallback=False):
+    def guess_translation(self, fallback=False):
         try:
             self.gnutranslation = gettext.translation(self.domain, 'locale',
-                    languages=[self.code], fallback=fallback)
+                                                      languages=[self.code], fallback=fallback)
             return True
         except:
             return False
 
-    def install (self):
+    def install(self):
         self.gnutranslation.install()
 
-    def matches (self, code, exact=True):
+    def matches(self, code, exact=True):
         if exact:
             return code.lower() == self.code.lower()
         return code.split('_')[0].lower() == self.country_code.lower()
 
-def get_lang_details (lang, domain):
+
+def get_lang_details(lang, domain):
     mapping = lang_name_mapping.get(lang.lower(), None)
     if mapping is None:
         # Try just the country code
@@ -95,12 +100,13 @@ def get_lang_details (lang, domain):
         return LangDetails(lang, mapping[1], mapping[2], domain)
     return LangDetails(lang, mapping[0], mapping[2], domain)
 
-def list_available_translations (domain):
+
+def list_available_translations(domain):
     rv = [get_lang_details('en', domain)]
     rv[0].guess_translation(True)
     if not os.path.isdir('locale'):
         return rv
-    for i,x in enumerate([x for x in os.listdir('locale') if os.path.isdir('locale/' + x) and not x.startswith('.')]):
+    for i, x in enumerate([x for x in os.listdir('locale') if os.path.isdir('locale/' + x) and not x.startswith('.')]):
         try:
             details = get_lang_details(x, domain)
             if details is not None:
@@ -111,25 +117,27 @@ def list_available_translations (domain):
             pass
     return rv
 
-class LanguageComboBox (gtk.ComboBox):
-    def __init__ (self, domain):
-        liststore = gtk.ListStore(gobject.TYPE_STRING)
-        gtk.ComboBox.__init__(self, liststore)
 
-        self.cell = gtk.CellRendererText()
+class LanguageComboBox (Gtk.ComboBox):
+    def __init__(self, domain):
+        liststore = Gtk.ListStore(GObject.TYPE_STRING)
+        Gtk.ComboBox.__init__(self)
+
+        self.set_model(liststore)
+        self.cell = Gtk.CellRendererText()
         self.pack_start(self.cell, True)
         self.add_attribute(self.cell, 'text', 0)
 
         self.translations = list_available_translations(domain)
-        for i,x in enumerate(self.translations):
-            liststore.insert(i+1, (gettext.gettext(x.name), ))
+        for i, x in enumerate(self.translations):
+            liststore.insert(i + 1, (gettext.gettext(x.name), ))
         self.connect('changed', self.install)
 
-    def modify_bg (self, state, color):
-        setattr(self.cell, 'background-gdk',color)
-        setattr(self.cell, 'background-set',True)
+    def modify_bg(self, state, color):
+        setattr(self.cell, 'background-gdk', color)
+        setattr(self.cell, 'background-set', True)
 
-    def install (self, *args):
+    def install(self, *args):
         if self.get_active() > -1:
             self.translations[self.get_active()].install()
         else:
@@ -137,13 +145,13 @@ class LanguageComboBox (gtk.ComboBox):
             if code is None:
                 code = 'en'
             # Try to find the exact translation
-            for i,t in enumerate(self.translations):
+            for i, t in enumerate(self.translations):
                 if t.matches(code):
                     self.set_active(i)
                     break
             if self.get_active() < 0:
                 # Failed, try to get the translation based only in the country
-                for i,t in enumerate(self.translations):
+                for i, t in enumerate(self.translations):
                     if t.matches(code, False):
                         self.set_active(i)
                         break
@@ -154,7 +162,9 @@ class LanguageComboBox (gtk.ComboBox):
         return False
 
 ###
-def gather_other_translations ():
+
+
+def gather_other_translations():
     from glob import glob
     lessons = filter(lambda x: os.path.isdir(x), glob('lessons/*'))
     lessons = map(lambda x: os.path.basename(x), lessons)
@@ -162,7 +172,6 @@ def gather_other_translations ():
     images = filter(lambda x: os.path.isdir(x), glob('images/*'))
     images = map(lambda x: os.path.basename(x), images)
     f = file('i18n_misc_strings.py', 'w')
-    for e in images+lessons:
+    for e in images + lessons:
         f.write('_("%s")\n' % e)
     f.close()
-

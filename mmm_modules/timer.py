@@ -18,10 +18,13 @@
 # own creations we would love to hear from you at info@WorldWideWorkshop.org !
 #
 
-import pygtk
-pygtk.require('2.0')
-import gtk, gobject, pango
-
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk
+from gi.repository import Gdk
+from gi.repository import GObject
+from gi.repository import Pango
+from gi.repository import GdkPixbuf
 import os
 from time import time
 
@@ -32,7 +35,8 @@ if os.path.exists(os.path.join(cwd, 'mamamedia_icons')):
     mmmpath = cwd
     iconpath = os.path.join(mmmpath, 'mamamedia_icons')
 else:
-    propfile = os.path.expanduser("~/.sugar/default/org.worldwideworkshop.olpc.MMMPath")
+    propfile = os.path.expanduser(
+        "~/.sugar/default/org.worldwideworkshop.olpc.MMMPath")
 
     if os.path.exists(propfile):
         mmmpath = file(propfile, 'rb').read()
@@ -42,48 +46,54 @@ else:
 
 from utils import load_image
 
-class TimerWidget (gtk.HBox):
-    __gsignals__ = {'timer_toggle' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (bool,)),}
-    def __init__ (self, bg_color="#DD4040", fg_color="#4444FF", lbl_color="#DD4040", can_stop=True):
-        gtk.HBox.__init__(self)
-        self.counter = gtk.EventBox()
-        self.counter.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse(bg_color))
+
+class TimerWidget (Gtk.HBox):
+    __gsignals__ = {'timer_toggle': (
+        GObject.SignalFlags.RUN_LAST, None, (bool,)), }
+
+    def __init__(self, bg_color="#DD4040", fg_color="#4444FF", lbl_color="#DD4040", can_stop=True):
+        GObject.GObject.__init__(self)
+        self.counter = Gtk.EventBox()
+        self.counter.modify_bg(Gtk.StateType.NORMAL, Gdk.color_parse(bg_color))
         self.counter.set_size_request(120, -1)
-        hb = gtk.HBox()
+        hb = Gtk.HBox()
         self.counter.add(hb)
-        self.lbl_time = gtk.Label()
-        self.lbl_time.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse(lbl_color))
-        self.pack_start(self.lbl_time, False)
-        self.time_label = gtk.Label("--:--")
-        self.time_label.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse(fg_color))
+        self.lbl_time = Gtk.Label()
+        self.lbl_time.modify_fg(Gtk.StateType.NORMAL,
+                                Gdk.color_parse(lbl_color))
+        self.pack_start(self.lbl_time, False, True, 0)
+        self.time_label = Gtk.Label(label="--:--")
+        self.time_label.modify_fg(
+            Gtk.StateType.NORMAL, Gdk.color_parse(fg_color))
         hb.pack_start(self.time_label, False, False, 5)
         self.prepare_icons()
-        self.icon = gtk.Image()
+        self.icon = Gtk.Image()
         self.icon.set_from_pixbuf(self.icons[1])
         hb.pack_end(self.icon, False, False, 5)
-        self.pack_start(self.counter, False)
+        self.pack_start(self.counter, False, True, 0)
         self.connect("button-press-event", self.process_click)
         self.start_time = 0
         self.timer_id = None
         self.finished = False
         self.can_stop = can_stop
 
-    def set_label (self, label):
+    def set_label(self, label):
         self.lbl_time.set_label(label)
 
-    def prepare_icons (self):
+    def prepare_icons(self):
         self.icons = []
-        self.icons.append(load_image(os.path.join(iconpath,"circle-x.svg")))
-        self.icons.append(load_image(os.path.join(iconpath,"circle-check.svg")))
+        self.icons.append(load_image(os.path.join(iconpath, "circle-x.svg")))
+        self.icons.append(load_image(
+            os.path.join(iconpath, "circle-check.svg")))
 
-
-    def set_can_stop (self, can_stop):
+    def set_can_stop(self, can_stop):
         self.can_stop = can_stop
-    
-    def modify_bg(self, state, color):
-        self.foreach(lambda x: x is not self.counter and x.modify_bg(state, color))
 
-    def reset (self, auto_start=True):
+    def modify_bg(self, state, color):
+        self.foreach(
+            lambda x: x is not self.counter and x.modify_bg(state, color))
+
+    def reset(self, auto_start=True):
         self.set_sensitive(True)
         self.finished = False
         self.stop()
@@ -91,7 +101,7 @@ class TimerWidget (gtk.HBox):
         if auto_start:
             self.start()
 
-    def start (self):
+    def start(self):
         if self.finished:
             return
         self.set_sensitive(True)
@@ -102,15 +112,15 @@ class TimerWidget (gtk.HBox):
             self.start_time = time() - self.start_time
         self.do_tick()
         if self.timer_id is None:
-            self.timer_id = gobject.timeout_add(1000, self.do_tick)
+            self.timer_id = GObject.timeout_add(1000, self.do_tick)
         self.emit('timer_toggle', True)
 
-    def stop (self, finished=False):
+    def stop(self, finished=False):
         if not self.can_stop and not finished:
             return
         self.icon.set_from_pixbuf(self.icons[1])
         if self.timer_id is not None:
-            gobject.source_remove(self.timer_id)
+            GObject.source_remove(self.timer_id)
             self.timer_id = None
             self.start_time = time() - self.start_time
         if not finished:
@@ -118,38 +128,38 @@ class TimerWidget (gtk.HBox):
         else:
             self.finished = True
         self.emit('timer_toggle', False)
-        
-    def process_click (self, btn, event):
+
+    def process_click(self, btn, event):
         if self.timer_id is None:
             self.start()
         else:
             self.stop()
 
-    def is_running (self):
+    def is_running(self):
         return self.timer_id is not None
 
-    def ellapsed (self):
+    def ellapsed(self):
         if self.is_running():
             return time() - self.start_time
         else:
             return self.start_time
 
-    def is_reset (self):
+    def is_reset(self):
         return not self.is_running() and self.start_time == 0
 
-    def do_tick (self):
+    def do_tick(self):
         t = time() - self.start_time
         if t > 5999:
             # wrap timer
             t = 0
             self.start_time = time()
-        self.time_label.set_text("%0.2i:%0.2i" % (t/60, t%60))
+        self.time_label.set_text("%0.2i:%0.2i" % (t / 60, t % 60))
         return True
 
-    def _freeze (self):
+    def _freeze(self):
         return (self.start_time, time(), self.finished, self.timer_id is None)
 
-    def _thaw (self, obj):
+    def _thaw(self, obj):
         self.start_time, t, finished, stopped = obj
         if self.start_time is not None:
             if not stopped:

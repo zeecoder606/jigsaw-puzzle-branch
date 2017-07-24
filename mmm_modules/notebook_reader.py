@@ -18,12 +18,14 @@
 # own creations we would love to hear from you at info@WorldWideWorkshop.org !
 #
 
-import pygtk
-pygtk.require('2.0')
-import gtk, gobject, pango
-
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk
+from gi.repository import Gdk
+from gi.repository import GObject
+from gi.repository import Pango
 import os
-from abiword import Canvas
+#from abiword import Canvas
 
 from gettext import gettext as _
 import locale
@@ -66,14 +68,15 @@ class ReaderProvider (object):
         for name, path in self.lesson_array:
             yield (name, path)
 
-class BasicReaderWidget (gtk.HBox):
+class BasicReaderWidget (Gtk.HBox):
     def __init__ (self, path, lang_details=None):
         super(BasicReaderWidget, self).__init__()
         self.provider = ReaderProvider(path, lang_details)
-        self._canvas = Canvas()
-        self._canvas.show()
-        self.pack_start(self._canvas)
-        self._canvas.connect_after('map-event', self._map_event_cb)
+        return
+        #self._canvas = Canvas()
+        #self._canvas.show()
+        #self.pack_start(self._canvas, True, True, 0)
+        #self._canvas.connect_after('map-event', self._map_event_cb)
         
     def get_lessons(self):
         return self.provider.get_lessons()
@@ -95,11 +98,12 @@ class BasicReaderWidget (gtk.HBox):
 
 
 
-class NotebookReaderWidget (gtk.Notebook):
+class NotebookReaderWidget (Gtk.Notebook):
     def __init__ (self, path, lang_details=None):
         super(NotebookReaderWidget, self).__init__()
         self.provider = ReaderProvider(path, lang_details)
         self.set_scrollable(True)
+        return
         for name, path in self.provider.get_lessons():
             canvas = Canvas()
             canvas.connect_after('map-event', self._map_event_cb, path)
@@ -109,7 +113,7 @@ class NotebookReaderWidget (gtk.Notebook):
                 canvas.load_file('file://' + path, '')
             except:
                 canvas.load_file(path)
-            self.append_page(canvas, gtk.Label(name))
+            self.append_page(canvas, Gtk.Label(label=name))
 
     def _map_event_cb(self, o, e, path):
         logger.debug("map-event: %s" % path)

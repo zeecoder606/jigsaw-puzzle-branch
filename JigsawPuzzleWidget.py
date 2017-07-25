@@ -113,15 +113,18 @@ class JigsawPiece (Gtk.EventBox):
 
     def get_position (self):
         # The position relative to the puzzle playing area
-        if self.parent and self.parent.window:
-            bx,by = self.parent.window.get_origin()
-            px,py = self.window.get_origin()
+        if self.get_parent and self.get_parent_window:
+            bx,by,z5 = self.get_parent_window().get_origin()
+            px,py,Z6 = self.get_window().get_origin()
+            logger.debug('check it')
+            logger.debug(bx)
+            logger.debug(px)
             self.last_coords = (px-bx,py-by)
         return self.last_coords
 
     def set_position (self, x, y):
         # The new position, relative to the piece parent
-        self.parent.move(self, x, y)
+        self.get_parent.move(self, x, y)
 
     def bring_to_top (self):
         p = self.get_parent()
@@ -147,7 +150,7 @@ class JigsawPiece (Gtk.EventBox):
 
     def _expose_cb (self, *args):
         if self.shape is not None:
-            self.window.shape_combine_mask(self.shape, 0, 0)
+            self.get_window.cairo_region_create_from_surface(self.shape, 0, 0)
 
 
 class CutterBasic (object):
@@ -603,7 +606,8 @@ class JigsawPuzzleWidget (Gtk.EventBox):
         self.forced_location = False
 
     def bring_to_top (self, piece):
-        wx,wy = self._container.child_get(piece, 'x', 'y')
+        wx, wy = self._container.child_get_property(piece, 'x', 'y')
+        
         self._container.remove(piece)
         self._container.put(piece, wx, wy)
 
@@ -655,9 +659,13 @@ class JigsawPuzzleWidget (Gtk.EventBox):
         for child in self._container.get_children():
             if child is not self.board:
                 self._container.remove(child)
-        #bx, by = self._container.child_get(self.board, 'x', 'y')
-        bx = 10
-        by = 10
+        bx, by = self._container.child_get(self.board, 'x', 'y')
+        
+        logger.debug('child here')
+        logger.debug(bx)
+        logger.debug(by)
+        #bx = 10
+        #by = 10
         bw, bh = self.board.inner.get_size_request()
         #br = Gdk.Rectangle(bx,by,bw,bh)
         br = Gdk.Rectangle()
@@ -717,7 +725,8 @@ class JigsawPuzzleWidget (Gtk.EventBox):
         if absolute:
             wx,wy = 0,0
         else:
-            wx,wy = self._container.child_get(w, 'x', 'y')
+            wx, wy = self._container.child_get_property(w, 'x', 'y')
+            
 
         wa = w.get_allocation()
         x1 = wa.x

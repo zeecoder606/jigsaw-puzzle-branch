@@ -113,12 +113,18 @@ class JigsawPiece (Gtk.EventBox):
 
     def get_position (self):
         # The position relative to the puzzle playing area
-        if self.get_parent and self.get_parent_window:
-            bx,by,z5 = self.get_parent_window().get_origin()
-            px,py,Z6 = self.get_window().get_origin()
-            logger.debug('check it')
+        if self.get_parent_window():
+            logger.debug('comoon')
+            logger.debug(self.get_parent_window().get_origin())
+            foo, bx, by = self.get_parent_window().get_origin()
+            logger.debug(self.image.get_parent_window().get_origin())
+            foo, px, py = self.image.get_parent_window().get_origin()
+            # if self.parent and self.parent.window:
+            # bx,by = self.parent.window.get_origin()
+            # px,py = self.window.get_origin()
             logger.debug(bx)
             logger.debug(px)
+
             self.last_coords = (px-bx,py-by)
         return self.last_coords
 
@@ -606,8 +612,8 @@ class JigsawPuzzleWidget (Gtk.EventBox):
         self.forced_location = False
 
     def bring_to_top (self, piece):
-        wx, wy = self._container.child_get_property(piece, 'x', 'y')
-        
+        wx = self._container.child_get_property(piece, 'x', None)
+        wy = self._container.child_get_property(piece, 'y', None)
         self._container.remove(piece)
         self._container.put(piece, wx, wy)
 
@@ -659,7 +665,9 @@ class JigsawPuzzleWidget (Gtk.EventBox):
         for child in self._container.get_children():
             if child is not self.board:
                 self._container.remove(child)
-        bx, by = self._container.child_get(self.board, 'x', 'y')
+        #value1 = GObject.Value(None, None)
+        bx = self._container.child_get_property(self.board, "x", "")
+        by = self._container.child_get_property(self.board, "y", "")
         
         logger.debug('child here')
         logger.debug(bx)
@@ -725,7 +733,7 @@ class JigsawPuzzleWidget (Gtk.EventBox):
         if absolute:
             wx,wy = 0,0
         else:
-            wx, wy = self._container.child_get_property(w, 'x', 'y')
+            wx, wy = self._container.child_get(w, 'x', 'y')
             
 
         wa = w.get_allocation()
